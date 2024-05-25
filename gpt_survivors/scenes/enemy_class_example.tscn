@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://crrp3aexp2mdj"]
+
+[ext_resource type="Script" path="res://scripts/enmey.gd" id="1_o8age"]
+[ext_resource type="Script" path="res://scripts/helath.gd" id="2_o8l6b"]
+[ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_114e7"]
+[ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_dewo0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bypt1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5f2n"]
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_o8age")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bypt1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x5f2n")
+
+[node name="LifeState" type="Node2D" parent="."]
+script = ExtResource("2_o8l6b")
+
+[node name="Hurt_Box" type="Area2D" parent="."]
+script = ExtResource("3_114e7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
+shape = SubResource("CircleShape2D_bypt1")
+
+[node name="Pathfinder" type="Node2D" parent="."]
+script = ExtResource("4_dewo0")

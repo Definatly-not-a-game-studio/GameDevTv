@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bu8gqehbf654v"]
+
+[ext_resource type="Texture2D" uid="uid://b2p743o7yux54" path="res://assets/robot-preview.png" id="1_75gd4"]
+[ext_resource type="Script" path="res://scripts/enemy_template.gd" id="1_fywu2"]
+[ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="2_b8xou"]
+[ext_resource type="Script" path="res://scripts/helath.gd" id="2_rqafv"]
+[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="3_epfhi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkaju"]
+radius = 13.0
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nxino"]
+radius = 18.0
+height = 42.0
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_fywu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bkaju")
+
+[node name="LifeState" type="Node2D" parent="."]
+script = ExtResource("2_rqafv")
+
+[node name="Hurt_Box" type="Area2D" parent="." node_paths=PackedStringArray("damage_taker")]
+script = ExtResource("2_b8xou")
+damage_taker = NodePath("../LifeState")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurt_Box"]
+shape = SubResource("CapsuleShape2D_nxino")
+
+[node name="Hit_Box" type="Area2D" parent="."]
+script = ExtResource("3_epfhi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hit_Box"]
+shape = SubResource("CapsuleShape2D_bkaju")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -8)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_75gd4")
