@@ -7,6 +7,10 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var target_entitie :CharacterBody2D = null
+@export var value = 10
+
+
+
 var random_direction = Vector2(0, 0)
 
 

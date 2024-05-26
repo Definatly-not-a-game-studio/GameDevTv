@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://d0ncjwitnaeuu"]
+
+[ext_resource type="Script" path="res://scripts/enmey.gd" id="1_4ml2t"]
+[ext_resource type="Script" path="res://scripts/helath.gd" id="2_di6nw"]
+[ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_fjjq7"]
+[ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_wxyyh"]
+[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="5_q3hdx"]
+[ext_resource type="Texture2D" uid="uid://bqkc1byeb3ife" path="res://assets/Enemies/robot3.png" id="6_47xf3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5at58"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kshxd"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h25i1"]
+atlas = ExtResource("6_47xf3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o0pk"]
+atlas = ExtResource("6_47xf3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78s0n"]
+atlas = ExtResource("6_47xf3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxdne"]
+atlas = ExtResource("6_47xf3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88s1d"]
+atlas = ExtResource("6_47xf3")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eblgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h25i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o0pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78s0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxdne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88s1d")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="zombie_bot" type="CharacterBody2D"]
+script = ExtResource("1_4ml2t")
+speed = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5at58")
+
+[node name="LifeState" type="Node2D" parent="."]
+script = ExtResource("2_di6nw")
+
+[node name="Hurt_Box" type="Area2D" parent="."]
+script = ExtResource("3_fjjq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
+shape = SubResource("CapsuleShape2D_5at58")
+
+[node name="Pathfinder" type="Node2D" parent="."]
+script = ExtResource("4_wxyyh")
+
+[node name="Hit_Box" type="Area2D" parent="."]
+script = ExtResource("5_q3hdx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
+shape = SubResource("CapsuleShape2D_kshxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eblgm")
+animation = &"walk"

@@ -20,8 +20,6 @@ func spawn():
 	if target == null:
 		return
 
-
-
 	var made_enemy = spawn_enemy.instantiate()
 	made_enemy.position = position
 	made_enemy.target_entitie = target
