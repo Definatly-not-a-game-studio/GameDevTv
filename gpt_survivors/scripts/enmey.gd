@@ -41,7 +41,7 @@ func _process(delta):
 	var direction = velocity.normalized()
 
 	# get the angle of the direction to determine the direction of the sprite
-	sprite.flip_v = abs(direction.angle()) > 90
+	sprite.flip_h = direction.x < 0
 
 	move_and_slide()
 

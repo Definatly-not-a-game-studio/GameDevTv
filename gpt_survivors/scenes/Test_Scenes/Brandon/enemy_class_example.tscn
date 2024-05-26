@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0fwcss2drm0l"]
 
 [ext_resource type="Script" path="res://scripts/enmey.gd" id="1_o8age"]
-[ext_resource type="Texture2D" uid="uid://b2p743o7yux54" path="res://assets/robot-preview.png" id="2_kn41y"]
+[ext_resource type="Texture2D" uid="uid://b2p743o7yux54" path="res://assets/Enemies/robot-preview.png" id="2_kn41y"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="2_o8l6b"]
 [ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_114e7"]
 [ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_dewo0"]
