@@ -5,6 +5,7 @@ extends Node2D
 @export var spawn_enemy : PackedScene = null
 @export var spawn_rate : float = 1.0
 @export var target : CharacterBody2D = null
+@export var active : bool = true
 
 func _ready():
 	var timer = Timer.new()

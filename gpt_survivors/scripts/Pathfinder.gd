@@ -14,7 +14,7 @@ func _ready():
 		target = owner.target_entitie
 	
 	#find the NavigationAgent2D child
-	pathfinding_agent = get_node("NavigationAgent2D")
+	pathfinding_agent = get_node_or_null("NavigationAgent2D")
 	if pathfinding_agent == null:
 		pathfinding_agent = NavigationAgent2D.new()
 		add_child(pathfinding_agent)
