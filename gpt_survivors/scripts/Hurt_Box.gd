@@ -29,7 +29,9 @@ func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 	if hurt_area == null:
 		return
 
-	if hurt_area.owner == owner:
+	var parent = get_parent()
+
+	if hurt_area.get_parent() == parent:
 		return
 
 	var dmg = hurt_area.damage
