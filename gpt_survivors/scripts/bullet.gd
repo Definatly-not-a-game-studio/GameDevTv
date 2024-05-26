@@ -1,16 +1,28 @@
 class_name Bullet
 
-extends Hit_Box
+extends RigidBody2D
 
-@export var speed = 50
-@export var damage_type = "physical"
+@export var speed = 1000
+@export var damage_type :String = "physical"
+@export var damage_project = 10
 @export var direction = Vector2(0, 0)
 
-func _ready():
-	pass
+@onready var hitbox = $Hit_Box
+@onready var sprite = $Sprite2D
 
-func _process(delta):
-	position += direction * speed * delta
+func _ready():
+	hitbox.damage = damage_project
+	hitbox.damage_type = damage_type
+
+
+func _physics_process(delta):
+	delta = delta
+	apply_central_force(direction * speed)
+
+	# Destroy bullet if it goes off screen
+	if !get_viewport_rect().has_point(global_position):
+		print("Bullet went off screen")
+		queue_free()
 	
 	
 	 

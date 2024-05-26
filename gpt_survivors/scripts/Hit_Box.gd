@@ -3,6 +3,7 @@ class_name Hit_Box
 extends Area2D
 
 @export var damage := 10
+@export var damage_type : String = "physical"
 
 
 func _init():

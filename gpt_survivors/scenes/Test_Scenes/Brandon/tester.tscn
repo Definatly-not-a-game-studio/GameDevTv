@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b3c5412xx0l2u"]
+[gd_scene load_steps=24 format=3 uid="uid://b3c5412xx0l2u"]
 
 [ext_resource type="Texture2D" uid="uid://c2k7u6584e5o0" path="res://assets/basic asset pack/Basic Undead Animations/Ghastly Eye/GhastlyEye.png" id="1_68snr"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="1_eptni"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="7_tery6"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="9_l5dul"]
 [ext_resource type="Texture2D" uid="uid://dkfcb41e4bflv" path="res://assets/icon.svg" id="10_35vpp"]
+[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="11_qg07k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qryw"]
 atlas = ExtResource("1_68snr")
@@ -370,6 +371,7 @@ sources/1 = SubResource("TileSetAtlasSource_xqlnt")
 radius = 3.0
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(153, 87)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -417,15 +419,21 @@ spawn_enemy = ExtResource("4_7lxv8")
 spawn_rate = 2.0
 target = NodePath("../Player")
 
-[node name="Bullet" type="Area2D" parent="."]
+[node name="Bullet" type="RigidBody2D" parent="."]
 position = Vector2(-27, 76)
 script = ExtResource("9_l5dul")
-direction = Vector2(2, -5)
-damage = 1000
+direction = Vector2(1, -5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bullet"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("10_35vpp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+shape = SubResource("CircleShape2D_j10ro")
+
+[node name="Hit_Box" type="Area2D" parent="Bullet"]
+script = ExtResource("11_qg07k")
+damage = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet/Hit_Box"]
 shape = SubResource("CircleShape2D_j10ro")
