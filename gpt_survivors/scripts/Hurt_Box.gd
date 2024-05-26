@@ -12,8 +12,14 @@ func _ready():
 	# Connect to the area_entered signal
 	self.area_entered.connect(_on_Hurt_Box_area_entered)
 
-	if damage_taker == null:
-		damage_taker = owner
+	var timer :Timer = Timer.new()
+	timer.set_wait_time(0.5)
+	timer.set_one_shot(false)
+	timer.timeout.connect(_on_timer_timeout)
+	add_child(timer)
+	timer.start()
+	
+
 
 
 
@@ -22,10 +28,26 @@ func _ready():
 func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 	if hurt_area == null:
 		return
+
+	if hurt_area.owner == owner:
+		return
+
 	var dmg = hurt_area.damage
 
 	if damage_taker.has_method("take_damage"):
 		damage_taker.take_damage(dmg)
+
+
+
+
+func _on_timer_timeout():
+	var areas = get_overlapping_areas()
+	for area in areas:
+		if area.owner == owner:
+			continue
+		if damage_taker.has_method("take_damage"):
+			var damage = area.damage
+			damage_taker.take_damage(damage)
 
 	
 

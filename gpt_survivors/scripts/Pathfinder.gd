@@ -11,7 +11,7 @@ func _ready():
 
 	if target == null:
 		# find the player
-		target = get_node("/root/Player")
+		target = owner.target_entitie
 	
 	#find the NavigationAgent2D child
 	pathfinding_agent = get_node("NavigationAgent2D")
@@ -29,22 +29,28 @@ func _ready():
 	var timer = Timer.new()
 	timer.set_wait_time(Find_target_rate)
 	timer.set_one_shot(false)
-	timer.timeout.connect("find_target")
+	timer.timeout.connect(find_target)
 	add_child(timer)
+	timer.start()
 
 
 func find_target():
+	if target == null:
+		return null
 	pathfinding_agent.target_position = target.global_position
 
 
 # return the next position to move to or null if the navigation is finished
 func next_position():
-	if pathfinding_agent.is_navigation_finished():
+	if target == null:
 		return null
+	# if pathfinding_agent.is_navigation_finished():
+	# 	return null
+
+	var pos = pathfinding_agent.get_next_path_position()
 
 
-
-	return pathfinding_agent.get_next_path_position()
+	return pos
 
 
 
