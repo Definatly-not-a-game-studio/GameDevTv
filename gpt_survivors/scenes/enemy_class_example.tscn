@@ -41,3 +41,5 @@ shape = SubResource("CircleShape2D_bypt1")
 
 [node name="Pathfinder" type="Node2D" parent="."]
 script = ExtResource("4_dewo0")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Pathfinder"]
