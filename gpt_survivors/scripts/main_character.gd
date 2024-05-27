@@ -2,6 +2,9 @@ class_name Player
 
 extends CharacterBody2D
 
+
+signal died
+
 @onready var center = $Center
 @onready var sprite = $Sprite2D
 @onready var barrel = $Center/Weapon/Barrel_End
@@ -77,3 +80,19 @@ func shoot():
 	
 	# Add the bullet to the scene
 	get_parent().add_child(bullet_instance)
+
+func die():
+	var camera = get_node("Camera2D")
+	var node = Node2D.new()
+	remove_child(camera)
+	node.position = global_position
+	get_parent().add_child(node)
+	node.add_child(camera)
+
+	emit_signal("died")
+	
+	queue_free()
+
+
+
+

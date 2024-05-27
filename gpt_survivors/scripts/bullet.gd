@@ -18,7 +18,7 @@ func _ready():
 
 func _physics_process(delta):
 	delta = delta
-	apply_central_force(direction * speed)
+	linear_velocity = direction * speed
 
 	# Destroy bullet if it goes off screen
 	# if !get_viewport_rect().has_point(global_position):
