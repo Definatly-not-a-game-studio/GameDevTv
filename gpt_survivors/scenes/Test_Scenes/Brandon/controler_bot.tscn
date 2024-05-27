@@ -88,4 +88,4 @@ shape = SubResource("CapsuleShape2D_kshxd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eblgm")
 animation = &"walk"
-frame_progress = 0.898282
+frame_progress = 0.478583

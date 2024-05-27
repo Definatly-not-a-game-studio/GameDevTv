@@ -39,10 +39,10 @@ func _process(delta):
 	if active:
 		# if the target is null, stop the timer
 		if target == null:
-			get_node("Timer").stop()
+			timer.stop()
 		# if the target is not null, start the timer
 		elif timer.is_stopped():
-			get_node("Timer").start()
+			timer.start()
 
 
 
