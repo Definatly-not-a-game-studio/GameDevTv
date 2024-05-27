@@ -413,6 +413,7 @@ script = ExtResource("7_tery6")
 spawn_enemy = ExtResource("8_lufam")
 spawn_rate = 2.0
 target = NodePath("../Player")
+damage_multiplier = 2.0
 
 [node name="Spawner2" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(-135, 46)

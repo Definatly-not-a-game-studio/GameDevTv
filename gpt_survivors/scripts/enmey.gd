@@ -4,10 +4,12 @@ extends CharacterBody2D
 
 @onready var pathfinder = $Pathfinder
 @onready var sprite = $AnimatedSprite2D
+@onready var hitbox = $Hit_Box
 
 @export var speed = 100
 @export var target_entitie :CharacterBody2D = null
 @export var value = 10
+@export var damage_multiplier = 1
 
 
 
@@ -15,6 +17,11 @@ var random_direction = Vector2(0, 0)
 
 
 func _ready():
+	hitbox.damage = hitbox.damage * damage_multiplier
+
+
+
+
 	sprite.play("walk")
 	# find the player node
 	random_direction = Vector2(randi_range(-1, 1), randi_range(-1, 1))

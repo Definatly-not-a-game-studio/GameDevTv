@@ -6,6 +6,7 @@ extends Node2D
 @export var spawn_rate : float = 1.0
 @export var target : CharacterBody2D = null
 @export var active : bool = true
+@export var damage_multiplier : float = 1.0
 
 func _ready():
 	var timer = Timer.new()
@@ -23,5 +24,6 @@ func spawn():
 	var made_enemy = spawn_enemy.instantiate()
 	made_enemy.position = position
 	made_enemy.target_entitie = target
+	made_enemy.damage_multiplier = damage_multiplier
 	get_parent().add_child(made_enemy)
 

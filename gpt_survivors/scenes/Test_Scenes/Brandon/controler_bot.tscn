@@ -54,6 +54,8 @@ animations = [{
 [node name="zombie_bot" type="CharacterBody2D"]
 script = ExtResource("1_eivir")
 speed = 30
+value = null
+damage_multiplier = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -85,4 +87,4 @@ shape = SubResource("CapsuleShape2D_kshxd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eblgm")
 animation = &"walk"
-frame_progress = 0.429781
+frame_progress = 0.533513
