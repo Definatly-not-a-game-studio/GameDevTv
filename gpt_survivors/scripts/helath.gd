@@ -1,7 +1,7 @@
 class_name LifeState
 extends Node2D
 
-@export var health : int = 100
+@export var health : float = 100
 @export var debug_health : bool = false
 
 
