@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var hitbox = $Hit_Box
 @onready var life = $LifeState
+@onready var death_scene = preload("res://scenes/Test_Scenes/Brandon/dead_bot.tscn")
 
 @export var speed = 100
 @export var target_entitie :CharacterBody2D = null
@@ -66,7 +67,10 @@ func _process(delta):
 	move_and_slide()
 
 func die():
-	print("Enemy died")
+	# spawn the death scene
+	var dead_bot = death_scene.instantiate()
+	dead_bot.global_position = global_position
+	get_parent().add_child(dead_bot)
 	queue_free()
 
 
