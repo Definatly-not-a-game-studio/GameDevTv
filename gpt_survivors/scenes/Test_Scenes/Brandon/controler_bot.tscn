@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://bmja0dp1ivyxn"]
+
+[ext_resource type="Script" path="res://scripts/enmey.gd" id="1_eivir"]
+[ext_resource type="Script" path="res://scripts/helath.gd" id="2_j5872"]
+[ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_gtvrf"]
+[ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_goujc"]
+[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="5_xwj6s"]
+[ext_resource type="Texture2D" uid="uid://bnpxb4nt4msnf" path="res://assets/Enemies/Robot4.png" id="6_qx4oe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5at58"]
+radius = 5.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kshxd"]
+radius = 8.0
+height = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kcym"]
+atlas = ExtResource("6_qx4oe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4oq1"]
+atlas = ExtResource("6_qx4oe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goylr"]
+atlas = ExtResource("6_qx4oe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puhjf"]
+atlas = ExtResource("6_qx4oe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eblgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kcym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4oq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goylr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puhjf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="zombie_bot" type="CharacterBody2D"]
+script = ExtResource("1_eivir")
+speed = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5at58")
+
+[node name="LifeState" type="Node2D" parent="."]
+script = ExtResource("2_j5872")
+
+[node name="Hurt_Box" type="Area2D" parent="."]
+script = ExtResource("3_gtvrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5at58")
+
+[node name="Pathfinder" type="Node2D" parent="."]
+script = ExtResource("4_goujc")
+
+[node name="Hit_Box" type="Area2D" parent="."]
+script = ExtResource("5_xwj6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kshxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eblgm")
+animation = &"walk"
+frame_progress = 0.662049
