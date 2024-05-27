@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_jjb03"]
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="4_7lxv8"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="7_tery6"]
-[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Test_Scenes/Brandon/skull_bot.tscn" id="8_lufam"]
+[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Test_Scenes/Brandon/controler_bot.tscn" id="8_p56du"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="9_l5dul"]
 [ext_resource type="Texture2D" uid="uid://dkfcb41e4bflv" path="res://assets/icon.svg" id="10_35vpp"]
 [ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="11_qg07k"]
@@ -385,7 +385,6 @@ script = ExtResource("1_wgulo")
 position = Vector2(-71, -17)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_eptni")
-health = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_0oich")
@@ -410,7 +409,7 @@ layer_0/tile_data = PackedInt32Array(-262153, 393217, 3, -196617, 393217, 3, -13
 [node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(83, 14)
 script = ExtResource("7_tery6")
-spawn_enemy = ExtResource("8_lufam")
+spawn_enemy = ExtResource("8_p56du")
 spawn_rate = 2.0
 target = NodePath("../Player")
 damage_multiplier = 2.0

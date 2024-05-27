@@ -13,6 +13,8 @@ extends CharacterBody2D
 @export var damage_multiplier : float = 1
 @export var health_multiplier : float = 1
 
+@export var projectile : PackedScene = null
+
 
 
 var random_direction = Vector2(0, 0)
@@ -22,10 +24,13 @@ func _ready():
 	hitbox.damage = hitbox.damage * damage_multiplier
 	life.health = life.health * health_multiplier
 
+	# handle code for optional projectile here
+	if projectile != null:
+		pass
 
-
-
+	# all enemies will have a walk animation
 	sprite.play("walk")
+
 	# find the player node
 	random_direction = Vector2(randi_range(-1, 1), randi_range(-1, 1))
 	if target_entitie == null:
@@ -36,6 +41,7 @@ func _ready():
 func _process(delta):
 	delta = delta
 
+	# determine the target position
 	var target = pathfinder.next_position()
 
 	#check if target is null

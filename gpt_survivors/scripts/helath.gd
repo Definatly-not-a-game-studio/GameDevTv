@@ -1,7 +1,9 @@
 class_name LifeState
 extends Node2D
 
+#the health of the object
 @export var health : float = 100
+#this will show the health in the console
 @export var debug_health : bool = false
 
 
