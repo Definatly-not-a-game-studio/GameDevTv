@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://bomr6q155glwb"]
+[gd_scene load_steps=5 format=3 uid="uid://bomr6q155glwb"]
 
+[ext_resource type="Script" path="res://scripts/main_character.gd" id="1_46gn3"]
 [ext_resource type="Texture2D" uid="uid://cxctu41dljrl2" path="res://assets/Main_Character/mainChar1.png" id="1_e12o8"]
+[ext_resource type="Texture2D" uid="uid://ooswtirwkg4d" path="res://assets/Main_Character/weapons/pistol1.png" id="3_0y5fp"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p12sy"]
+radius = 4.0
+height = 16.0
+
+[node name="Hero" type="CharacterBody2D"]
+script = ExtResource("1_46gn3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_e12o8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p12sy")
+
+[node name="Center" type="Node2D" parent="."]
+
+[node name="Weapon" type="Marker2D" parent="Center"]
+position = Vector2(6, 0.00488161)
+gizmo_extents = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Center/Weapon"]
+texture = ExtResource("3_0y5fp")
+
+[node name="Barrel_End" type="Marker2D" parent="Center/Weapon"]
+position = Vector2(1, -1.00488)
+gizmo_extents = 1.5
