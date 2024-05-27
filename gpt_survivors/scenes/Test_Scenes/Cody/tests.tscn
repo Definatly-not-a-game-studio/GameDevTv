@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqxmgedhm1f6v"]
 
-[ext_resource type="Texture2D" uid="uid://domvyerdtnud3" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_pic52"]
+[ext_resource type="Texture2D" uid="uid://domvyerdtnud3" path="res://assets/dont_use/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_pic52"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/Test_Scenes/Cody/main_character.tscn" id="2_mfq1p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yu5ca"]

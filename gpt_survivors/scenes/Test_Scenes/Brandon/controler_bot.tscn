@@ -66,8 +66,9 @@ shape = SubResource("CapsuleShape2D_5at58")
 [node name="LifeState" type="Node2D" parent="."]
 script = ExtResource("2_j5872")
 
-[node name="Hurt_Box" type="Area2D" parent="."]
+[node name="Hurt_Box" type="Area2D" parent="." node_paths=PackedStringArray("damage_taker")]
 script = ExtResource("3_gtvrf")
+damage_taker = NodePath("../LifeState")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
 position = Vector2(0, 3)

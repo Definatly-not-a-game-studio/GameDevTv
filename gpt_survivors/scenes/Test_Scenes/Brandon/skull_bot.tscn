@@ -59,8 +59,9 @@ shape = SubResource("CircleShape2D_d5jib")
 [node name="LifeState" type="Node2D" parent="."]
 script = ExtResource("2_uj4c0")
 
-[node name="Hurt_Box" type="Area2D" parent="."]
+[node name="Hurt_Box" type="Area2D" parent="." node_paths=PackedStringArray("damage_taker")]
 script = ExtResource("3_o8wcq")
+damage_taker = NodePath("../LifeState")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
 shape = SubResource("CircleShape2D_d5jib")

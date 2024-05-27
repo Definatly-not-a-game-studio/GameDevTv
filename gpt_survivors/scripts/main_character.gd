@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var center = $Center
 @onready var sprite = $Sprite2D
+@onready var barrel = $Center/Weapon/Barrel_End
 
 const SPEED = 175.0
 var direction : Vector2
@@ -12,11 +13,20 @@ var is_flipped = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export var bullet : PackedScene = preload("res://scenes/Test_Scenes/Brandon/bullet.tscn")
+
+
 
 func _physics_process(delta):
 	orient_body()
 	process_movement()
 	move_and_slide()
+
+	# Shoots the bullet when the shoot action is pressed
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+
+	
 
 func process_movement():
 	# Get direction based on inputs
@@ -49,3 +59,21 @@ func orient_body():
 		# If cursor is behind, flip character by scaling by -1
 		apply_scale(Vector2(-1,1))
 		is_flipped = false 
+
+
+func shoot():
+	var bullet_instance = bullet.instantiate()
+	
+	# Set the bullet's position to the center of the player
+	bullet_instance.global_position = barrel.global_position 
+	
+	# Set the bullet's direction to the center's rotation
+	bullet_instance.rotation = center.rotation
+
+	bullet_instance.direction = center.global_position.direction_to(barrel.global_position)
+	bullet_instance.global_position += bullet_instance.direction * 15
+
+	print(bullet_instance.direction)
+	
+	# Add the bullet to the scene
+	get_parent().add_child(bullet_instance)
