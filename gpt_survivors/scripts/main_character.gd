@@ -7,16 +7,33 @@ signal died
 
 @onready var center = $Center
 @onready var sprite = $Sprite2D
-@onready var barrel = $Center/Weapon/Barrel_End
+@onready var reload_sprite = $Reload_Sprite
+
+@export var loaded_wepon : PackedScene = preload("res://scenes/Test_Scenes/Brandon/weapon.tscn")
+
+
+
+
+
+
 
 const SPEED = 175.0
 var direction : Vector2
 var is_flipped = false
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@export var bullet : PackedScene = preload("res://scenes/Test_Scenes/Brandon/bullet.tscn")
+
+var my_wepon = null
+
+
+func _ready():
+	# creates an instance of the weapon and adds it to the player
+	change_wepon(loaded_wepon)
+	my_wepon.reloading.connect(reload)
+	my_wepon.done_reloading.connect(reload_done)
+
+	
+
 
 
 
@@ -25,9 +42,10 @@ func _physics_process(delta):
 	process_movement()
 	move_and_slide()
 
-	# Shoots the bullet when the shoot action is pressed
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
+	# Shoots the bullet when the shoot action is pressed or held and full_auto is true
+	if Input.is_action_just_pressed("shoot") or (Input.is_action_pressed("shoot") and my_wepon.full_auto):
+		my_wepon.shoot()
+	
 
 	
 
@@ -42,6 +60,7 @@ func process_movement():
 	else:
 		velocity.x = move_toward(velocity.x * direction.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y * direction.y, 0, SPEED)
+
 
 func orient_body():
 	var mousePos = get_global_mouse_position()
@@ -64,22 +83,6 @@ func orient_body():
 		is_flipped = false 
 
 
-func shoot():
-	var bullet_instance = bullet.instantiate()
-	
-	# Set the bullet's position to the center of the player
-	bullet_instance.global_position = barrel.global_position 
-	
-	# Set the bullet's direction to the center's rotation
-	bullet_instance.rotation = center.rotation
-
-	bullet_instance.direction = center.global_position.direction_to(barrel.global_position)
-	bullet_instance.global_position += bullet_instance.direction * 15
-
-	print(bullet_instance.direction)
-	
-	# Add the bullet to the scene
-	get_parent().add_child(bullet_instance)
 
 func die():
 	var camera = get_node("Camera2D")
@@ -93,6 +96,19 @@ func die():
 	
 	queue_free()
 
+func change_wepon(new_wepon : PackedScene):
+	if my_wepon != null:
+		my_wepon.queue_free()
+	my_wepon = new_wepon.instantiate()
+	center.add_child(my_wepon)
+
+func reload():
+	reload_sprite.play("reload")
+
+func reload_done():
+	reload_sprite.play("default")
+
+	
 
 
 
