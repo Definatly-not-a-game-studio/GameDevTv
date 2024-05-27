@@ -4,14 +4,33 @@ extends CharacterBody2D
 
 @onready var pathfinder = $Pathfinder
 @onready var sprite = $AnimatedSprite2D
+@onready var hitbox = $Hit_Box
+@onready var life = $LifeState
 
 @export var speed = 100
 @export var target_entitie :CharacterBody2D = null
+@export var value = 10
+@export var damage_multiplier : float = 1
+@export var health_multiplier : float = 1
+
+@export var projectile : PackedScene = null
+
+
+
 var random_direction = Vector2(0, 0)
 
 
 func _ready():
+	hitbox.damage = hitbox.damage * damage_multiplier
+	life.health = life.health * health_multiplier
+
+	# handle code for optional projectile here
+	if projectile != null:
+		pass
+
+	# all enemies will have a walk animation
 	sprite.play("walk")
+
 	# find the player node
 	random_direction = Vector2(randi_range(-1, 1), randi_range(-1, 1))
 	if target_entitie == null:
@@ -22,6 +41,7 @@ func _ready():
 func _process(delta):
 	delta = delta
 
+	# determine the target position
 	var target = pathfinder.next_position()
 
 	#check if target is null
@@ -41,7 +61,7 @@ func _process(delta):
 	var direction = velocity.normalized()
 
 	# get the angle of the direction to determine the direction of the sprite
-	sprite.flip_v = abs(direction.angle()) > 90
+	sprite.flip_h = direction.x < 0
 
 	move_and_slide()
 

@@ -29,6 +29,9 @@ func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 	if hurt_area == null:
 		return
 
+	if damage_taker == null:
+		return
+
 	var parent = get_parent()
 
 	if hurt_area.get_parent() == parent:
@@ -43,6 +46,11 @@ func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 
 
 func _on_timer_timeout():
+	if damage_taker == null:
+		queue_free()
+		return
+
+
 	var areas = get_overlapping_areas()
 	for area in areas:
 		if area.owner == owner:
