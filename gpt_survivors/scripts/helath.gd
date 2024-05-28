@@ -1,14 +1,22 @@
 class_name LifeState
 extends Node2D
 
+signal hit
+
 #the health of the object
 @export var health : float = 100
 #this will show the health in the console
 @export var debug_health : bool = false
+#value for invincibility
+@export var invincible : bool = false
 
 
 
 func take_damage(damage : int) -> void:
+	if invincible:
+		return
+
+
 	health -= damage
 
 	#debugging

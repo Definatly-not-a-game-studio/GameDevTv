@@ -1,4 +1,4 @@
-class_name Wepon
+class_name Weapon
 extends Marker2D
 
 

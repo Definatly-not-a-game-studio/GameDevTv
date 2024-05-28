@@ -8,8 +8,10 @@ signal died
 @onready var center = $Center
 @onready var sprite = $Sprite2D
 @onready var reload_sprite = $Reload_Sprite
+@onready var lifestate = $LifeState
+@onready var upgrade_manager = $Upgrade_Manager
 
-@export var loaded_wepon : PackedScene = preload("res://scenes/Test_Scenes/Brandon/weapon.tscn")
+@export var loaded_weapon : PackedScene = preload("res://scenes/Test_Scenes/Brandon/weapon.tscn")
 
 
 
@@ -23,14 +25,18 @@ var is_flipped = false
 
 
 
-var my_wepon = null
+var my_weapon = null
 
 
 func _ready():
 	# creates an instance of the weapon and adds it to the player
-	change_wepon(loaded_wepon)
-	my_wepon.reloading.connect(reload)
-	my_wepon.done_reloading.connect(reload_done)
+	change_weapon(loaded_weapon)
+	my_weapon.reloading.connect(reload)
+	my_weapon.done_reloading.connect(reload_done)
+	# sets the weapon to the upgrade manager
+	$Upgrade_Manager.weapon = my_weapon
+
+	lifestate.hit.connect(damage_taken)
 
 	
 
@@ -43,8 +49,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 	# Shoots the bullet when the shoot action is pressed or held and full_auto is true
-	if Input.is_action_just_pressed("shoot") or (Input.is_action_pressed("shoot") and my_wepon.full_auto):
-		my_wepon.shoot()
+	if Input.is_action_just_pressed("shoot") or (Input.is_action_pressed("shoot") and my_weapon.full_auto):
+		my_weapon.shoot()
 	
 
 	
@@ -96,11 +102,11 @@ func die():
 	
 	queue_free()
 
-func change_wepon(new_wepon : PackedScene):
-	if my_wepon != null:
-		my_wepon.queue_free()
-	my_wepon = new_wepon.instantiate()
-	center.add_child(my_wepon)
+func change_weapon(new_weapon : PackedScene):
+	if my_weapon != null:
+		my_weapon.queue_free()
+	my_weapon = new_weapon.instantiate()
+	center.add_child(my_weapon)
 
 func reload():
 	reload_sprite.play("reload")
@@ -109,6 +115,9 @@ func reload_done():
 	reload_sprite.play("default")
 
 	
+# this is called when the player takes damage
+func damage_taken():
+	pass
 
 
 

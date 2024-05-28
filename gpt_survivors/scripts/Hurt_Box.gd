@@ -1,6 +1,7 @@
 class_name Hurt_Box
 extends Area2D
 
+
 @export var damage_taker : LifeState = null
 
 
@@ -46,6 +47,7 @@ func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 
 
 func _on_timer_timeout():
+
 	if damage_taker == null:
 		queue_free()
 		return
