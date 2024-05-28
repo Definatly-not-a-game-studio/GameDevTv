@@ -17,8 +17,8 @@ func change_radius(new_radius : int):
 	radius = new_radius
 	loot_area.shape.radius = radius
 
-func on_area_entered(loot : Dead_Bot):
-	if loot == null:
+func on_area_entered(loot : Area2D):
+	if not loot is Dead_Bot:
 		return
 	print("Loot grabbed")
 	loot_grabbed.emit(loot.value)

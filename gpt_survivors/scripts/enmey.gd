@@ -71,8 +71,12 @@ func die():
 	var dead_bot = death_scene.instantiate()
 	dead_bot.global_position = global_position
 	dead_bot.value = value
-	get_parent().add_child(dead_bot)
-	queue_free()
+	# defer this call
+	get_parent().call_deferred("add_child", dead_bot)
+
+	self.call_deferred("queue_free")
+
+
 
 
 
