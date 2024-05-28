@@ -33,12 +33,11 @@ func _ready():
 
 
 
-func _physics_process(delta):
-	delta = delta
+func _physics_process(_delta):
 	linear_velocity = direction * speed
 
-func on_body_entered(body: Hurt_Box):
-	if body == null:
+func on_body_entered(body):
+	if not body is Hurt_Box:
 		return
 	queue_free()
 
