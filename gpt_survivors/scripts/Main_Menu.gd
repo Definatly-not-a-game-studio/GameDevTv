@@ -1,10 +1,11 @@
 class_name MainMenu
 extends Control
 
-@onready var start_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Start_Button as Button
-@onready var options_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Options_Button as Button
-@onready var exit_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Exit_Button as Button
+
 @onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
+@onready var start_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/Start_Button
+@onready var options_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/HBoxContainer/Options_Button
+@onready var exit_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/HBoxContainer/Exit_Button
 
 
 # Called when the node enters the scene tree for the first time.
