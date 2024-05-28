@@ -112,11 +112,3 @@ layout_mode = 2
 
 [node name="Seperator6" type="Control" parent="MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-z_index = -1
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("1_1g60y")
-expand_mode = 3
-stretch_mode = 3
