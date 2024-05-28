@@ -1,7 +1,9 @@
-extends Node2D
+class_name Dead_Bot
+extends Area2D
 
 @onready var sprite = $AnimatedSprite2D
 @export var death_timer = 10
+@export var value = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

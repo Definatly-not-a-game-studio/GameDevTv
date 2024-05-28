@@ -70,6 +70,7 @@ func die():
 	# spawn the death scene
 	var dead_bot = death_scene.instantiate()
 	dead_bot.global_position = global_position
+	dead_bot.value = value
 	get_parent().add_child(dead_bot)
 	queue_free()
 

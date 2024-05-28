@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bomr6q155glwb"]
+[gd_scene load_steps=16 format=3 uid="uid://bomr6q155glwb"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_46gn3"]
 [ext_resource type="Texture2D" uid="uid://cxctu41dljrl2" path="res://assets/Main_Character/mainChar1.png" id="1_e12o8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="4_7lwm8"]
 [ext_resource type="PackedScene" uid="uid://3qg3sapon17n" path="res://scenes/Test_Scenes/Brandon/weapon.tscn" id="4_ln236"]
 [ext_resource type="Texture2D" uid="uid://bcqny3j5w4m0u" path="res://assets/reloading.png" id="6_16qjp"]
+[ext_resource type="Script" path="res://scripts/loot_graber.gd" id="7_qd5tj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoqsq"]
 atlas = ExtResource("6_16qjp")
@@ -59,6 +60,9 @@ height = 10.0
 radius = 5.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcvld"]
+radius = 12.0
+
 [node name="Hero" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_46gn3")
@@ -88,3 +92,9 @@ damage_taker = NodePath("../LifeState")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
 shape = SubResource("CapsuleShape2D_4ldjj")
+
+[node name="loot_grabber" type="Area2D" parent="."]
+script = ExtResource("7_qd5tj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loot_grabber"]
+shape = SubResource("CircleShape2D_hcvld")
