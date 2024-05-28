@@ -44,6 +44,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	delta = delta
 	orient_body()
 	process_movement()
 	move_and_slide()
