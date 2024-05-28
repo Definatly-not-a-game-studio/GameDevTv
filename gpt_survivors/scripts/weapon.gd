@@ -81,7 +81,7 @@ func shoot():
 	# Set the bullet's direction to the center's rotation
 	bullet_instance.rotation = center.rotation
 
-	bullet_instance.direction = center.global_position.direction_to(barrel.global_position)
+	bullet_instance.direction = center.global_position.direction_to(global_position)
 	bullet_instance.global_position += bullet_instance.direction * 15
 	bullet_instance.damage_project = damage
 	bullet_instance.damage_type = damage_type
