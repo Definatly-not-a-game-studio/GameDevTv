@@ -1,0 +1,43 @@
+class_name Spawn_Manager
+extends Node
+
+@export var dificulty : int = 1
+@export var spawn_rate : float = 1.0
+
+var spawn_timer :Timer = null
+var enemies_spawned :int  = 0
+
+func _ready():
+	#start the spawn loop
+	spawn_enemies()
+	set_process(true)
+
+	spawn_timer = Timer.new()
+	spawn_timer.set_wait_time(spawn_rate)
+	spawn_timer.set_one_shot(false)
+	spawn_timer.timeout.connect(spawn_enemies)
+
+
+
+func _process(delta):
+	delta = delta
+	if enemies_spawned > dificulty * 10:
+		dificulty += 1
+		spawn_rate -= 0.1
+		spawn_timer.set_wait_time(spawn_rate)
+		spawn_timer.start()
+
+
+
+
+func spawn_enemies():
+	var spawners = self.get_children()
+	for  spawner in spawners:
+		#check if the node is a spawner
+		if spawner.get_class() == "Spawner":
+			spawner.active = false
+			spawner.spawn()
+			enemies_spawned += 1
+
+
+
