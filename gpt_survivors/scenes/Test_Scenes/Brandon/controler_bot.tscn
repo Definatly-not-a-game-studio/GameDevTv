@@ -54,9 +54,6 @@ animations = [{
 [node name="zombie_bot" type="CharacterBody2D"]
 script = ExtResource("1_eivir")
 speed = 30
-value = null
-damage_multiplier = null
-health_multiplier = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
