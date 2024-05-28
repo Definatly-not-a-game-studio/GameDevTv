@@ -35,6 +35,7 @@ func _ready():
 
 
 func find_target():
+	find_new_target()
 	if target == null:
 		return null
 	pathfinding_agent.target_position = target.global_position
@@ -42,6 +43,7 @@ func find_target():
 
 # return the next position to move to or null if the navigation is finished
 func next_position():
+	find_new_target()
 	if target == null:
 		return null
 	# if pathfinding_agent.is_navigation_finished():
@@ -54,6 +56,17 @@ func next_position():
 
 
 
+func find_new_target():
+	if target != null:
+		return
+
+
+	var new_target = get_tree().get_root().get_node("Player")
+
+	if new_target == null:
+		print("No target found")
+		return
+	target = new_target
 
 
 

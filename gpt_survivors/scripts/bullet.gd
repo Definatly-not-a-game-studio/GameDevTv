@@ -25,6 +25,9 @@ func _ready():
 	add_child(timer)
 	timer.start()
 
+	self.body_entered.connect(on_body_entered)
+	hitbox.area_entered.connect(on_body_entered)
+
 
 	
 
@@ -33,6 +36,12 @@ func _ready():
 func _physics_process(delta):
 	delta = delta
 	linear_velocity = direction * speed
+
+func on_body_entered(body: Hurt_Box):
+	if body == null:
+		return
+	queue_free()
+
 
 
 	
