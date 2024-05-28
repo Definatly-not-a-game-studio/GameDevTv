@@ -12,7 +12,8 @@ radius = 3.02941
 
 [node name="Bullet" type="RigidBody2D"]
 scale = Vector2(0.990291, 0.990126)
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_31ulh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
