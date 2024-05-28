@@ -14,6 +14,8 @@ signal died
 
 @export var loaded_weapon : PackedScene = preload("res://scenes/Test_Scenes/Brandon/weapon.tscn")
 
+var death_scene : PackedScene = preload("res://scenes/Menu_Scenes/Death/Death.tscn")
+
 
 
 
@@ -103,8 +105,13 @@ func die():
 	node.add_child(camera)
 
 	emit_signal("died")
-	
+
+	get_tree().change_scene_to_packed(death_scene)
 	queue_free()
+	# set the death scene
+
+
+	
 
 func change_weapon(new_weapon : PackedScene):
 	if my_weapon != null:

@@ -2,7 +2,7 @@ class_name DeathMenu
 extends Control
 
 
-@onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
+# @onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
 @onready var start_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/Start_Button
 @onready var options_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/HBoxContainer/Options_Button
 @onready var exit_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/HBoxContainer/Exit_Button
@@ -18,7 +18,9 @@ func _ready():
 	pass # Replace with function body.
 
 func on_start_released() -> void:
-	get_tree().change_scene_to_packed(start_level)
+	get_tree().change_scene_to_packed(load("res://scenes/Test_Scenes/Brandon/ricky_test.tscn"))
+
+	pass
 
 
 func on_options_released() -> void:
@@ -29,5 +31,5 @@ func on_exit_released() -> void:
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
