@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var pathfinder = $Pathfinder
 @onready var sprite = $AnimatedSprite2D
 @onready var hitbox = $Hit_Box
+@onready var hurtbox = $Hurt_Box
 @onready var life = $LifeState
 @onready var death_scene = preload("res://scenes/Test_Scenes/Brandon/dead_bot.tscn")
 
@@ -36,6 +37,9 @@ func _ready():
 	random_direction = Vector2(randi_range(-1, 1), randi_range(-1, 1))
 	if target_entitie == null:
 		return
+	
+	# connect the knockback signal from hurtbox
+	hurtbox.knock_back.connect(knockBack)
 
 
 
@@ -77,7 +81,5 @@ func die():
 	self.call_deferred("queue_free")
 
 
-
-
-
-
+func knockBack(knockback : Vector2 , knockback_value : float = 20):
+	position += knockback * knockback_value

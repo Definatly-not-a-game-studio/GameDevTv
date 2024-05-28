@@ -7,6 +7,7 @@ signal died
 
 @onready var center = $Center
 @onready var sprite = $Sprite2D
+@onready var hurtbox = $Hurt_Box
 @onready var reload_sprite = $Reload_Sprite
 @onready var lifestate = $LifeState
 @onready var upgrade_manager = $Upgrade_Manager
@@ -37,6 +38,8 @@ func _ready():
 	$Upgrade_Manager.weapon = my_weapon
 
 	lifestate.hit.connect(damage_taken)
+
+	hurtbox.knock_back.connect(knockBack)
 
 	
 
@@ -121,4 +124,6 @@ func damage_taken():
 	pass
 
 
+func knockBack(knockback : Vector2 , knockback_value : float = 10):
+	position += -knockback * knockback_value
 

@@ -1,6 +1,8 @@
 class_name Hurt_Box
 extends Area2D
 
+signal knock_back( knockback:Vector2)
+
 
 @export var damage_taker : LifeState = null
 
@@ -42,6 +44,19 @@ func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 
 	if damage_taker.has_method("take_damage"):
 		damage_taker.take_damage(dmg)
+
+	# claculate knockback
+	var my_pos = global_position
+	var hit_pos = hurt_area.global_position
+
+	var knockback = my_pos.direction_to(hit_pos)
+
+	# emit knockback signal with the direction oposite the knockback
+	knock_back.emit(knockback)
+
+
+
+
 
 
 
