@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2pnqqdqq64oh"]
+[gd_scene load_steps=3 format=3 uid="uid://bl5rtdlvflokd"]
 
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/Test_Scenes/Cody/main_character.tscn" id="2_hd6xe"]
