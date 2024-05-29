@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bomr6q155glwb"]
+[gd_scene load_steps=18 format=3 uid="uid://bomr6q155glwb"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_46gn3"]
 [ext_resource type="Texture2D" uid="uid://cxctu41dljrl2" path="res://assets/Main_Character/mainChar1.png" id="1_e12o8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcqny3j5w4m0u" path="res://assets/reloading.png" id="6_16qjp"]
 [ext_resource type="Script" path="res://scripts/loot_graber.gd" id="7_qd5tj"]
 [ext_resource type="Script" path="res://scripts/Upgrade_Manager.gd" id="8_r1my2"]
+[ext_resource type="Texture2D" uid="uid://dbppvb1iginaw" path="res://light.png" id="9_t83mg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoqsq"]
 atlas = ExtResource("6_16qjp")
@@ -102,3 +103,10 @@ shape = SubResource("CircleShape2D_hcvld")
 
 [node name="Upgrade_Manager" type="Node" parent="."]
 script = ExtResource("8_r1my2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+y_sort_enabled = true
+shadow_enabled = true
+shadow_filter_smooth = 50.0
+texture = ExtResource("9_t83mg")
+texture_scale = 0.6
