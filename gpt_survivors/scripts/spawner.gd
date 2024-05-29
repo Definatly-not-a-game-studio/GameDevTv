@@ -33,23 +33,26 @@ func _ready():
 	# start the timer if the spawner is active
 	if active:
 		timer.start()
+		
 
-func _process(delta):
-	delta = delta
+func _process(_delta):
+
+	if timer == null:
+		return
+
+
 	if active:
-		# if the target is null, stop the timer
-		if target == null:
-			timer.stop()
-		# if the target is not null, start the timer
-		elif timer.is_stopped():
+		if timer.is_stopped():
 			timer.start()
+	else:
+		if not timer.is_stopped():
+			timer.stop()
+	pass
 
 
 
 func spawn():
-	# if the target is null, do not spawn
-	if target == null:
-		return
+
 
 	# spawn the enemy
 	var made_enemy = spawn_enemy.instantiate()

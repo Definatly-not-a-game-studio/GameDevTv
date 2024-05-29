@@ -19,6 +19,7 @@ func _ready():
 		pathfinding_agent = NavigationAgent2D.new()
 		add_child(pathfinding_agent)
 
+	find_new_target()
 
 
 	if target == null:
@@ -61,10 +62,9 @@ func find_new_target():
 		return
 
 
-	var new_target = get_tree().get_root().get_node("Player")
+	var new_target = get_tree().get_root().get_children()[0].get_node("Hero")
 
 	if new_target == null:
-		print("No target found")
 		return
 	target = new_target
 

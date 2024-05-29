@@ -80,7 +80,7 @@ debug_health = true
 texture = ExtResource("1_e12o8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_p12sy")
 
 [node name="Center" type="Node2D" parent="."]

@@ -16,11 +16,12 @@ func _ready():
 	spawn_timer.set_wait_time(spawn_rate)
 	spawn_timer.set_one_shot(false)
 	spawn_timer.timeout.connect(spawn_enemies)
+	add_child(spawn_timer)
+	spawn_timer.start()
 
 
 
-func _process(delta):
-	delta = delta
+func _process(_delta):
 	if enemies_spawned > dificulty * 10:
 		dificulty += 1
 		spawn_rate -= 0.1
@@ -34,7 +35,8 @@ func spawn_enemies():
 	var spawners = self.get_children()
 	for  spawner in spawners:
 		#check if the node is a spawner
-		if spawner.get_class() == "Spawner":
+		if spawner is Spawner:
+			print("spawning")
 			spawner.active = false
 			spawner.spawn()
 			enemies_spawned += 1

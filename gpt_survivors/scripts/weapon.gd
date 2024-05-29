@@ -57,8 +57,7 @@ func _ready():
 	add_child(fire_timer)
 
 
-func _process(delta):
-	delta = delta
+func _process(_delta):
 	fire_timer.wait_time = fire_rate
 	reload_timer.wait_time = reload_time
 
