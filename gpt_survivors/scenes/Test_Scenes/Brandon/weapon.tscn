@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3qg3sapon17n"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qyv2p"]
-[ext_resource type="Texture2D" uid="uid://ooswtirwkg4d" path="res://assets/Main_Character/weapons/pistol1.png" id="1_rfgo6"]
+[ext_resource type="Texture2D" uid="uid://v8i6fyllq40o" path="res://assets/Guns/BasicPistol.png" id="2_wchpv"]
 
 [node name="Weapon" type="Marker2D"]
 position = Vector2(6, 0.00488161)
@@ -10,8 +10,10 @@ script = ExtResource("1_qyv2p")
 damage = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rfgo6")
+position = Vector2(1, -0.00488161)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_wchpv")
 
 [node name="Barrel_End" type="Marker2D" parent="."]
-position = Vector2(1, -1.00488)
+position = Vector2(3, -1.00488)
 gizmo_extents = 1.5
