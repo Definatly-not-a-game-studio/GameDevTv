@@ -17,11 +17,14 @@ func _ready():
 	pass # Replace with function body.
 
 func on_start_released() -> void:
+	var scene = load("res://scenes/Test_Scenes/Brandon/ricky_test.tscn")
 	get_tree().paused = false
-	get_tree().root.get_child(0).queue_free()
-	get_tree().change_scene_to_packed(load("res://scenes/Test_Scenes/Brandon/ricky_test.tscn"))
-	# get_tree().reload_current_scene()
-	queue_free()
+	var kids = get_tree().root.get_children()
+	for kid in kids:
+		kid.queue_free()
+	get_tree().change_scene_to_packed(load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn"))
+	get_tree().change_scene_to_packed(scene)
+	# queue_free()
 
 
 	pass
