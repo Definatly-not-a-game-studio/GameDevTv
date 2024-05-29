@@ -123,8 +123,6 @@ func die():
 
 	emit_signal("died")
 
-	# get_tree().call_deferred("change_scene_to_packed",death_scene)
-	# call_deferred("queue_free")
 	
 	get_tree().get_root().add_child(death_scene.instantiate())
 	get_tree().paused = true
