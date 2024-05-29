@@ -14,7 +14,7 @@ signal died
 
 @export var loaded_weapon : PackedScene = preload("res://scenes/Test_Scenes/Brandon/weapon.tscn")
 
-var death_scene : PackedScene = preload("res://scenes/Menu_Scenes/Death/Death.tscn")
+var death_scene : PackedScene = preload("res://scenes/Menu_Scenes/Death_Menu/Death_Menu.tscn")
 
 
 
