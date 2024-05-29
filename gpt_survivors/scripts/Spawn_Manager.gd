@@ -36,7 +36,6 @@ func spawn_enemies():
 	for  spawner in spawners:
 		#check if the node is a spawner
 		if spawner is Spawner:
-			print("spawning")
 			spawner.active = false
 			spawner.spawn()
 			enemies_spawned += 1

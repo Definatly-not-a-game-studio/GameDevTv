@@ -28,7 +28,6 @@ func _ready():
 	self.body_entered.connect(on_body_entered)
 	hitbox.area_entered.connect(on_body_entered)
 
-	print(direction.angle())
 
 	if abs(direction.angle()) > 1.5:
 
