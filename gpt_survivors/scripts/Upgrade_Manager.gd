@@ -9,6 +9,7 @@ extends Node
 @export var lootgrabber : loot_grabber = null
 
 var loot : int = 0
+var score : int = 0
 
 func _ready():
 	if player == null:
@@ -33,6 +34,7 @@ func _ready():
 
 func loot_collected(value: int):
 	loot += value
+	score += value
 	print("loot: ", loot)
 
 func spend_loot(value: int):

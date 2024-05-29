@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bomr6q155glwb"]
+[gd_scene load_steps=19 format=3 uid="uid://bomr6q155glwb"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_46gn3"]
 [ext_resource type="Texture2D" uid="uid://cxctu41dljrl2" path="res://assets/Main_Character/mainChar1.png" id="1_e12o8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/loot_graber.gd" id="7_qd5tj"]
 [ext_resource type="Script" path="res://scripts/Upgrade_Manager.gd" id="8_r1my2"]
 [ext_resource type="Texture2D" uid="uid://dbppvb1iginaw" path="res://light.png" id="9_t83mg"]
+[ext_resource type="PackedScene" uid="uid://dnxho7cy1trse" path="res://scenes/HUD.tscn" id="10_jkvlq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoqsq"]
 atlas = ExtResource("6_16qjp")
@@ -110,3 +111,7 @@ shadow_enabled = true
 shadow_filter_smooth = 50.0
 texture = ExtResource("9_t83mg")
 texture_scale = 0.6
+
+[node name="HUD" parent="." node_paths=PackedStringArray("upgrade_manager", "life") instance=ExtResource("10_jkvlq")]
+upgrade_manager = NodePath("../Upgrade_Manager")
+life = NodePath("../LifeState")
