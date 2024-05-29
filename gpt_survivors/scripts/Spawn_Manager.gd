@@ -33,7 +33,7 @@ func spawn_enemies():
 	var spawners = self.get_children()
 	for  spawner in spawners:
 		#check if the node is a spawner
-		if spawner.get_class() == "Spawner":
+		if spawner is Spawner:
 			spawner.active = false
 			spawner.spawn()
 			enemies_spawned += 1
