@@ -17,7 +17,12 @@ func _ready():
 	pass # Replace with function body.
 
 func on_start_released() -> void:
+	get_tree().paused = false
+	get_tree().root.get_child(0).queue_free()
 	get_tree().change_scene_to_packed(load("res://scenes/Test_Scenes/Brandon/ricky_test.tscn"))
+	# get_tree().reload_current_scene()
+	queue_free()
+
 
 	pass
 
