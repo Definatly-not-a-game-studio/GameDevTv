@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0ncjwitnaeuu"]
+[gd_scene load_steps=17 format=3 uid="uid://d0ncjwitnaeuu"]
 
 [ext_resource type="Script" path="res://scripts/enmey.gd" id="1_4ml2t"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="2_di6nw"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_wxyyh"]
 [ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="5_q3hdx"]
 [ext_resource type="Texture2D" uid="uid://bqkc1byeb3ife" path="res://assets/Enemies/robot3.png" id="6_47xf3"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="7_uhbhs"]
+[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Test_Scenes/Brandon/skull_bot.tscn" id="8_eo863"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5at58"]
 radius = 5.0
@@ -87,3 +89,8 @@ shape = SubResource("CapsuleShape2D_kshxd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eblgm")
 animation = &"walk"
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("7_uhbhs")
+spawn_enemy = ExtResource("8_eo863")
+spawn_rate = 3.0

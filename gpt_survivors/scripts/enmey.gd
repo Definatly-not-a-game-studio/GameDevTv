@@ -16,6 +16,8 @@ extends CharacterBody2D
 @export var health_multiplier : float = 1
 
 @export var projectile : PackedScene = null
+@export var proj_speed : float = 100
+@export var proj_spawn_rate : float = 5
 
 
 
@@ -28,7 +30,13 @@ func _ready():
 
 	# handle code for optional projectile here
 	if projectile != null:
-		pass
+		var proj_timer = Timer.new()
+		proj_timer.wait_time = proj_spawn_rate
+		proj_timer.one_shot = false
+		proj_timer.timeout.connect(shoot_projectile)
+		add_child(proj_timer)
+		proj_timer.start()
+
 
 	# all enemies will have a walk animation
 	sprite.play("walk")
@@ -85,3 +93,42 @@ func knockBack(knockback : Vector2 , knockback_value : float = 20):
 	knockback = global_position.direction_to(target_entitie.global_position)
 
 	position += -knockback * knockback_value
+
+
+func shoot_projectile():
+	# check if the target is null
+	target_entitie = pathfinder.target
+
+	if target_entitie == null:
+		return
+
+	# get distance to target
+	var distance = global_position.distance_to(target_entitie.global_position)
+
+	if distance > 200:
+		return
+
+
+
+
+	# spawn the projectile
+	var proj = projectile.instantiate()
+	proj.speed = proj_speed
+	proj.damage_project = int(hitbox.damage *damage_multiplier)
+	
+	var dir = global_position.direction_to(target_entitie.global_position)
+	proj.direction = dir
+	proj.rotation = dir.angle()
+	proj.global_position = global_position + dir * 10
+
+
+	get_tree().get_root().add_child(proj)
+
+
+	
+
+
+
+
+
+

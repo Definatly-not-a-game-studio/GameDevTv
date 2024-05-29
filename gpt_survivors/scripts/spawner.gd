@@ -57,11 +57,12 @@ func spawn():
 	# spawn the enemy
 	var made_enemy = spawn_enemy.instantiate()
 	# apply the damage and health multipliers
-	made_enemy.position = position
+	made_enemy.position = global_position
 	made_enemy.target_entitie = target
 	made_enemy.damage_multiplier = damage_multiplier
 	made_enemy.health_multiplier = health_multiplier
 
 	# add the enemy to the scene
-	get_parent().add_child(made_enemy)
+	# get_parent().add_child(made_enemy)
+	get_tree().get_root().add_child(made_enemy)
 

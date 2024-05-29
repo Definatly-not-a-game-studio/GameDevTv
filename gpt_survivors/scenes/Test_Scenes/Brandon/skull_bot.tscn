@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3mg56hbk3451"]
+[gd_scene load_steps=15 format=3 uid="uid://b3mg56hbk3451"]
 
 [ext_resource type="Script" path="res://scripts/enmey.gd" id="1_ii4f1"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="2_uj4c0"]
+[ext_resource type="PackedScene" uid="uid://bkd25dq6ie4s3" path="res://scenes/Test_Scenes/Brandon/bullet.tscn" id="2_w0pbn"]
 [ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_o8wcq"]
 [ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_gj7bh"]
 [ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="5_q8ntu"]
@@ -52,6 +53,7 @@ animations = [{
 [node name="skull_bot" type="CharacterBody2D"]
 script = ExtResource("1_ii4f1")
 speed = 30
+projectile = ExtResource("2_w0pbn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d5jib")

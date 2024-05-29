@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djoxeio7ukde0"]
+[gd_scene load_steps=9 format=3 uid="uid://djoxeio7ukde0"]
 
 [ext_resource type="Script" path="res://scripts/ricky_test_level_code.gd" id="1_2kvdd"]
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_xj6w7"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Test_Scenes/Brandon/controler_bot.tscn" id="7_m4on5"]
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="8_wrk04"]
 [ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Test_Scenes/Brandon/zombie_bot.tscn" id="9_3e5q4"]
-[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Test_Scenes/Brandon/skull_bot.tscn" id="9_du16u"]
 
 [node name="ricky_test" type="Node2D"]
 y_sort_enabled = true
@@ -27,6 +26,7 @@ layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array(-196612, 2, 0, -524282, 2, 0, -327671, 196610, 2, -196602, 2, 4, -393217, 131074, 4, -458750, 131074, 5, -65533, 131074, 5, 65532, 196610, 5, -131081, 196609, 1)
 
 [node name="Hero" parent="." instance=ExtResource("6_k8vcy")]
+position = Vector2(37, -9)
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 scale = Vector2(4, 1e-05)
@@ -38,7 +38,7 @@ limit_bottom = 224
 
 [node name="Spawn_Manager" type="Node" parent="."]
 script = ExtResource("3_60ux1")
-spawn_rate = 5.0
+spawn_rate = 10.0
 
 [node name="Spawner" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(221, 184)
@@ -62,7 +62,7 @@ spawn_rate = 5.0
 [node name="Spawner4" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(-51, 208)
 script = ExtResource("6_u53m5")
-spawn_enemy = ExtResource("9_du16u")
+spawn_enemy = ExtResource("9_3e5q4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.207843, 0.305882, 0.337255, 1)
