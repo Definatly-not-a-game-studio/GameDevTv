@@ -7,6 +7,7 @@ extends Node
 @export var lifestate : LifeState = null
 @export var weapon : Weapon = null
 @export var lootgrabber : loot_grabber = null
+@export var amo_bar : TextureProgressBar = null
 
 var loot : int = 0
 var score : int = 0
@@ -31,6 +32,9 @@ func _ready():
 	#connect signals
 	lootgrabber.loot_grabbed.connect(loot_collected)
 
+func _process(_delta):
+	update_amo_bar(weapon.amunition, weapon.clip_size)
+
 
 func loot_collected(value: int):
 	loot += value
@@ -43,6 +47,9 @@ func spend_loot(value: int):
 		return true
 	else:
 		return false
+func update_amo_bar(value: int, max_value: int):
+	amo_bar.value = value
+	amo_bar.max_value = max_value
 
 
 

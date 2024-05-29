@@ -12,9 +12,9 @@ signal died
 @onready var lifestate = $LifeState
 @onready var upgrade_manager = $Upgrade_Manager
 
-@export var loaded_weapon : PackedScene = preload("res://scenes/Test_Scenes/Brandon/weapon.tscn")
+@export var loaded_weapon : PackedScene = load("res://scenes/Test_Scenes/Brandon/weapon.tscn")
 
-var death_scene : PackedScene = preload("res://scenes/Menu_Scenes/Death_Menu/Death_Menu.tscn")
+var death_scene : PackedScene = load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn")
 
 
 
@@ -37,6 +37,7 @@ var my_weapon = null
 
 
 func _ready():
+	print(loaded_weapon)
 	# creates an instance of the weapon and adds it to the player
 	change_weapon(loaded_weapon)
 	my_weapon.reloading.connect(reload)

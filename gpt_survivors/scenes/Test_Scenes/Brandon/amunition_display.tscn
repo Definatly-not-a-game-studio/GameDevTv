@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0ijrjfvy4gdd"]
+
+[ext_resource type="Texture2D" uid="uid://c6mnc4m6mi2w3" path="res://assets/HUD/PotentialAmmo/BulletCasing_empty.png" id="1_imfgg"]
+[ext_resource type="Texture2D" uid="uid://fjo7fltofd67" path="res://assets/HUD/PotentialAmmo/BulletCasing_full.png" id="2_3h803"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+z_index = 2
+y_sort_enabled = true
+offset_left = -10.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = 11.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("1_imfgg")
+texture_progress = ExtResource("2_3h803")
