@@ -28,10 +28,22 @@ func _ready():
 	self.body_entered.connect(on_body_entered)
 	hitbox.area_entered.connect(on_body_entered)
 
-	if direction.angle() > 0:
+	print(direction.angle())
+
+	if abs(direction.angle()) > 1.5:
+
+		var angle = direction.angle()
+
+		angle = 3 if angle < 0 else 3
+
 		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
+
+		rotation = (direction.angle()+angle)
+		pass
+
+		pass
+
+		
 
 
 	
