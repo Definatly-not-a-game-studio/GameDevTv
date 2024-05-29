@@ -6,6 +6,7 @@ signal knock_back( knockback:Vector2)
 
 @export var damage_taker : LifeState = null
 
+var invincible : bool = false
 
 func _init():
 	collision_layer = 1
@@ -30,6 +31,8 @@ func _ready():
 
 func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 	if hurt_area == null:
+		return
+	if invincible:
 		return
 
 	if damage_taker == null:
@@ -62,6 +65,8 @@ func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 
 
 func _on_timer_timeout():
+	if invincible:
+		return
 
 	if damage_taker == null:
 		queue_free()
@@ -76,5 +81,8 @@ func _on_timer_timeout():
 			var damage = area.damage
 			damage_taker.take_damage(damage)
 
+
+func set_invincible(value:bool):
+	invincible = value
 	
 

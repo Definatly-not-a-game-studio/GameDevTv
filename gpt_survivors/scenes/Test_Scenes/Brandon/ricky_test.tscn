@@ -41,25 +41,28 @@ script = ExtResource("3_60ux1")
 spawn_rate = 5.0
 
 [node name="Spawner" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(83, 14)
+position = Vector2(221, 184)
 script = ExtResource("6_u53m5")
 spawn_enemy = ExtResource("7_m4on5")
 spawn_rate = 10.0
 damage_multiplier = 2.0
 
 [node name="Spawner2" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(-135, 46)
+position = Vector2(-163, -161)
 script = ExtResource("6_u53m5")
 spawn_enemy = ExtResource("8_wrk04")
 spawn_rate = 5.0
 
 [node name="Spawner3" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(66, -53)
+position = Vector2(227, -116)
 script = ExtResource("6_u53m5")
 spawn_enemy = ExtResource("9_3e5q4")
 spawn_rate = 5.0
 
 [node name="Spawner4" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(-27, 75)
+position = Vector2(-51, 208)
 script = ExtResource("6_u53m5")
 spawn_enemy = ExtResource("9_du16u")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.207843, 0.305882, 0.337255, 1)

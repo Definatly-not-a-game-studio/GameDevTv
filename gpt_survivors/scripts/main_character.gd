@@ -6,7 +6,7 @@ extends CharacterBody2D
 signal died
 
 @onready var center = $Center
-@onready var sprite = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
 @onready var hurtbox = $Hurt_Box
 @onready var reload_sprite = $Reload_Sprite
 @onready var lifestate = $LifeState
@@ -23,6 +23,11 @@ var death_scene : PackedScene = preload("res://scenes/Menu_Scenes/Death/Death.ts
 
 
 const SPEED = 175.0
+const DASH_SPEED = 300.0
+
+
+var dash_time = 0.5
+var is_dashing = false
 var direction : Vector2
 var is_flipped = false
 
@@ -43,6 +48,8 @@ func _ready():
 
 	hurtbox.knock_back.connect(knockBack)
 
+	sprite.play("idle")
+
 	
 
 
@@ -56,6 +63,12 @@ func _physics_process(_delta):
 	# Shoots the bullet when the shoot action is pressed or held and full_auto is true
 	if Input.is_action_just_pressed("shoot") or (Input.is_action_pressed("shoot") and my_weapon.full_auto):
 		my_weapon.shoot()
+
+	if Input.is_action_just_pressed("reoload"):
+		my_weapon.reload()
+	
+	if Input.is_action_just_pressed("dash"):
+		dash()
 	
 
 	
@@ -65,10 +78,14 @@ func process_movement():
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
 	
-	if direction:
+	if direction and not is_dashing:
 		# Keeps movement speed consistent by normalizing vector
 		velocity = SPEED * direction.normalized()
+		sprite.play("walk")
+	elif is_dashing:
+		velocity = DASH_SPEED * direction.normalized()
 	else:
+		sprite.play("idle")
 		velocity.x = move_toward(velocity.x * direction.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y * direction.y, 0, SPEED)
 
@@ -132,4 +149,34 @@ func damage_taken():
 
 func knockBack(knockback : Vector2 , knockback_value : float = 10):
 	position += -knockback * knockback_value
+
+func dash():
+
+	if is_dashing:
+		return
+	var ani = "roll"
+
+
+
+	is_dashing = true
+	velocity = DASH_SPEED * direction.normalized()
+	sprite.play(ani)
+	hurtbox.set_invincible(true)
+
+	await get_tree().create_timer(dash_time).timeout
+	is_dashing = false
+	#enable hitcolision
+	hurtbox.set_invincible(false)
+	sprite.play("idle")
+
+	
+
+
+
+
+
+
+
+
+
 
