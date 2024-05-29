@@ -16,6 +16,8 @@ func _ready():
 	spawn_timer.set_wait_time(spawn_rate)
 	spawn_timer.set_one_shot(false)
 	spawn_timer.timeout.connect(spawn_enemies)
+	add_child(spawn_timer)
+	spawn_timer.start()
 
 
 
@@ -34,6 +36,7 @@ func spawn_enemies():
 	for  spawner in spawners:
 		#check if the node is a spawner
 		if spawner is Spawner:
+			print("spawning")
 			spawner.active = false
 			spawner.spawn()
 			enemies_spawned += 1

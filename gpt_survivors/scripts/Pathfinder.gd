@@ -63,7 +63,6 @@ func find_new_target():
 
 
 	var new_target = get_tree().get_root().get_children()[0].get_node("Hero")
-	print(new_target)
 
 	if new_target == null:
 		return
