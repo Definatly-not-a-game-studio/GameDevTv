@@ -105,7 +105,7 @@ func die():
 
 	emit_signal("died")
 
-	get_tree().change_scene_to_packed(death_scene)
+	get_tree().call_deferred("change_scene_to_packed",death_scene)
 	call_deferred("queue_free")
 	# set the death scene
 
