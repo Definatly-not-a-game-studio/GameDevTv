@@ -24,3 +24,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 1168
 limit_bottom = 656
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.207843, 0.305882, 0.337255, 1)
