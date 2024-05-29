@@ -34,8 +34,7 @@ func _ready():
 	if active:
 		timer.start()
 
-func _process(delta):
-	delta = delta
+func _process(_delta):
 	if active:
 		# if the target is null, stop the timer
 		if target == null:

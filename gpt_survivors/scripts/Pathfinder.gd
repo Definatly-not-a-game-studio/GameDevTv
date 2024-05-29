@@ -61,10 +61,9 @@ func find_new_target():
 		return
 
 
-	var new_target = get_tree().get_root().get_node("Player")
+	var new_target = get_tree().get_root().get_node_or_null("Hero")
 
 	if new_target == null:
-		print("No target found")
 		return
 	target = new_target
 

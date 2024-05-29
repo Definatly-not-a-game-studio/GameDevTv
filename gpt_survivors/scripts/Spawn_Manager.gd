@@ -19,8 +19,7 @@ func _ready():
 
 
 
-func _process(delta):
-	delta = delta
+func _process(_delta):
 	if enemies_spawned > dificulty * 10:
 		dificulty += 1
 		spawn_rate -= 0.1

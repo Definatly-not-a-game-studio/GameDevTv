@@ -48,8 +48,7 @@ func _ready():
 
 
 
-func _physics_process(delta):
-	delta = delta
+func _physics_process(_delta):
 	orient_body()
 	process_movement()
 	move_and_slide()
@@ -107,7 +106,7 @@ func die():
 	emit_signal("died")
 
 	get_tree().change_scene_to_packed(death_scene)
-	queue_free()
+	call_deferred("queue_free")
 	# set the death scene
 
 

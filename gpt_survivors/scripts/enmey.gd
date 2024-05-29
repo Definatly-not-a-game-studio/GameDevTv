@@ -43,8 +43,7 @@ func _ready():
 
 
 
-func _process(delta):
-	delta = delta
+func _process(_delta):
 
 	# determine the target position
 	var target = pathfinder.next_position()
@@ -82,4 +81,7 @@ func die():
 
 
 func knockBack(knockback : Vector2 , knockback_value : float = 20):
-	position += knockback * knockback_value
+	# override the knockback function
+	knockback = global_position.direction_to(target_entitie.global_position)
+
+	position += -knockback * knockback_value
