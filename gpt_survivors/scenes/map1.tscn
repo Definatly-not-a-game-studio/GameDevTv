@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl5rtdlvflokd"]
+[gd_scene load_steps=9 format=3 uid="uid://bl5rtdlvflokd"]
 
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/Test_Scenes/Cody/main_character.tscn" id="2_hd6xe"]
+[ext_resource type="Script" path="res://scripts/Spawn_Manager.gd" id="3_albtc"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="4_48mk3"]
+[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Test_Scenes/Brandon/controler_bot.tscn" id="5_v4q0l"]
+[ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="6_wk765"]
+[ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Test_Scenes/Brandon/zombie_bot.tscn" id="7_am24t"]
+[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Test_Scenes/Brandon/skull_bot.tscn" id="8_g40qb"]
 
 [node name="TileMap" type="TileMap"]
 y_sort_enabled = true
@@ -27,3 +33,31 @@ limit_bottom = 656
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.207843, 0.305882, 0.337255, 1)
+
+[node name="Spawn_Manager" type="Node" parent="."]
+script = ExtResource("3_albtc")
+spawn_rate = 5.0
+
+[node name="Spawner" type="Node2D" parent="Spawn_Manager"]
+position = Vector2(1075, 93)
+script = ExtResource("4_48mk3")
+spawn_enemy = ExtResource("5_v4q0l")
+spawn_rate = 10.0
+damage_multiplier = 2.0
+
+[node name="Spawner2" type="Node2D" parent="Spawn_Manager"]
+position = Vector2(57, 616)
+script = ExtResource("4_48mk3")
+spawn_enemy = ExtResource("6_wk765")
+spawn_rate = 5.0
+
+[node name="Spawner3" type="Node2D" parent="Spawn_Manager"]
+position = Vector2(39, 65)
+script = ExtResource("4_48mk3")
+spawn_enemy = ExtResource("7_am24t")
+spawn_rate = 5.0
+
+[node name="Spawner4" type="Node2D" parent="Spawn_Manager"]
+position = Vector2(1088, 600)
+script = ExtResource("4_48mk3")
+spawn_enemy = ExtResource("8_g40qb")

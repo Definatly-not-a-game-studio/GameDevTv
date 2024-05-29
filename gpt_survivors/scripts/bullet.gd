@@ -28,6 +28,11 @@ func _ready():
 	self.body_entered.connect(on_body_entered)
 	hitbox.area_entered.connect(on_body_entered)
 
+	if direction.angle() > 0:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
+
 
 	
 
