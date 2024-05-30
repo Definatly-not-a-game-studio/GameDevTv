@@ -11,6 +11,7 @@ signal died
 @onready var reload_sprite = $Reload_Sprite
 @onready var lifestate = $LifeState
 @onready var upgrade_manager = $Upgrade_Manager
+@onready var camera = $Camera2D
 
 @export var loaded_weapon : PackedScene = load("res://scenes/Test_Scenes/Brandon/weapon.tscn")
 
@@ -22,7 +23,7 @@ var death_scene : PackedScene = load("res://scenes/Menu_Scenes/Death_menu/Death_
 
 
 
-const SPEED = 175.0
+const SPEED = 150.0
 const DASH_SPEED = 300.0
 
 
@@ -93,6 +94,7 @@ func process_movement():
 
 func orient_body():
 	var mousePos = get_global_mouse_position()
+	camera.offset = Vector2((mousePos.x - global_position.x)/10, (mousePos.y - global_position.y)/10)
 	
 	# Rotates the center point node to aim weapon
 	center.look_at(mousePos)
