@@ -20,6 +20,8 @@ extends CharacterBody2D
 @export var proj_spawn_rate : float = 5
 
 
+var knocking_back = false
+var knockback_velocity = Vector2(0,0)
 
 var random_direction = Vector2(0, 0)
 
@@ -52,6 +54,10 @@ func _ready():
 
 
 func _process(_delta):
+
+	if knocking_back:
+		velocity = knockback_velocity*speed
+		return
 
 	# determine the target position
 	var target = pathfinder.next_position()
@@ -88,15 +94,32 @@ func die():
 	self.call_deferred("queue_free")
 
 
-func knockBack(knockback : Vector2 , knockback_value : float = 20):
-	# override the knockback function
-	knockback = global_position.direction_to(target_entitie.global_position)
+func knockBack(_knockback : Vector2 ):
 
-	position += -knockback * knockback_value
+	if knocking_back:
+		return
+
+	if target_entitie == null:
+		return
+
+
+	# override the knockback function
+	knockback_velocity = global_position.direction_to(target_entitie.global_position) 
+	knocking_back = true
+
+	await get_tree().create_timer(0.1).timeout
+	knocking_back = false
+
+
+
+
 
 
 func shoot_projectile():
 	# check if the target is null
+
+	if pathfinder == null:
+		return
 	target_entitie = pathfinder.target
 
 	if target_entitie == null:

@@ -17,6 +17,10 @@ signal died
 var death_scene : PackedScene = load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn")
 
 
+var knocking_back = false
+var knockback_velocity = Vector2(0,0)
+
+
 
 
 
@@ -78,6 +82,11 @@ func process_movement():
 	# Get direction based on inputs
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
+
+	if knocking_back:
+		velocity = knockback_velocity*SPEED
+		return
+
 	
 	if direction and not is_dashing:
 		# Keeps movement speed consistent by normalizing vector
@@ -151,16 +160,26 @@ func damage_taken():
 	pass
 
 
-func knockBack(knockback : Vector2 , knockback_value : float = 10):
-	position += -knockback * knockback_value
+func knockBack(knockback : Vector2 ):
+
+	if knocking_back:
+		return
+
+
+
+	# position += -knockback * knockback_value
+	knockback_velocity = -knockback
+	
+	knocking_back = true
+	await get_tree().create_timer(0.1).timeout
+	knocking_back = false
 
 func dash():
 
 	if is_dashing:
 		return
+
 	var ani = "roll"
-
-
 
 	is_dashing = true
 	velocity = DASH_SPEED * direction.normalized()
