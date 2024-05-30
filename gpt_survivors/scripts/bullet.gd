@@ -58,6 +58,9 @@ func _physics_process(_delta):
 func on_body_entered(body):
 	if not body is Hurt_Box:
 		return
+
+	if body.type == type:
+		return
 	queue_free()
 
 
