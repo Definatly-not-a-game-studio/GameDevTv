@@ -38,6 +38,7 @@ limit_bottom = 224
 
 [node name="Spawn_Manager" type="Node" parent="."]
 script = ExtResource("3_60ux1")
+spawn_rate = 10.0
 
 [node name="Spawner" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(221, 184)

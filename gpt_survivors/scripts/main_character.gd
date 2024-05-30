@@ -125,7 +125,6 @@ func orient_body():
 
 
 func die():
-	var camera = get_node("Camera2D")
 	var node = Node2D.new()
 	remove_child(camera)
 	node.position = global_position
@@ -134,7 +133,10 @@ func die():
 
 	emit_signal("died")
 
-	get_tree().get_root().add_child(death_scene.instantiate())
+	var _scene = death_scene.instantiate()
+	get_tree().get_root().add_child(_scene)
+	_scene.set_score(upgrade_manager.score)
+
 	get_tree().paused = true
 
 

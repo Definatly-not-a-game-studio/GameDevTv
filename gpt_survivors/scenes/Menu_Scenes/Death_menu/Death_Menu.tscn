@@ -16,27 +16,17 @@ texture = ExtResource("4_jagbq")
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
-
-[node name="DeathScene" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_l5u32")
 
-[node name="TextureRect" type="TextureRect" parent="DeathScene"]
+[node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="DeathScene"]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.03125
 anchor_top = -0.921296
@@ -48,14 +38,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="DeathScene/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 texture = ExtResource("3_jbx5l")
 expand_mode = 4
 stretch_mode = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="DeathScene"]
-layout_mode = 1
+[node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.0190972
 anchor_top = -1.0
@@ -67,18 +56,18 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="DeathScene/MarginContainer2"]
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DeathScene/MarginContainer2/ButtonsVBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/ButtonsVBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Start_Button" type="Button" parent="DeathScene/MarginContainer2/ButtonsVBoxContainer/HBoxContainer"]
+[node name="Start_Button" type="Button" parent="MarginContainer2/ButtonsVBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
@@ -89,15 +78,14 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_42v7q")
 icon = ExtResource("3_cubu4")
 flat = true
 
-[node name="Exit_Button" type="Button" parent="DeathScene/MarginContainer2/ButtonsVBoxContainer/HBoxContainer"]
+[node name="Exit_Button" type="Button" parent="MarginContainer2/ButtonsVBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kueys")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hsql0")
 icon = ExtResource("6_gchg3")
 flat = true
 
-[node name="ScoreLabel" type="Label" parent="DeathScene"]
-layout_mode = 1
+[node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = -1
 anchor_right = 0.035
 anchor_bottom = 0.035

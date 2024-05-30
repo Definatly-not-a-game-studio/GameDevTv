@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var score: int = 0
 # @onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
@@ -11,7 +11,6 @@ extends Control
 func _ready():
 	start_button.button_up.connect(on_start_released)
 	exit_button.button_up.connect(on_exit_released)
-	$ScoreLabel.text = "SCORE = " + str(score)
 	pass # Replace with function body.
 
 func on_start_released() -> void:
@@ -34,3 +33,7 @@ func on_exit_released() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func set_score(new_score: int) -> void:
+	score = new_score
+	$ScoreLabel.text = "SCORE = " + str(score)
