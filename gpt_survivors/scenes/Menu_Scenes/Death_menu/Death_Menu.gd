@@ -1,6 +1,6 @@
 extends Control
 
-
+@export var score: int = 0
 # @onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
 
 @onready var start_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Start_Button
@@ -11,7 +11,7 @@ extends Control
 func _ready():
 	start_button.button_up.connect(on_start_released)
 	exit_button.button_up.connect(on_exit_released)
-	
+	$ScoreLabel.text = "SCORE = " + str(score)
 	pass # Replace with function body.
 
 func on_start_released() -> void:
@@ -23,13 +23,9 @@ func on_start_released() -> void:
 	get_tree().change_scene_to_packed(load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn"))
 	get_tree().change_scene_to_packed(scene)
 	# queue_free()
-
-
 	pass
 
 
-func on_options_released() -> void:
-	pass
 	
 func on_exit_released() -> void:
 	get_tree().quit()

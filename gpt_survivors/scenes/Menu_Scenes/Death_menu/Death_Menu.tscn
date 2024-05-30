@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmtc1he8psiam"]
+[gd_scene load_steps=10 format=3 uid="uid://cmtc1he8psiam"]
 
 [ext_resource type="Script" path="res://scenes/Menu_Scenes/Death_menu/Death_Menu.gd" id="1_l5u32"]
 [ext_resource type="Texture2D" uid="uid://sln78d0832ot" path="res://assets/Menu_Items/Main_Menu/Retry_Button.png" id="3_cubu4"]
 [ext_resource type="Texture2D" uid="uid://dtdiitam4h3jt" path="res://assets/Menu_Items/Death_Menu/YouDied.png" id="3_jbx5l"]
 [ext_resource type="Texture2D" uid="uid://bguwm80fa8y5h" path="res://assets/Menu_Items/Main_Menu/Start_Button.png" id="4_jagbq"]
+[ext_resource type="FontFile" uid="uid://bpxsbwrahbx28" path="res://assets/fonts/SevenSegment.ttf" id="6_deopy"]
 [ext_resource type="Texture2D" uid="uid://srknxr48kitn" path="res://assets/Menu_Items/Main_Menu/Exit_Button.png" id="6_gchg3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42v7q"]
@@ -56,10 +57,10 @@ stretch_mode = 1
 [node name="MarginContainer2" type="MarginContainer" parent="DeathScene"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0173611
-anchor_top = -1.06944
-anchor_right = 1.01389
-anchor_bottom = 1.25309
+anchor_left = 0.0190972
+anchor_top = -1.0
+anchor_right = 1.01563
+anchor_bottom = 1.32253
 offset_top = 252.0
 offset_bottom = -252.0
 grow_horizontal = 2
@@ -94,3 +95,16 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_kueys")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hsql0")
 icon = ExtResource("6_gchg3")
 flat = true
+
+[node name="ScoreLabel" type="Label" parent="DeathScene"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.035
+offset_left = 380.0
+offset_top = 412.0
+offset_right = 769.68
+offset_bottom = 468.32
+theme_override_fonts/font = ExtResource("6_deopy")
+theme_override_font_sizes/font_size = 75
+text = "Score || 0"
