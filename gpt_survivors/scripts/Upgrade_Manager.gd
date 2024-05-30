@@ -47,9 +47,35 @@ func spend_loot(value: int):
 		return true
 	else:
 		return false
+
+## sets the amo bar to value/max_value
 func update_amo_bar(value: int, max_value: int):
 	amo_bar.value = value
 	amo_bar.max_value = max_value
+
+## increases the clip size by value and resets the amunition
+func increase_clip_size(value: int):
+	#increase clip size and reset amunition
+	weapon.clip_size += value
+	weapon.amunition = weapon.clip_size
+	update_amo_bar(weapon.amunition, weapon.clip_size)
+	print("clip size: ", weapon.clip_size)
+
+## increases the wepon value by value
+func increase_damage(value: int):
+	weapon.damage += value
+	print("damage: ", weapon.damage)
+
+## decrease fire_timer by value
+func increase_fire_rate(value: float):
+	weapon.fire_rate -= value
+	print("fire rate: ", weapon.fire_rate)
+
+## increase range_time(time till the bullet is destroyed) by value
+func increase_range_time(value: float):
+	weapon.range_time += value
+	print("range time: ", weapon.range_time)
+
 
 
 
