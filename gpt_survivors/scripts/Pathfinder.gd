@@ -49,7 +49,12 @@ func next_position():
 		return null
 	# if pathfinding_agent.is_navigation_finished():
 	# 	return null
+
+
 	var randomess : Vector2 = Vector2(randi_range(-10, 10), randi_range(-10, 10))
+	var dis = global_position.distance_to(target.global_position)
+	if dis < 100:
+		randomess = Vector2(0,0)
 
 	var pos = pathfinding_agent.get_next_path_position() + randomess
 

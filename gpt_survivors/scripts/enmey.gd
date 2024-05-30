@@ -74,10 +74,12 @@ func _process(_delta):
 	
 	# check if ranged is selected
 
-	if ranged and pathfinder.target.global_position.distance_to(global_position) < range_distance:
-		print("ranged attack")
-		return
 
+	var dis = global_position.distance_to(pathfinder.target.global_position)
+
+
+	if ranged and dis < range_distance:
+		return
 
 
 
