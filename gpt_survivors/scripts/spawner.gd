@@ -64,5 +64,5 @@ func spawn():
 
 	# add the enemy to the scene
 	# get_parent().add_child(made_enemy)
-	get_tree().get_root().add_child(made_enemy)
+	get_tree().get_root().call_deferred("add_child", made_enemy)
 
