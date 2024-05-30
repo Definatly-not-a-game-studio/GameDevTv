@@ -2,16 +2,14 @@ extends Control
 
 
 # @onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
-@onready var start_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/Start_Button
-@onready var options_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/HBoxContainer/Options_Button
-@onready var exit_button = $MarginContainer2/ButtonsHBoxContainer/ButtonsVBoxContainer/HBoxContainer/Exit_Button
 
+@onready var start_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Start_Button
+@onready var exit_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Exit_Button
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_button.button_up.connect(on_start_released)
-	options_button.button_up.connect(on_options_released)
 	exit_button.button_up.connect(on_exit_released)
 	
 	pass # Replace with function body.
