@@ -11,10 +11,13 @@ extends RigidBody2D
 @onready var hitbox = $Hit_Box
 @onready var sprite = $Sprite2D
 
+var type = "projectile"
+
 
 func _ready():
 	hitbox.damage = damage_project
 	hitbox.damage_type = damage_type
+	hitbox.type = type
 
 
 	# deleat bulet after a certain amount of time

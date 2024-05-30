@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://scripts/Spawn_Manager.gd" id="3_60ux1"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/main_character.tscn" id="6_k8vcy"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="6_u53m5"]
-[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Test_Scenes/Brandon/controler_bot.tscn" id="7_m4on5"]
+[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Enemies/controler_bot.tscn" id="7_m4on5"]
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="8_wrk04"]
-[ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Test_Scenes/Brandon/zombie_bot.tscn" id="9_3e5q4"]
+[ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Enemies/zombie_bot.tscn" id="9_3e5q4"]
 
 [node name="ricky_test" type="Node2D"]
 y_sort_enabled = true

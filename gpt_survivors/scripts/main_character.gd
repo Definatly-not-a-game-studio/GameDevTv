@@ -14,7 +14,7 @@ signal died
 @onready var camera = $Camera2D
 @onready var hud = $HUD
 
-@export var loaded_weapon : PackedScene = load("res://scenes/Test_Scenes/Brandon/weapon.tscn")
+@export var loaded_weapon : PackedScene = load("res://scenes/Weapons/weapon.tscn")
 
 var death_scene : PackedScene = load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn")
 
@@ -57,6 +57,9 @@ func _ready():
 	hurtbox.knock_back.connect(knockBack)
 
 	sprite.play("idle")
+
+	# set hit and hurtbox to player
+	hurtbox.type = "player"
 
 	
 

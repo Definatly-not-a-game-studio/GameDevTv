@@ -4,6 +4,7 @@ extends Area2D
 
 @export var damage := 10
 @export var damage_type : String = "physical"
+@export var type : String = "enemy"
 
 
 func _init():

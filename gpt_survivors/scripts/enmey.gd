@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var hitbox = $Hit_Box
 @onready var hurtbox = $Hurt_Box
 @onready var life = $LifeState
-@onready var death_scene = preload("res://scenes/Test_Scenes/Brandon/dead_bot.tscn")
+@onready var death_scene = preload("res://scenes/Enemies/dead_bot.tscn")
 
 @export var speed = 100
 @export var target_entitie :CharacterBody2D = null
@@ -18,12 +18,17 @@ extends CharacterBody2D
 @export var projectile : PackedScene = null
 @export var proj_speed : float = 100
 @export var proj_spawn_rate : float = 5
+@export var ranged : bool = false
 
 
 var knocking_back = false
 var knockback_velocity = Vector2(0,0)
 
 var random_direction = Vector2(0, 0)
+
+## the distace an enemy will stop aproaching the player
+var range_distance = 75
+
 
 
 func _ready():
@@ -66,6 +71,15 @@ func _process(_delta):
 	if target == null:
 		# generate random direction
 		target = random_direction * 100 + global_position
+	
+	# check if ranged is selected
+
+	if ranged and pathfinder.target.global_position.distance_to(global_position) < range_distance:
+		print("ranged attack")
+		return
+
+
+
 
 	# get the current position of the agent
 	var current_agent_position = global_position
@@ -138,6 +152,7 @@ func shoot_projectile():
 	var proj = projectile.instantiate()
 	proj.speed = proj_speed
 	proj.damage_project = int(hitbox.damage *damage_multiplier)
+	proj.type = "enemy"
 	
 	var dir = global_position.direction_to(target_entitie.global_position)
 	proj.direction = dir

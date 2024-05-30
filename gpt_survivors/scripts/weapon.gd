@@ -6,7 +6,7 @@ extends Marker2D
 signal reloading
 signal done_reloading
 
-@export var bullet : PackedScene = preload("res://scenes/Test_Scenes/Brandon/bullet.tscn")
+@export var bullet : PackedScene = preload("res://scenes/Bullets/bullet.tscn")
 
 
 # properties of a weopn

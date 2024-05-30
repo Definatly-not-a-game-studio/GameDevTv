@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_jjb03"]
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="4_7lxv8"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="7_tery6"]
-[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Test_Scenes/Brandon/controler_bot.tscn" id="8_p56du"]
-[ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Test_Scenes/Brandon/zombie_bot.tscn" id="13_k3g6o"]
+[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Enemies/controler_bot.tscn" id="8_p56du"]
+[ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Enemies/zombie_bot.tscn" id="13_k3g6o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qryw"]
 atlas = ExtResource("1_68snr")

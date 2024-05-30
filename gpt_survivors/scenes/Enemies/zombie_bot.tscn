@@ -1,13 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://d0ncjwitnaeuu"]
 
-[ext_resource type="Script" path="res://scripts/enmey.gd" id="1_4ml2t"]
-[ext_resource type="Script" path="res://scripts/helath.gd" id="2_di6nw"]
-[ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_fjjq7"]
-[ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_wxyyh"]
-[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="5_q3hdx"]
-[ext_resource type="Texture2D" uid="uid://bqkc1byeb3ife" path="res://assets/Enemies/robot3.png" id="6_47xf3"]
-[ext_resource type="Script" path="res://scripts/spawner.gd" id="7_uhbhs"]
-[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Test_Scenes/Brandon/skull_bot.tscn" id="8_eo863"]
+[ext_resource type="Script" path="res://scripts/enmey.gd" id="1_3tub4"]
+[ext_resource type="Script" path="res://scripts/helath.gd" id="2_7nvx3"]
+[ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="3_85rnr"]
+[ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_4gnbe"]
+[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="5_hglp4"]
+[ext_resource type="Texture2D" uid="uid://bqkc1byeb3ife" path="res://assets/Enemies/robot3.png" id="6_m7dg0"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="7_va2vt"]
+[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="8_8binr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5at58"]
 radius = 5.0
@@ -18,23 +18,23 @@ radius = 6.0
 height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h25i1"]
-atlas = ExtResource("6_47xf3")
+atlas = ExtResource("6_m7dg0")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2o0pk"]
-atlas = ExtResource("6_47xf3")
+atlas = ExtResource("6_m7dg0")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78s0n"]
-atlas = ExtResource("6_47xf3")
+atlas = ExtResource("6_m7dg0")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxdne"]
-atlas = ExtResource("6_47xf3")
+atlas = ExtResource("6_m7dg0")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88s1d"]
-atlas = ExtResource("6_47xf3")
+atlas = ExtResource("6_m7dg0")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eblgm"]
@@ -61,27 +61,28 @@ animations = [{
 }]
 
 [node name="zombie_bot" type="CharacterBody2D"]
-script = ExtResource("1_4ml2t")
+script = ExtResource("1_3tub4")
 speed = 30
+ranged = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5at58")
 
 [node name="LifeState" type="Node2D" parent="."]
-script = ExtResource("2_di6nw")
+script = ExtResource("2_7nvx3")
 
 [node name="Hurt_Box" type="Area2D" parent="." node_paths=PackedStringArray("damage_taker")]
-script = ExtResource("3_fjjq7")
+script = ExtResource("3_85rnr")
 damage_taker = NodePath("../LifeState")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
 shape = SubResource("CapsuleShape2D_5at58")
 
 [node name="Pathfinder" type="Node2D" parent="."]
-script = ExtResource("4_wxyyh")
+script = ExtResource("4_4gnbe")
 
 [node name="Hit_Box" type="Area2D" parent="."]
-script = ExtResource("5_q3hdx")
+script = ExtResource("5_hglp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
 shape = SubResource("CapsuleShape2D_kshxd")
@@ -91,6 +92,6 @@ sprite_frames = SubResource("SpriteFrames_eblgm")
 animation = &"walk"
 
 [node name="Spawner" type="Node2D" parent="."]
-script = ExtResource("7_uhbhs")
-spawn_enemy = ExtResource("8_eo863")
+script = ExtResource("7_va2vt")
+spawn_enemy = ExtResource("8_8binr")
 spawn_rate = 3.0

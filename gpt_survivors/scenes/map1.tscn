@@ -2,13 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/main_character.tscn" id="2_m4iex"]
+[ext_resource type="PackedScene" uid="uid://3qg3sapon17n" path="res://scenes/Weapons/weapon.tscn" id="3_30pc1"]
 [ext_resource type="Script" path="res://scripts/Spawn_Manager.gd" id="3_albtc"]
-[ext_resource type="PackedScene" uid="uid://3qg3sapon17n" path="res://scenes/Test_Scenes/Brandon/weapon.tscn" id="3_d10rq"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="4_48mk3"]
-[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Test_Scenes/Brandon/controler_bot.tscn" id="5_v4q0l"]
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="6_wk765"]
-[ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Test_Scenes/Brandon/zombie_bot.tscn" id="7_am24t"]
-[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Test_Scenes/Brandon/skull_bot.tscn" id="8_g40qb"]
+[ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Enemies/controler_bot.tscn" id="7_nkt34"]
+[ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Enemies/zombie_bot.tscn" id="8_pptwx"]
+[ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="9_hm53f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_epkyt"]
 normal = Vector2(0.999998, 0.00213383)
@@ -16,6 +16,7 @@ distance = 68.0
 
 [node name="TileMap" type="TileMap"]
 y_sort_enabled = true
+position = Vector2(0, 1)
 tile_set = ExtResource("1_qw0o2")
 format = 2
 layer_0/name = "Ground"
@@ -29,7 +30,7 @@ layer_2/tile_data = PackedInt32Array(1048594, 2, 0, 196612, 2, 0, 851970, 2, 0, 
 
 [node name="Hero" parent="." instance=ExtResource("2_m4iex")]
 position = Vector2(581, 312)
-loaded_weapon = ExtResource("3_d10rq")
+loaded_weapon = ExtResource("3_30pc1")
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 zoom = Vector2(3, 3)
@@ -54,7 +55,7 @@ spawn_rate = 5.0
 [node name="Spawner" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(1207, 95)
 script = ExtResource("4_48mk3")
-spawn_enemy = ExtResource("5_v4q0l")
+spawn_enemy = ExtResource("7_nkt34")
 spawn_rate = 10.0
 damage_multiplier = 2.0
 
@@ -67,25 +68,25 @@ spawn_rate = 5.0
 [node name="Spawner3" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(-41, 81)
 script = ExtResource("4_48mk3")
-spawn_enemy = ExtResource("7_am24t")
+spawn_enemy = ExtResource("8_pptwx")
 spawn_rate = 5.0
 
 [node name="Spawner4" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(1191, 602)
 script = ExtResource("4_48mk3")
-spawn_enemy = ExtResource("8_g40qb")
+spawn_enemy = ExtResource("9_hm53f")
 
 [node name="Spawner5" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(1222, 350)
 script = ExtResource("4_48mk3")
-spawn_enemy = ExtResource("5_v4q0l")
+spawn_enemy = ExtResource("7_nkt34")
 spawn_rate = 10.0
 damage_multiplier = 2.0
 
 [node name="Spawner6" type="Node2D" parent="Spawn_Manager"]
 position = Vector2(1012, 695)
 script = ExtResource("4_48mk3")
-spawn_enemy = ExtResource("5_v4q0l")
+spawn_enemy = ExtResource("7_nkt34")
 spawn_rate = 10.0
 damage_multiplier = 2.0
 

@@ -5,6 +5,7 @@ signal knock_back( knockback:Vector2)
 
 
 @export var damage_taker : LifeState = null
+@export var type : String = "enemy"
 
 var invincible : bool = false
 
@@ -30,10 +31,22 @@ func _ready():
 
 
 func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
+	damage_me(hurt_area)
+
+
+
+
+
+func damage_me(hurt_area :Hit_Box):
 	if hurt_area == null:
 		return
 	if invincible:
 		return
+
+	if hurt_area.type == type:
+		return
+
+
 
 	if damage_taker == null:
 		return
@@ -61,9 +74,6 @@ func _on_Hurt_Box_area_entered(hurt_area:Hit_Box) -> void:
 
 
 
-
-
-
 func _on_timer_timeout():
 	if invincible:
 		return
@@ -77,9 +87,8 @@ func _on_timer_timeout():
 	for area in areas:
 		if area.owner == owner:
 			continue
-		if damage_taker.has_method("take_damage"):
-			var damage = area.damage
-			damage_taker.take_damage(damage)
+		damage_me(area)
+
 
 
 func set_invincible(value:bool):

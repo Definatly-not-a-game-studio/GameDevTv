@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkd25dq6ie4s3"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_31ulh"]
-[ext_resource type="Texture2D" uid="uid://b6m3ba3vots3n" path="res://assets/bullet1.png" id="2_pl6dl"]
-[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="3_i450m"]
-[ext_resource type="Texture2D" uid="uid://dbppvb1iginaw" path="res://light.png" id="4_nwin4"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_dl85r"]
+[ext_resource type="Texture2D" uid="uid://b6m3ba3vots3n" path="res://assets/bullet1.png" id="2_klbmk"]
+[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="3_4umfc"]
+[ext_resource type="Texture2D" uid="uid://dbppvb1iginaw" path="res://light.png" id="4_5g5ek"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ncu3"]
 radius = 1.0098
@@ -15,21 +15,21 @@ radius = 3.02941
 scale = Vector2(0.990291, 0.990126)
 collision_layer = 3
 collision_mask = 0
-script = ExtResource("1_31ulh")
+script = ExtResource("1_dl85r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pl6dl")
+texture = ExtResource("2_klbmk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2ncu3")
 
 [node name="Hit_Box" type="Area2D" parent="."]
-script = ExtResource("3_i450m")
+script = ExtResource("3_4umfc")
 damage = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
 shape = SubResource("CircleShape2D_j10ro")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-texture = ExtResource("4_nwin4")
+texture = ExtResource("4_5g5ek")
 texture_scale = 0.1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://bomr6q155glwb"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_7ido0"]
-[ext_resource type="PackedScene" uid="uid://c0ijrjfvy4gdd" path="res://scenes/Test_Scenes/Brandon/amunition_display.tscn" id="2_6awjh"]
+[ext_resource type="PackedScene" uid="uid://c0ijrjfvy4gdd" path="res://scenes/UI/amunition_display.tscn" id="2_3kkai"]
 [ext_resource type="Texture2D" uid="uid://bcqny3j5w4m0u" path="res://assets/reloading.png" id="3_h67ma"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="4_m2lyv"]
 [ext_resource type="Texture2D" uid="uid://0myt0r7n4k6b" path="res://assets/Main_Character/mainChar_Idle1.png" id="5_bnb6b"]
@@ -186,7 +186,7 @@ collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_7ido0")
 
-[node name="TextureProgressBar" parent="." instance=ExtResource("2_6awjh")]
+[node name="TextureProgressBar" parent="." instance=ExtResource("2_3kkai")]
 
 [node name="Reload_Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
