@@ -51,11 +51,10 @@ func _process(_delta):
 
 
 
-func spawn():
-
+func spawn( _enemy : PackedScene = spawn_enemy):
 
 	# spawn the enemy
-	var made_enemy = spawn_enemy.instantiate()
+	var made_enemy = _enemy.instantiate()
 	# apply the damage and health multipliers
 	made_enemy.position = global_position
 	made_enemy.target_entitie = target

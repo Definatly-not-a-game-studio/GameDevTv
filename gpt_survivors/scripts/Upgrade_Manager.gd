@@ -1,6 +1,6 @@
 class_name Upgrade_Manager
 
-extends Node
+extends Area2D
 
 
 @export var player : Player = null
@@ -19,6 +19,8 @@ func _ready():
 		lifestate = player.get_node("LifeState")
 	if lootgrabber == null:
 		lootgrabber = player.get_node("loot_grabber")
+	if amo_bar == null:
+		amo_bar = player.get_node("TextureProgressBar")
 
 	#check if all nodes are present
 	if player == null or lifestate == null  or lootgrabber == null:
@@ -77,6 +79,10 @@ func increase_range_time(value: float):
 	print("range time: ", weapon.range_time)
 
 
+## increase the pickup range by value
+func increase_pickup_range(value: float):
+	lootgrabber.increase_radius(value)
+	print("pickup range: ", lootgrabber.pickup_range)
 
 
 
