@@ -14,7 +14,8 @@ func _ready():
 	pass # Replace with function body.
 
 func on_start_released() -> void:
-	var scene = load("res://scenes/Test_Scenes/Brandon/ricky_test.tscn")
+	# @onready var start_level = preload("res://scenes/map1.tscn") as PackedScene
+	var scene = load("res://scenes/map1.tscn")
 	get_tree().paused = false
 	var kids = get_tree().root.get_children()
 	for kid in kids:

@@ -2,7 +2,8 @@ class_name MainMenu
 extends Control
 
 
-@onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
+# @onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
+@onready var start_level = preload("res://scenes/map1.tscn") as PackedScene
 @onready var start_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Start_Button
 @onready var options_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Options_Button
 @onready var exit_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Exit_Button
