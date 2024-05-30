@@ -12,6 +12,7 @@ signal died
 @onready var lifestate = $LifeState
 @onready var upgrade_manager = $Upgrade_Manager
 @onready var camera = $Camera2D
+@onready var hud = $HUD
 
 @export var loaded_weapon : PackedScene = load("res://scenes/Test_Scenes/Brandon/weapon.tscn")
 
@@ -42,6 +43,7 @@ var my_weapon = null
 
 
 func _ready():
+	hud.show()
 	print(loaded_weapon)
 	# creates an instance of the weapon and adds it to the player
 	change_weapon(loaded_weapon)
@@ -132,7 +134,8 @@ func die():
 	node.add_child(camera)
 
 	emit_signal("died")
-
+	
+	hud.hide()
 	var _scene = death_scene.instantiate()
 	get_tree().get_root().add_child(_scene)
 	_scene.set_score(upgrade_manager.score)
