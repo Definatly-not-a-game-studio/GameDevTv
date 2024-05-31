@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnxho7cy1trse"]
+[gd_scene load_steps=4 format=3 uid="uid://dnxho7cy1trse"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_uf6xp"]
+[ext_resource type="FontFile" uid="uid://bpxsbwrahbx28" path="res://assets/fonts/SevenSegment.ttf" id="2_bmdv5"]
+[ext_resource type="Texture2D" uid="uid://txictd4ar53m" path="res://assets/HUD/Currency/Microcontroller.png" id="3_8uphk"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_uf6xp")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
-anchors_preset = -1
 offset_left = 91.0
 offset_top = 36.0
 offset_right = 450.0
@@ -16,15 +17,46 @@ value = 60.0
 show_percentage = false
 
 [node name="Score" type="Label" parent="."]
-offset_left = 603.0
-offset_top = 37.0
-offset_right = 713.0
-offset_bottom = 60.0
-text = "Score: "
+offset_left = 559.0
+offset_top = 30.0
+offset_right = 669.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("2_bmdv5")
+theme_override_font_sizes/font_size = 40
+text = "Score "
 
 [node name="Cash" type="Label" parent="."]
-offset_left = 804.0
-offset_top = 37.0
-offset_right = 923.0
-offset_bottom = 60.0
-text = "Cash:"
+offset_left = 904.0
+offset_top = 31.0
+offset_right = 1023.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("2_bmdv5")
+theme_override_font_sizes/font_size = 40
+
+[node name="Colon1" type="Label" parent="."]
+offset_left = 658.0
+offset_top = 7.0
+offset_right = 698.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_bmdv5")
+theme_override_font_sizes/font_size = 60
+text = ":"
+
+[node name="Colon2" type="Label" parent="."]
+offset_left = 902.0
+offset_top = 8.0
+offset_right = 942.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("2_bmdv5")
+theme_override_font_sizes/font_size = 60
+text = ":"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.031
+offset_left = 851.0
+offset_top = 26.0
+offset_right = 863.68
+offset_bottom = 56.912
+texture = ExtResource("3_8uphk")

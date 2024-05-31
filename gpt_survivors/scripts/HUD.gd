@@ -15,8 +15,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	score_lbl.text = "Score: "+str(upgrade_manager.score)
-	cash_lbl.text = "Cash: "+str(upgrade_manager.loot)
+	score_lbl.text = "Score  "+str(upgrade_manager.score)
+	cash_lbl.text = " "+str(upgrade_manager.loot)
 	healthbar.value = life.health
 
 
