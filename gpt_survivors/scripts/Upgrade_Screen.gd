@@ -14,6 +14,7 @@ enum Upgrade_Type {
 	PICKUP_UPGRADE,
 }
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 
@@ -76,6 +77,7 @@ func use_upgrade(type : int, value : int):
 
 func _ready():
 	# create 3 upgrades
+	animated_sprite_2d.play("default")
 	pass
 
 
