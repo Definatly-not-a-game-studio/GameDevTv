@@ -36,18 +36,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Button" parent="Control" instance=ExtResource("2_cqk0k")]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 236.0
 offset_right = 360.0
 offset_bottom = 543.0
 
 [node name="Button2" parent="Control" instance=ExtResource("2_cqk0k")]
+layout_mode = 0
 offset_left = 399.0
 offset_top = 238.0
 offset_right = 707.0
 offset_bottom = 545.0
 
 [node name="Button3" parent="Control" instance=ExtResource("2_cqk0k")]
+layout_mode = 0
 offset_left = 743.0
 offset_top = 243.0
 offset_right = 1051.0
@@ -64,4 +67,4 @@ color = Color(0.266667, 0.266667, 0.266667, 0.576471)
 position = Vector2(543, 158.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_f0iq8")
-frame_progress = 0.0629001
+frame_progress = 0.674395
