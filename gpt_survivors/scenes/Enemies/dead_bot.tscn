@@ -43,6 +43,7 @@ animations = [{
 size = Vector2(7, 6)
 
 [node name="Dead_Bot" type="Area2D"]
+y_sort_enabled = true
 script = ExtResource("1_riw2m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

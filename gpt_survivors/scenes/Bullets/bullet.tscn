@@ -12,6 +12,7 @@ radius = 1.0098
 radius = 3.02941
 
 [node name="Bullet" type="RigidBody2D"]
+y_sort_enabled = true
 scale = Vector2(0.990291, 0.990126)
 collision_layer = 3
 collision_mask = 0
