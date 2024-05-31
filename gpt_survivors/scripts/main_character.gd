@@ -28,8 +28,8 @@ var knockback_velocity = Vector2(0,0)
 
 
 
-const SPEED = 150.0
-const DASH_SPEED = 300.0
+const SPEED = 75.0
+const DASH_SPEED = 120.0
 
 
 var dash_time = 0.5
