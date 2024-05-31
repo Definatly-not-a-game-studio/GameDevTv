@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://484p7ebuh3j4"
-path="res://.godot/imported/crosshair.png-892201cba24b61c6bcdd78e8881a4078.ctex"
+uid="uid://cocayixmpujfw"
+path="res://.godot/imported/RerollButton.png-05cec4526f1e0a83bc9f600ead106b70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HUD/crosshair.png"
-dest_files=["res://.godot/imported/crosshair.png-892201cba24b61c6bcdd78e8881a4078.ctex"]
+source_file="res://assets/Menu_Items/Upgrade_Menu/RerollButton.png"
+dest_files=["res://.godot/imported/RerollButton.png-05cec4526f1e0a83bc9f600ead106b70.ctex"]
 
 [params]
 
