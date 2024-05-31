@@ -34,6 +34,13 @@ var range_distance = 75
 
 
 func _ready():
+	#enable y sorting
+	y_sort_enabled = true
+	sprite.y_sort_enabled = true
+	
+
+
+
 	hitbox.damage = hitbox.damage * damage_multiplier
 	life.health = life.health * health_multiplier
 

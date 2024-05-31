@@ -51,6 +51,7 @@ animations = [{
 }]
 
 [node name="skull_bot" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_iqwxh")
 speed = 30
 projectile = ExtResource("2_3redf")
@@ -67,6 +68,7 @@ script = ExtResource("4_vvnrd")
 damage_taker = NodePath("../LifeState")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Box"]
+y_sort_enabled = true
 shape = SubResource("CircleShape2D_d5jib")
 
 [node name="Pathfinder" type="Node2D" parent="."]

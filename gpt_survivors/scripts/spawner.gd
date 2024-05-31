@@ -72,7 +72,7 @@ func spawn( _enemy : PackedScene = spawn_enemy):
 
 	# add the enemy to the scene
 	# get_parent().add_child(made_enemy)
-	get_tree().get_root().call_deferred("add_child", made_enemy)
+	get_tree().get_root().get_children()[0].call_deferred("add_child", made_enemy)
 
 func child_die():
 	current_spawns -= 1

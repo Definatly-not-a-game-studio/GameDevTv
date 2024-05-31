@@ -61,6 +61,7 @@ animations = [{
 }]
 
 [node name="zombie_bot" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_3tub4")
 speed = 30
 ranged = true
