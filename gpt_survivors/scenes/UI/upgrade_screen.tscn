@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfgdiyrwm5ila"]
+
+[ext_resource type="Script" path="res://scripts/Upgrade_Screen.gd" id="1_88t35"]
+[ext_resource type="PackedScene" uid="uid://f4bihiwlb60j" path="res://scenes/UI/upgrade_button.tscn" id="2_cqk0k"]
+[ext_resource type="Texture2D" path="res://assets/Menu_Items/UpgradeSign.png" id="2_gw7xw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_164u1"]
+atlas = ExtResource("2_gw7xw")
+region = Rect2(0, 0, 537, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5i6u"]
+atlas = ExtResource("2_gw7xw")
+region = Rect2(537, 0, 537, 242)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0iq8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_164u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5i6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Upgrade_Screen" type="CanvasLayer"]
+script = ExtResource("1_88t35")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" parent="Control" instance=ExtResource("2_cqk0k")]
+offset_left = 52.0
+offset_top = 236.0
+offset_right = 360.0
+offset_bottom = 543.0
+
+[node name="Button2" parent="Control" instance=ExtResource("2_cqk0k")]
+offset_left = 399.0
+offset_top = 238.0
+offset_right = 707.0
+offset_bottom = 545.0
+
+[node name="Button3" parent="Control" instance=ExtResource("2_cqk0k")]
+offset_left = 743.0
+offset_top = 243.0
+offset_right = 1051.0
+offset_bottom = 549.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 316.0
+offset_top = 187.5
+offset_right = 777.0
+offset_bottom = 439.5
+color = Color(0.266667, 0.266667, 0.266667, 0.576471)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(543, 158.5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_f0iq8")
+frame_progress = 0.0629001
