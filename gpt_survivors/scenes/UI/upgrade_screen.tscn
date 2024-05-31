@@ -61,7 +61,8 @@ offset_right = 1051.0
 offset_bottom = 549.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 5
+z_index = 100
+z_as_relative = false
 position = Vector2(553, 131)
 sprite_frames = SubResource("SpriteFrames_f0iq8")
 frame_progress = 0.674395

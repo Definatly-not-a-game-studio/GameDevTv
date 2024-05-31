@@ -99,6 +99,10 @@ func use_upgrade(type : int, value : int):
 
 
 func _ready():
+	animated_sprite_2d.play()
+
+	player.hud.hide()
+
 	populate_upgrades(upgrade_boost, luck_boost)
 
 
@@ -122,6 +126,7 @@ func selected(type : int, value : int):
 	use_upgrade(type, value)
 	get_tree().paused = false
 	emit_signal("increase_difficulty")
+	player.hud.show()
 	queue_free() #close the upgrade screen
 	pass
 
