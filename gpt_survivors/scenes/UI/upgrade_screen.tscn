@@ -67,4 +67,4 @@ color = Color(0.266667, 0.266667, 0.266667, 0.576471)
 position = Vector2(543, 158.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_f0iq8")
-frame_progress = 0.0629001
+frame_progress = 0.674395
