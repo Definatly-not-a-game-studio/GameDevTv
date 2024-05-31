@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://xhcucbjssnhw"]
+
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qyv2p"]
+[ext_resource type="PackedScene" uid="uid://bd7bkb6d4r40" path="res://scenes/Bullets/laser_bullet.tscn" id="2_2p4jl"]
+[ext_resource type="Texture2D" uid="uid://j4ddu8k0pgxk" path="res://assets/Guns/laser_cannon.png" id="2_wbidx"]
+[ext_resource type="AudioStream" uid="uid://ci7bppjpir5jg" path="res://assets/Music/SFX/LazerGunSound.wav" id="3_hc2gc"]
+
+[node name="Weapon" type="Marker2D"]
+position = Vector2(6, 0.00488161)
+gizmo_extents = 2.0
+script = ExtResource("1_qyv2p")
+bullet = ExtResource("2_2p4jl")
+damage = 100
+bullet_speed = 500
+fire_rate = 0.5
+range_time = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -1.00488)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_wbidx")
+
+[node name="Barrel_End" type="Marker2D" parent="."]
+position = Vector2(10, -1.00488)
+gizmo_extents = 1.5
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hc2gc")
+volume_db = -5.226

@@ -19,10 +19,13 @@ signal done_reloading
 @export var reload_time = 2.0
 @export var bullet_scale : float = 1.0
 @export var full_auto = false
+@export var loop_sound = false
 
 
 
 @onready var barrel = $Barrel_End
+
+@onready var gun_shot : AudioStreamPlayer2D = $gunshot
 
 
 # The center of the player
@@ -41,6 +44,12 @@ var can_fire = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if loop_sound:
+		gun_shot.finished.connect(sound_loop)
+		
+
+
+
 	center = get_parent()
 	# create a timer for reloading
 	reload_timer = Timer.new()
@@ -65,9 +74,19 @@ func _process(_delta):
 
 
 func shoot():
+
+
 	# check if the player can fire
 	if not can_fire:
 		return
+
+	if gun_shot != null:
+		if loop_sound:
+			if not gun_shot.playing:
+				gun_shot.play()
+		else:
+			gun_shot.play()
+
 
 	amunition -= 1
 
@@ -118,5 +137,9 @@ func reload():
 		reload_timer.start()
 		can_fire = false
 		emit_signal("reloading")
+
+func sound_loop():
+	if Input.is_action_pressed("shoot"):
+		gun_shot.play()
 
 

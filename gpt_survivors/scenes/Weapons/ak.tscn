@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwruxa22566yc"]
+
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qyv2p"]
+[ext_resource type="Texture2D" uid="uid://b07dlx7xvip6f" path="res://assets/Guns/ak.png" id="2_hw4ef"]
+[ext_resource type="AudioStream" uid="uid://x01lhsucpu7d" path="res://assets/Music/SFX/MachineGunSound.wav" id="3_ncqyj"]
+
+[node name="Weapon" type="Marker2D"]
+position = Vector2(6, 0.00488161)
+gizmo_extents = 2.0
+script = ExtResource("1_qyv2p")
+fire_rate = 0.1
+clip_size = 20
+full_auto = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -1.00488)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_hw4ef")
+
+[node name="Barrel_End" type="Marker2D" parent="."]
+position = Vector2(8, -1.00488)
+gizmo_extents = 1.5
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ncqyj")
+pitch_scale = 2.12

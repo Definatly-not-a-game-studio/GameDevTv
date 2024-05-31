@@ -14,7 +14,7 @@ signal died
 @onready var camera = $Camera2D
 @onready var hud = $HUD
 
-@export var loaded_weapon : PackedScene = load("res://scenes/Weapons/weapon.tscn")
+@export var loaded_weapon : PackedScene = null
 
 var death_scene : PackedScene = load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn")
 
@@ -22,7 +22,12 @@ var death_scene : PackedScene = load("res://scenes/Menu_Scenes/Death_menu/Death_
 var knocking_back = false
 var knockback_velocity = Vector2(0,0)
 
-
+var weapons_list = [
+	preload("res://scenes/Weapons/ak.tscn"),
+	preload("res://scenes/Weapons/laser_cannon.tscn"),
+	preload("res://scenes/Weapons/water_gun.tscn"),
+	preload("res://scenes/Weapons/weapon.tscn"),
+	]
 
 
 
@@ -42,15 +47,25 @@ var is_flipped = false
 var my_weapon = null
 
 
+
+func _init():
+	pass
+
 func _ready():
+	print("Player init")
+	if loaded_weapon == null:
+		loaded_weapon = random_weapon(weapons_list)
+		setup_weapon(loaded_weapon)
+	else:
+		setup_weapon(loaded_weapon)
+
+
+
+
+
+
+
 	hud.show()
-	print(loaded_weapon)
-	# creates an instance of the weapon and adds it to the player
-	change_weapon(loaded_weapon)
-	my_weapon.reloading.connect(reload)
-	my_weapon.done_reloading.connect(reload_done)
-	# sets the weapon to the upgrade manager
-	$Upgrade_Manager.weapon = my_weapon
 
 	lifestate.hit.connect(damage_taken)
 
@@ -63,6 +78,12 @@ func _ready():
 
 	
 
+func setup_weapon(weapon : PackedScene):
+	change_weapon(loaded_weapon)
+	my_weapon.reloading.connect(reload)
+	my_weapon.done_reloading.connect(reload_done)
+	# sets the weapon to the upgrade manager
+	$Upgrade_Manager.weapon = my_weapon
 
 
 
@@ -202,7 +223,10 @@ func dash():
 	sprite.play("idle")
 
 	
-
+func random_weapon(weapon_list : Array):
+	var weapon = weapon_list[randi() % weapon_list.size()]
+	loaded_weapon = weapon
+	return weapon
 
 
 
