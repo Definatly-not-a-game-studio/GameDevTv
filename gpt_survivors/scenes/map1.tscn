@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/main_character.tscn" id="2_m4iex"]
-[ext_resource type="PackedScene" uid="uid://3qg3sapon17n" path="res://scenes/Weapons/weapon.tscn" id="3_30pc1"]
+[ext_resource type="PackedScene" uid="uid://clc6nvec70w2s" path="res://scenes/Weapons/water_gun.tscn" id="3_75rrb"]
 [ext_resource type="Script" path="res://scripts/Spawn_Manager.gd" id="3_albtc"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="4_48mk3"]
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="6_wk765"]
@@ -31,7 +31,7 @@ layer_2/tile_data = PackedInt32Array(1048594, 2, 0, 196612, 2, 0, 851970, 2, 0, 
 
 [node name="Hero" parent="." instance=ExtResource("2_m4iex")]
 position = Vector2(581, 312)
-loaded_weapon = ExtResource("3_30pc1")
+loaded_weapon = ExtResource("3_75rrb")
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 zoom = Vector2(3, 3)

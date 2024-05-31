@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://djoxeio7ukde0"]
+[gd_scene load_steps=10 format=3 uid="uid://djoxeio7ukde0"]
 
 [ext_resource type="Script" path="res://scripts/ricky_test_level_code.gd" id="1_2kvdd"]
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_xj6w7"]
 [ext_resource type="Script" path="res://scripts/Spawn_Manager.gd" id="3_60ux1"]
+[ext_resource type="PackedScene" uid="uid://clc6nvec70w2s" path="res://scenes/Weapons/water_gun.tscn" id="4_1156x"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/main_character.tscn" id="6_k8vcy"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="6_u53m5"]
 [ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Enemies/controler_bot.tscn" id="7_m4on5"]
@@ -27,6 +28,7 @@ layer_1/tile_data = PackedInt32Array(-196612, 2, 0, -524282, 2, 0, -327671, 1966
 
 [node name="Hero" parent="." instance=ExtResource("6_k8vcy")]
 position = Vector2(37, -9)
+loaded_weapon = ExtResource("4_1156x")
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 scale = Vector2(4, 1e-05)

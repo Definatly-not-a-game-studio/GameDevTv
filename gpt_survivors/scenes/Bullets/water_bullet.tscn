@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp2cf6f5plqj6"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_dl85r"]
+[ext_resource type="Texture2D" uid="uid://33yw55mmrs01" path="res://assets/Bullets/water_stream.png" id="2_vtxl4"]
+[ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="3_4umfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8fkc"]
+size = Vector2(14.1373, 2.01995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37h8b"]
+size = Vector2(16.1569, 2.01995)
+
+[node name="Bullet" type="RigidBody2D"]
+y_sort_enabled = true
+scale = Vector2(0.990291, 0.990126)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_dl85r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vtxl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.0189e-08, -1.00997)
+shape = SubResource("RectangleShape2D_f8fkc")
+
+[node name="Hit_Box" type="Area2D" parent="."]
+script = ExtResource("3_4umfc")
+damage = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
+position = Vector2(-1.20378e-07, -1.00997)
+shape = SubResource("RectangleShape2D_37h8b")
