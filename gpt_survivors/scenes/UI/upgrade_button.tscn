@@ -19,6 +19,7 @@ text_overrun_behavior = 4
 script = ExtResource("2_1ruct")
 
 [node name="lbl_Title" type="Label" parent="."]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 45.0
 offset_right = 265.0
@@ -30,6 +31,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="lbl_body" type="Label" parent="."]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 109.0
 offset_right = 263.0

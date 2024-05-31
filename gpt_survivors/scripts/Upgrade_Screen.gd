@@ -2,6 +2,10 @@ class_name Upgrade_Screen
 
 extends CanvasLayer
 
+@export var button_left : Button = null
+@export var button_center : Button = null
+@export var button_right : Button = null
+
 
 
 #enums for upgrade types
@@ -46,15 +50,15 @@ func create_upgrade():
 func upgrade_name(type : int) -> String:
 	match type:
 		Upgrade_Type.CLIP_UPGRADE:
-			return "Clip Upgrade"
+			return "Clip Size"
 		Upgrade_Type.DAMAGE_UPGRADE:
-			return "Damage Upgrade"
+			return "Damage"
 		Upgrade_Type.FIRE_RATE_UPGRADE:
-			return "Fire Rate Upgrade"
+			return "Fire Rate"
 		Upgrade_Type.RANGE_UPGRADE:
-			return "Range Upgrade"
+			return "Bullet Range"
 		Upgrade_Type.PICKUP_UPGRADE:
-			return "Pickup Upgrade"
+			return "Pickup Range"
 		_:
 			return "Unknown Upgrade"
 
@@ -75,16 +79,26 @@ func use_upgrade(type : int, value : int):
 
 
 func _ready():
-	# create 3 upgrades
+	# set the upgrade manager to the player
+	upgrade_mg = player.upgrade_manager
+
+	var buttons = [button_left, button_center, button_right]
+	for i in range(3):
+		var upgrade = create_upgrade()
+		buttons[i].update_text(upgrade.id, upgrade.name, upgrade.value, upgrade.rarirty)
+		buttons[i].upgrade_selected.connect(selected)
+
+func selected(type : int, value : int):
+	use_upgrade(type, value)
+	get_tree().paused = false
+	queue_free() #close the upgrade screen
+
+
+
+
+
 	pass
 
-
-
-
-
-	
-
-	
 
 
 
