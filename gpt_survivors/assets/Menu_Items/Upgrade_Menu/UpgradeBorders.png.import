@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqpq8awkqe04"
-path="res://.godot/imported/UpgradeSign.png-ce5a86dd637806020f5ff7c65e261efa.ctex"
+uid="uid://cc2phimq7ibq7"
+path="res://.godot/imported/UpgradeBorders.png-79c002324cec1321be1fd1c6ab173137.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Menu_Items/UpgradeSign.png"
-dest_files=["res://.godot/imported/UpgradeSign.png-ce5a86dd637806020f5ff7c65e261efa.ctex"]
+source_file="res://assets/Menu_Items/Upgrade_Menu/UpgradeBorders.png"
+dest_files=["res://.godot/imported/UpgradeBorders.png-79c002324cec1321be1fd1c6ab173137.ctex"]
 
 [params]
 
