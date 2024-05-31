@@ -79,8 +79,8 @@ func increase_fire_rate(value: int):
 
 ## increase range_time(time till the bullet is destroyed) by value
 func increase_range_time(value: float):
-	# weapon.range_time += ((weapon.range_time*100 * value)/1000.00)*2
-	weapon.range_time += value
+	weapon.range_time += ((weapon.range_time * value)/100.00)
+	# weapon.range_time += value
 	print("range time: ", weapon.range_time)
 
 

@@ -14,7 +14,7 @@ signal done_reloading
 @export var damage_type = "Physical"
 @export var bullet_speed = 1000
 @export var fire_rate = 0.3
-@export var range_time = 1.0
+@export var range_time = 0.1
 @export var clip_size = 10
 @export var reload_time = 2.0
 @export var bullet_scale : float = 1.0

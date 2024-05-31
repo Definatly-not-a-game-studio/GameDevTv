@@ -23,10 +23,16 @@ func _ready():
 
 func _process(_delta):
 	if enemies_spawned > dificulty * 10:
+		spawn_timer.stop()
+
 		dificulty += 1
 		spawn_rate -= 0.1
 		spawn_timer.set_wait_time(spawn_rate)
 		spawn_timer.start()
+
+
+
+
 
 
 func spawn_enemies():
@@ -42,6 +48,8 @@ func spawn_enemies_all():
 		#check if the node is a spawner
 		if spawner is Spawner:
 			spawner.active = false
+			spawner.damage_multiplier += dificulty*0.1
+			spawner.health_multiplier += dificulty*0.1
 			spawner.spawn()
 			enemies_spawned += 1
 

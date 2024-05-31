@@ -187,6 +187,7 @@ collision_mask = 9
 script = ExtResource("1_7ido0")
 
 [node name="TextureProgressBar" parent="." instance=ExtResource("2_3kkai")]
+z_index = 0
 
 [node name="Reload_Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)

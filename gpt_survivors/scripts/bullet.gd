@@ -13,6 +13,8 @@ extends RigidBody2D
 
 var type = "projectile"
 
+var timer = null
+
 
 func _ready():
 	hitbox.damage = damage_project
@@ -21,7 +23,8 @@ func _ready():
 
 
 	# deleat bulet after a certain amount of time
-	var timer = Timer.new()
+	print(die_time)
+	timer = Timer.new()
 	timer.set_wait_time(die_time)
 	timer.timeout.connect(queue_free)
 	timer.one_shot = true
