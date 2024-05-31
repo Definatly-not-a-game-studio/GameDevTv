@@ -146,6 +146,7 @@ collision_mask = 8
 position = Vector2(-71, 93)
 shape = SubResource("WorldBoundaryShape2D_epkyt")
 
-[node name="Terminal" parent="." instance=ExtResource("10_18iut")]
+[node name="Terminal" parent="." node_paths=PackedStringArray("spawn_manager") instance=ExtResource("10_18iut")]
 position = Vector2(546, 269)
 powered = true
+spawn_manager = NodePath("../Spawn_Manager")

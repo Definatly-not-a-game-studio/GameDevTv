@@ -2,6 +2,8 @@ class_name enemy
 
 extends CharacterBody2D
 
+signal dead
+
 @onready var pathfinder = $Pathfinder
 @onready var sprite = $AnimatedSprite2D
 @onready var hitbox = $Hit_Box
@@ -106,6 +108,7 @@ func die():
 	dead_bot.value = value
 	# defer this call
 	get_parent().call_deferred("add_child", dead_bot)
+	emit_signal("dead")
 
 	self.call_deferred("queue_free")
 

@@ -19,6 +19,11 @@ extends Node2D
 # the health multiplier for the spawned enemy
 @export var health_multiplier : float = 1.0
 
+# limit spawns
+@export var max_spawns : int = 0
+# current spawns
+var current_spawns : int = 0
+
 var timer : Timer = null
 
 func _ready():
@@ -52,6 +57,8 @@ func _process(_delta):
 
 
 func spawn( _enemy : PackedScene = spawn_enemy):
+	if max_spawns > 0 and current_spawns >= max_spawns:
+		return
 
 	# spawn the enemy
 	var made_enemy = _enemy.instantiate()
@@ -60,8 +67,14 @@ func spawn( _enemy : PackedScene = spawn_enemy):
 	made_enemy.target_entitie = target
 	made_enemy.damage_multiplier = damage_multiplier
 	made_enemy.health_multiplier = health_multiplier
+	made_enemy.dead.connect(child_die)
+	current_spawns += 1
 
 	# add the enemy to the scene
 	# get_parent().add_child(made_enemy)
 	get_tree().get_root().call_deferred("add_child", made_enemy)
+
+func child_die():
+	current_spawns -= 1
+
 

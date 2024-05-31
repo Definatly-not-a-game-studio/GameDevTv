@@ -95,3 +95,4 @@ animation = &"walk"
 script = ExtResource("7_va2vt")
 spawn_enemy = ExtResource("8_8binr")
 spawn_rate = 3.0
+max_spawns = 3

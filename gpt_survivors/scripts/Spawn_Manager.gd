@@ -88,6 +88,9 @@ func load_enemy_nodes(list_of_enemies : Array):
 	return enemy_node
 	
 
+func increase_difficulty():
+	dificulty += 1
+	print("Difficulty increased to: ", dificulty)
 
 
 

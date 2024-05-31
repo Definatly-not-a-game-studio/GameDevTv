@@ -3,19 +3,27 @@ extends StaticBody2D
 
 @export var player :Player = null
 @export var powered : bool = false
+@export var spawn_manager :Spawn_Manager = null
 
 @onready var label :Label = $Label
 @onready var sprite :AnimatedSprite2D = $AnimatedSprite2D
+@onready var button :Button = $Button
+
+
 
 const upgrade_scene = "res://scenes/UI/upgrade_screen.tscn"
 # var upgrade_screen :PackedScene = preload(upgrade_scene)
+
+const DISTANCE_TO_UPGRADE = 50
 
 
 var upgrade_cost = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	select_animation()
+	button.pressed.connect(action)
 	pass # Replace with function body.
 
 
@@ -36,31 +44,41 @@ func _process(_delta):
 
 
 
-	if dis < 10:
+
+	if dis < 30:
 		label.text = "$" + str(upgrade_cost)
-
 		if Input.is_action_pressed("interact"):
-			#try to spend the loot
-			if not player.upgrade_manager.spend_loot(upgrade_cost):
-				return
-			var scene = load(upgrade_scene)
-			var upgrade_scene_instance = scene.instantiate()
-			upgrade_scene_instance.player = player
-			get_tree().get_root().add_child(upgrade_scene_instance)
-			#pause the game
-			get_tree().paused = true
-
-			
-
-
-
-
-	
+			action()
 	elif distance_to_player() < 100:
 		label.visible = true
 		label.text = "'E'"
 	else:
 		label.visible = false
+
+
+func action():
+	if distance_to_player() > DISTANCE_TO_UPGRADE:
+		return
+
+	if not player.upgrade_manager.spend_loot(upgrade_cost):
+		return
+
+	var scene = load(upgrade_scene)
+	var upgrade_scene_instance = scene.instantiate()
+	upgrade_scene_instance.player = player
+
+	if spawn_manager != null:
+		upgrade_scene_instance.increase_difficulty.connect(spawn_manager.increase_difficulty)
+
+
+
+
+
+
+	get_tree().get_root().add_child(upgrade_scene_instance)
+	#pause the game
+	get_tree().paused = true
+
 
 
 

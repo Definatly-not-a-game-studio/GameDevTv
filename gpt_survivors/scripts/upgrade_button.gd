@@ -30,7 +30,7 @@ func update_text(_ability : int, _name :String ,_increase : int, _rarity : int):
 	rarity = _rarity
 	up_name = _name
 	title.text = "upgrade " + _name
-	body.text = "Increase " + _name + " by " + str(_increase) +"\r" + "Rarity: " + str(_rarity)
+	body.text = "Increase " + _name + " by " + str(_increase) +"%\r" + "Rarity: " + str(_rarity)
 
 func on_pressed():
 	print("pressed")
