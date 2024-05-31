@@ -8,6 +8,7 @@ extends StaticBody2D
 @onready var label :Label = $Label
 @onready var sprite :AnimatedSprite2D = $AnimatedSprite2D
 @onready var button :Button = $Button
+@export var uses :int = 0
 
 
 
@@ -17,7 +18,7 @@ const upgrade_scene = "res://scenes/UI/upgrade_screen.tscn"
 const DISTANCE_TO_UPGRADE = 50
 
 
-var upgrade_cost = 100
+var upgrade_cost = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,7 +47,7 @@ func _process(_delta):
 
 
 	if dis < 30:
-		label.text = "$" + str(upgrade_cost)
+		label.text = "$" + str(get_upgrade_cost())
 		if Input.is_action_pressed("interact"):
 			action()
 	elif distance_to_player() < 100:
@@ -60,12 +61,17 @@ func action():
 	if distance_to_player() > DISTANCE_TO_UPGRADE:
 		return
 
-	if not player.upgrade_manager.spend_loot(upgrade_cost):
+	if not player.upgrade_manager.spend_loot(get_upgrade_cost()):
 		return
 
 	var scene = load(upgrade_scene)
 	var upgrade_scene_instance = scene.instantiate()
 	upgrade_scene_instance.player = player
+
+	if uses == 0:
+		upgrade_scene_instance.upgrade_boost = 2
+
+	uses += 1
 
 	if spawn_manager != null:
 		upgrade_scene_instance.increase_difficulty.connect(spawn_manager.increase_difficulty)
@@ -99,4 +105,19 @@ func select_animation():
 		sprite.play("on")
 	else:
 		sprite.play("off")
+
+func get_upgrade_cost():
+	return upgrade_cost * factorial(uses)
+
+func factorial(n):
+	if n == 0:
+		return 1
+	else:
+		return n * factorial(n-1)
+
+
+
+
+
+
 

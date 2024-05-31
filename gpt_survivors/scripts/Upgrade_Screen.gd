@@ -15,7 +15,7 @@ signal increase_difficulty
 
 #enums for upgrade types
 
-const RARITY_CHANCE = 70
+const RARITY_CHANCE = 60
 
 enum Upgrade_Type { 
 	CLIP_UPGRADE, # = 0

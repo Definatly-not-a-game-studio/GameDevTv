@@ -23,7 +23,6 @@ func _ready():
 
 
 	# deleat bulet after a certain amount of time
-	print(die_time)
 	timer = Timer.new()
 	timer.set_wait_time(die_time)
 	timer.timeout.connect(queue_free)

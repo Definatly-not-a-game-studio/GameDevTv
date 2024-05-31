@@ -22,15 +22,16 @@ func _ready():
 
 
 func _process(_delta):
-	if enemies_spawned > dificulty * 10:
-		spawn_timer.stop()
-
-		dificulty += 1
-		spawn_rate -= 0.1
-		spawn_timer.set_wait_time(spawn_rate)
-		spawn_timer.start()
+	# if enemies_spawned > factorial(dificulty) *10:
+	# 	increase_difficulty()
+	pass
 
 
+func factorial(n):
+	if n == 0:
+		return 1
+	else:
+		return n * factorial(n-1)
 
 
 
@@ -62,9 +63,12 @@ func wave_one_spawn():
 		#check if the node is a spawner
 		if spawner is Spawner:
 			spawner.active = false
+			spawner.damage_multiplier += dificulty*0.1
+			spawner.health_multiplier += dificulty*0.05
+			spawner.active = false
 
 			# determin based off chance which spawner will spawn
-			if randi() % 4 == 0:
+			if randi() % 4  == 0:
 				spawner.spawn()
 				enemies_spawned += 1
 
@@ -97,7 +101,12 @@ func load_enemy_nodes(list_of_enemies : Array):
 	
 
 func increase_difficulty():
+	spawn_timer.stop()
+
 	dificulty += 1
+	spawn_rate -= 0.1
+	spawn_timer.set_wait_time(spawn_rate)
+	spawn_timer.start()
 	print("Difficulty increased to: ", dificulty)
 
 

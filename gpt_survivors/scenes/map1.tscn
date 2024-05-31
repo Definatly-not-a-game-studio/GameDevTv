@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl5rtdlvflokd"]
+[gd_scene load_steps=13 format=3 uid="uid://bl5rtdlvflokd"]
 
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/main_character.tscn" id="2_m4iex"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Enemies/zombie_bot.tscn" id="8_pptwx"]
 [ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="9_hm53f"]
 [ext_resource type="PackedScene" uid="uid://5ygsrdrrr6m3" path="res://scenes/Interactable/terminal.tscn" id="10_18iut"]
+[ext_resource type="PackedScene" uid="uid://buetfg385y6op" path="res://scenes/Enemies/rob_bot.tscn" id="11_k4glh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_epkyt"]
 normal = Vector2(0.999998, 0.00213383)
@@ -44,6 +45,7 @@ color = Color(0.207843, 0.305882, 0.337255, 1)
 
 [node name="Spawn_Manager" type="Node" parent="."]
 script = ExtResource("3_albtc")
+dificulty = null
 spawn_rate = 5.0
 
 [node name="Spawner8" type="Node2D" parent="Spawn_Manager"]
@@ -150,3 +152,9 @@ shape = SubResource("WorldBoundaryShape2D_epkyt")
 position = Vector2(546, 269)
 powered = true
 spawn_manager = NodePath("../Spawn_Manager")
+
+[node name="enemy" parent="." instance=ExtResource("11_k4glh")]
+position = Vector2(449, 399)
+
+[node name="enemy2" parent="." instance=ExtResource("11_k4glh")]
+position = Vector2(655, 396)

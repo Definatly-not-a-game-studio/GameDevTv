@@ -65,6 +65,7 @@ animation = &"walk"
 
 [node name="LifeState" type="Node2D" parent="."]
 script = ExtResource("3_1bdrf")
+health = 50.0
 
 [node name="Hurt_Box" type="Area2D" parent="." node_paths=PackedStringArray("damage_taker")]
 script = ExtResource("4_t5582")
