@@ -16,6 +16,7 @@ scale = Vector2(0.990291, 0.990126)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_dl85r")
+peircing = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vtxl4")

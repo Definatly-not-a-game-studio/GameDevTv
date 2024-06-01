@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b3mg56hbk3451"]
 
 [ext_resource type="Script" path="res://scripts/enmey.gd" id="1_iqwxh"]
-[ext_resource type="PackedScene" uid="uid://bkd25dq6ie4s3" path="res://scenes/Bullets/bullet.tscn" id="2_3redf"]
+[ext_resource type="PackedScene" uid="uid://d2fbkw5pvogrb" path="res://scenes/Bullets/laser_bullet_skull.tscn" id="2_di6l8"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="3_lhj6s"]
 [ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="4_vvnrd"]
 [ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="5_u0g82"]
@@ -54,7 +54,7 @@ animations = [{
 y_sort_enabled = true
 script = ExtResource("1_iqwxh")
 speed = 30
-projectile = ExtResource("2_3redf")
+projectile = ExtResource("2_di6l8")
 ranged = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

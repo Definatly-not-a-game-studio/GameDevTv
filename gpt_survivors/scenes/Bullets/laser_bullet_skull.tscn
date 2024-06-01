@@ -1,15 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd7bkb6d4r40"]
+[gd_scene load_steps=7 format=3 uid="uid://d2fbkw5pvogrb"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_dl85r"]
-[ext_resource type="Texture2D" uid="uid://duftb1l0fykm2" path="res://assets/Bullets/laser_ball.png" id="2_dlw6t"]
+[ext_resource type="Texture2D" uid="uid://bgb4wtdt7ep0m" path="res://assets/Bullets/laser_bullet.png" id="2_rgeic"]
 [ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="3_4umfc"]
 [ext_resource type="Texture2D" uid="uid://dbppvb1iginaw" path="res://light.png" id="4_5g5ek"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ncu3"]
-radius = 3.19333
+radius = 1.0098
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t42cs"]
-radius = 6.05883
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q1nu"]
+size = Vector2(4.03922, 2.01995)
 
 [node name="Bullet" type="RigidBody2D"]
 y_sort_enabled = true
@@ -17,10 +17,10 @@ scale = Vector2(0.990291, 0.990126)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_dl85r")
-peircing = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dlw6t")
+position = Vector2(0, 1.00997)
+texture = ExtResource("2_rgeic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2ncu3")
@@ -31,9 +31,9 @@ damage = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box"]
 position = Vector2(2.40756e-07, 0)
-shape = SubResource("CircleShape2D_t42cs")
+shape = SubResource("RectangleShape2D_3q1nu")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0, 0.352941, 1)
 texture = ExtResource("4_5g5ek")
-texture_scale = 1.8
+texture_scale = 0.05

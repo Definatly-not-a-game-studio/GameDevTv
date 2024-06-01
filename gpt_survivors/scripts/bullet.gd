@@ -7,6 +7,7 @@ extends RigidBody2D
 @export var damage_project = 100
 @export var direction = Vector2(0, 0)
 @export var die_time = 1
+@export var peircing = false
 
 @onready var hitbox = $Hit_Box
 @onready var sprite = $Sprite2D
@@ -58,7 +59,7 @@ func _physics_process(_delta):
 	linear_velocity = direction * speed
 
 func on_body_entered(body):
-	if not body is Hurt_Box:
+	if not body is Hurt_Box or peircing:
 		return
 
 	if body.type == type:
