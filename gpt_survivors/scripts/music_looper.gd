@@ -1,14 +1,15 @@
+class_name looped_music
 extends AudioStreamPlayer
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	#when the audio is finished, it will play again
+	finished.connect(loop)
 	loop()
 
 
 
 func loop():
 	play()
-	finished.connect(loop)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bl5rtdlvflokd"]
+[gd_scene load_steps=17 format=3 uid="uid://bl5rtdlvflokd"]
 
 [ext_resource type="Shader" path="res://assets/shaders/rain_and_snow_shader.gdshader" id="1_fhrjw"]
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="6_wk765"]
 [ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Enemies/controler_bot.tscn" id="7_nkt34"]
 [ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Enemies/zombie_bot.tscn" id="8_pptwx"]
-[ext_resource type="PackedScene" uid="uid://clc6nvec70w2s" path="res://scenes/Weapons/water_gun.tscn" id="9_8km0v"]
 [ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="9_hm53f"]
 [ext_resource type="PackedScene" uid="uid://5ygsrdrrr6m3" path="res://scenes/Interactable/terminal.tscn" id="10_18iut"]
 [ext_resource type="PackedScene" uid="uid://buetfg385y6op" path="res://scenes/Enemies/rob_bot.tscn" id="11_k4glh"]
@@ -123,7 +122,6 @@ spawn_rate = 5.0
 
 [node name="Hero" parent="." instance=ExtResource("2_m4iex")]
 position = Vector2(581, 312)
-loaded_weapon = ExtResource("9_8km0v")
 
 [node name="ColorRect" type="ColorRect" parent="Hero"]
 z_index = 1000
@@ -200,7 +198,7 @@ position = Vector2(449, 399)
 [node name="enemy2" parent="." instance=ExtResource("11_k4glh")]
 position = Vector2(655, 396)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="looped_music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("13_elrmh")
-autoplay = true
 script = ExtResource("14_isv7i")
