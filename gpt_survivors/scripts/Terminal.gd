@@ -107,13 +107,9 @@ func select_animation():
 		sprite.play("off")
 
 func get_upgrade_cost():
-	return upgrade_cost * factorial(uses)
+	var cost =  upgrade_cost * uses
+	return min(cost, 1000)
 
-func factorial(n):
-	if n == 0:
-		return 1
-	else:
-		return n * factorial(n-1)
 
 
 

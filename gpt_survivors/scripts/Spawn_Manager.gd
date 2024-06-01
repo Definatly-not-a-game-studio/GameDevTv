@@ -4,6 +4,8 @@ extends Node
 @export var dificulty : int = 1
 @export var spawn_rate : float = 1.0
 
+
+
 var spawn_timer :Timer = null
 var enemies_spawned :int  = 0
 
@@ -37,7 +39,8 @@ func factorial(n):
 
 
 func spawn_enemies():
-	wave_one_spawn()
+	# wave_one_spawn()
+	custom_wave_spawn(4-floor(dificulty/3.0), get_enemy_nodes())
 
 
 
@@ -77,11 +80,22 @@ func wave_one_spawn():
 
 ## spawn a custom wave of enemies based off a list of enemies
 func custom_wave_spawn(chance_to_spawn : int, list_of_enemies : Array):
+	# get all the spawners
 	var spawners = self.get_children()
+
 	for  spawner in spawners:
+
 		#check if the node is a spawner
 		if spawner is Spawner:
+			# set the spawner to be inactive
 			spawner.active = false
+			spawner.damage_multiplier += dificulty*0.01
+			spawner.health_multiplier += dificulty*0.001
+			spawner.active = false
+
+			# check if the max number of enemies have been spawned
+			if enemies_spawned >= get_enmemies_max():
+				return
 
 			# determin based off chance which spawner will spawn
 			if randi() % chance_to_spawn == 0:
@@ -91,24 +105,47 @@ func custom_wave_spawn(chance_to_spawn : int, list_of_enemies : Array):
 
 
 
-
 ## load a random enemy node from a list of enemies
 func load_enemy_nodes(list_of_enemies : Array):
 	var enemy_node = null
 	var enemy_loc = list_of_enemies[randi() % list_of_enemies.size()]
 	enemy_node = load(enemy_loc)
 	return enemy_node
+
+
+func get_enemy_nodes():
+	var enemy_nodes = []
+	var enemy_dir = "res://scenes/Enemies/"
+	var enemy_files = DirAccess.get_files_at(enemy_dir)
+	for file in enemy_files:
+		if file.ends_with("dead_bot.tscn"):
+			continue
+		enemy_nodes.append(enemy_dir+  file)
+	return enemy_nodes
 	
 
 func increase_difficulty():
 	spawn_timer.stop()
 
 	dificulty += 1
-	spawn_rate -= 0.1
+	spawn_rate -=  spawn_rate * 0.1
 	spawn_timer.set_wait_time(spawn_rate)
 	spawn_timer.start()
 	print("Difficulty increased to: ", dificulty)
 
+func get_enemies_alive():
+	var enemies :int = 0
+
+	var spawners = self.get_children()
+	for  spawner in spawners:
+		#check if the node is a spawner
+		if spawner is Spawner:
+			enemies += spawner.current_spawns
+	return enemies
+
+## return the max number of enemies that can be spawned
+func get_enmemies_max():
+	return dificulty * 20
 
 
 

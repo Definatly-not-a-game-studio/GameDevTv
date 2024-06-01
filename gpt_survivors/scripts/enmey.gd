@@ -125,7 +125,6 @@ func knockBack(_knockback : Vector2 ):
 
 	if pathfinder.target == null:
 		return
-	print("knockback")
 
 
 	# override the knockback function
