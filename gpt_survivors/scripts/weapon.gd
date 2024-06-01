@@ -139,7 +139,7 @@ func reload():
 		emit_signal("reloading")
 
 func sound_loop():
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and can_fire:
 		gun_shot.play()
 
 

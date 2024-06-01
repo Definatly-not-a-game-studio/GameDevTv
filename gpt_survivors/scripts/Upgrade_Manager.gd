@@ -9,7 +9,7 @@ extends Area2D
 @export var lootgrabber : loot_grabber = null
 @export var amo_bar : TextureProgressBar = null
 
-var loot : int = 100
+var loot : int = 0
 var score : int = 0
 
 func _ready():

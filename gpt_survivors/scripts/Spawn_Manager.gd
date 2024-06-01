@@ -40,7 +40,7 @@ func factorial(n):
 
 func spawn_enemies():
 	# wave_one_spawn()
-	custom_wave_spawn(4-floor(dificulty/3.0), get_enemy_nodes())
+	custom_wave_spawn(4-floor(dificulty/10.0), get_enemy_nodes())
 
 
 
@@ -128,7 +128,7 @@ func increase_difficulty():
 	spawn_timer.stop()
 
 	dificulty += 1
-	spawn_rate -=  spawn_rate * 0.1
+	spawn_rate -=  spawn_rate * 0.05
 	spawn_timer.set_wait_time(spawn_rate)
 	spawn_timer.start()
 	print("Difficulty increased to: ", dificulty)
