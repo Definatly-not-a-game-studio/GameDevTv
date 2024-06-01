@@ -67,6 +67,7 @@ func damage_me(hurt_area :Hit_Box):
 
 	var knockback = my_pos.direction_to(hit_pos)
 
+
 	# emit knockback signal with the direction oposite the knockback
 	knock_back.emit(knockback)
 

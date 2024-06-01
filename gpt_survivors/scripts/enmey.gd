@@ -53,14 +53,11 @@ func _ready():
 		add_child(proj_timer)
 		proj_timer.start()
 
-
 	# all enemies will have a walk animation
 	sprite.play("walk")
 
 	# find the player node
 	random_direction = Vector2(randi_range(-1, 1), randi_range(-1, 1))
-	if target_entitie == null:
-		return
 	
 	# connect the knockback signal from hurtbox
 	hurtbox.knock_back.connect(knockBack)
@@ -68,9 +65,10 @@ func _ready():
 
 
 func _process(_delta):
+	
 
 	if knocking_back:
-		velocity = knockback_velocity*speed
+		velocity = knockback_velocity*speed*2
 		return
 
 	# determine the target position
@@ -125,12 +123,13 @@ func knockBack(_knockback : Vector2 ):
 	if knocking_back:
 		return
 
-	if target_entitie == null:
+	if pathfinder.target == null:
 		return
+	print("knockback")
 
 
 	# override the knockback function
-	knockback_velocity = global_position.direction_to(target_entitie.global_position) 
+	knockback_velocity = global_position.direction_to(pathfinder.target.global_position) 
 	knocking_back = true
 
 	await get_tree().create_timer(0.1).timeout

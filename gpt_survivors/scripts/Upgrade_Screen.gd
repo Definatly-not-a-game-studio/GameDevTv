@@ -109,14 +109,21 @@ func _ready():
 
 
 func populate_upgrades(start_val = 1, luck = 0):
+	var alreay_selected = []
 	# set the upgrade manager to the player
 	upgrade_mg = player.upgrade_manager
 
 	var buttons = [button_left, button_center, button_right]
 	for i in range(3):
 		var upgrade = create_upgrade(start_val, luck)
+
+		#check if the upgrade has already been selected
+		while alreay_selected.has(upgrade.id):
+			upgrade = create_upgrade(start_val, luck)
+
 		buttons[i].update_text(upgrade.id, upgrade.name, upgrade.value, upgrade.rarirty)
 		buttons[i].upgrade_selected.connect(selected)
+		alreay_selected.append(upgrade.id)
 		
 
 
