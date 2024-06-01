@@ -139,13 +139,15 @@ func orient_body():
 	# Determines if the cursor goes behind the player
 	if position_diff > 0 and not is_flipped:
 		# If cursor is behind, flip character by scaling by -1
-		apply_scale(Vector2(-1,1))
+		center.apply_scale(Vector2(1,-1))
+		sprite.flip_h = true
 		is_flipped = true
 		
 	# Determines if the cursor goes behind the player (when already flipped)
 	elif position_diff < 0 and is_flipped:
 		# If cursor is behind, flip character by scaling by -1
-		apply_scale(Vector2(-1,1))
+		center.apply_scale(Vector2(1,-1))
+		sprite.flip_h = false
 		is_flipped = false 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bl5rtdlvflokd"]
+[gd_scene load_steps=16 format=3 uid="uid://bl5rtdlvflokd"]
 
 [ext_resource type="Shader" path="res://assets/shaders/rain_and_snow_shader.gdshader" id="1_fhrjw"]
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
@@ -8,9 +8,24 @@
 [ext_resource type="PackedScene" uid="uid://b0fwcss2drm0l" path="res://scenes/Test_Scenes/Brandon/enemy_class_example.tscn" id="6_wk765"]
 [ext_resource type="PackedScene" uid="uid://bmja0dp1ivyxn" path="res://scenes/Enemies/controler_bot.tscn" id="7_nkt34"]
 [ext_resource type="PackedScene" uid="uid://d0ncjwitnaeuu" path="res://scenes/Enemies/zombie_bot.tscn" id="8_pptwx"]
+[ext_resource type="PackedScene" uid="uid://clc6nvec70w2s" path="res://scenes/Weapons/water_gun.tscn" id="9_8km0v"]
 [ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="9_hm53f"]
 [ext_resource type="PackedScene" uid="uid://5ygsrdrrr6m3" path="res://scenes/Interactable/terminal.tscn" id="10_18iut"]
 [ext_resource type="PackedScene" uid="uid://buetfg385y6op" path="res://scenes/Enemies/rob_bot.tscn" id="11_k4glh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgys0"]
+shader = ExtResource("1_fhrjw")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.02
+shader_parameter/far_rain_length = 0.01
+shader_parameter/near_rain_width = 0.01
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.473976, 0.473976, 0.473975, 1)
+shader_parameter/base_rain_speed = 0.5
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6u46w"]
 shader = ExtResource("1_fhrjw")
@@ -106,6 +121,17 @@ spawn_rate = 5.0
 
 [node name="Hero" parent="." instance=ExtResource("2_m4iex")]
 position = Vector2(581, 312)
+loaded_weapon = ExtResource("9_8km0v")
+
+[node name="ColorRect" type="ColorRect" parent="Hero"]
+z_index = 1000
+material = SubResource("ShaderMaterial_qgys0")
+offset_left = -193.0
+offset_top = -112.0
+offset_right = -115.0
+offset_bottom = -49.0
+scale = Vector2(4.90453, 3.5488)
+color = Color(0, 0, 0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Hero"]
 zoom = Vector2(3, 3)
