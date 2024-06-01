@@ -98,7 +98,7 @@ func custom_wave_spawn(chance_to_spawn : int, list_of_enemies : Array):
 				return
 
 			# determin based off chance which spawner will spawn
-			if randi() % chance_to_spawn == 0:
+			if randi() % max(chance_to_spawn,1) == 0:
 				var enemy_node = load_enemy_nodes(list_of_enemies)
 				spawner.spawn(enemy_node)
 				enemies_spawned += 1
