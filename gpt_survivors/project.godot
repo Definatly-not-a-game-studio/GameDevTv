@@ -18,7 +18,6 @@ config/icon="res://assets/HUD/crosshair.png"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://assets/HUD/crosshair.png"
 

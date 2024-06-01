@@ -4,4 +4,5 @@
 > focusing the johnnies of the last human surviving the AI takeover
 
 For the Pre-Alpha test check releases
+![photo of game](./concept_art_ideas/getting_hit.png)
 
