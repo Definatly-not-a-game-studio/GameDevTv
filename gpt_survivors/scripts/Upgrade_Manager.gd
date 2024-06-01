@@ -41,7 +41,6 @@ func _process(_delta):
 func loot_collected(value: int):
 	loot += value
 	score += value
-	print("loot: ", loot)
 
 func spend_loot(value: int):
 	if loot >= value:

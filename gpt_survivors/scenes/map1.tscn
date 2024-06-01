@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl5rtdlvflokd"]
+[gd_scene load_steps=14 format=3 uid="uid://bl5rtdlvflokd"]
 
+[ext_resource type="Shader" path="res://assets/shaders/rain_and_snow_shader.gdshader" id="1_fhrjw"]
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
 [ext_resource type="PackedScene" uid="uid://bomr6q155glwb" path="res://scenes/main_character.tscn" id="2_m4iex"]
 [ext_resource type="Script" path="res://scripts/Spawn_Manager.gd" id="3_albtc"]
@@ -10,6 +11,20 @@
 [ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="9_hm53f"]
 [ext_resource type="PackedScene" uid="uid://5ygsrdrrr6m3" path="res://scenes/Interactable/terminal.tscn" id="10_18iut"]
 [ext_resource type="PackedScene" uid="uid://buetfg385y6op" path="res://scenes/Enemies/rob_bot.tscn" id="11_k4glh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6u46w"]
+shader = ExtResource("1_fhrjw")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.2
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_rain_speed = 0.5
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_epkyt"]
 normal = Vector2(0.999998, 0.00213383)
@@ -27,19 +42,6 @@ layer_1/tile_data = PackedInt32Array(1114131, 1, 0, 1245217, 1, 0, 1114151, 1, 0
 layer_2/name = "Y Sort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(1048594, 2, 0, 196612, 2, 0, 851970, 2, 0, 196627, 2, 0, 2424884, 2, 0, 1769527, 2, 0, 1900582, 2, 0, 983069, 2, 0, 786477, 2, 0, 131118, 2, 0, 196643, 2, 0, 65593, 2, 0, 786503, 2, 0, 2097154, 2, 0, 2424850, 2, 0, 2097165, 196610, 2, 1966098, 196610, 2, 1507345, 196610, 2, 1572876, 196610, 2, 1310721, 196610, 2, 524289, 196610, 2, 131085, 196610, 2, 589843, 196610, 2, 983081, 196610, 2, 1441824, 196610, 2, 1769517, 196610, 2, 2097185, 327682, 3, 1441831, 327682, 3, 393269, 327682, 3, 1638470, 327682, 3, 2555971, 327682, 3, 2555950, 327682, 3, 1769486, 327682, 3, 1245208, 327682, 0, 1310739, 327682, 0, 393231, 327682, 0, 851988, 327682, 0, 65563, 327682, 0, 131113, 327682, 0, 131125, 327682, 0, 1638450, 327682, 0, 2162742, 327682, 0, 1703944, 131074, 4, 851981, 131074, 4, 2424837, 196610, 5, 1900570, 196610, 5, 2490395, 196610, 5, 2359334, 196610, 5, 2359357, 196610, 5, 1769537, 196610, 5, 1114166, 196610, 5, 852027, 196610, 5, 589889, 196610, 5, 720956, 196610, 5, 1507372, 327682, 1, 1114152, 327682, 1, 131088, 327682, 1, 1310747, 2, 4, 786467, 2, 4, 589879, 2, 4, 131141, 2, 4, 1441850, 2, 4)
-
-[node name="Hero" parent="." instance=ExtResource("2_m4iex")]
-position = Vector2(581, 312)
-
-[node name="Camera2D" type="Camera2D" parent="Hero"]
-zoom = Vector2(3, 3)
-limit_left = 0
-limit_top = 0
-limit_right = 1168
-limit_bottom = 656
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.207843, 0.305882, 0.337255, 1)
 
 [node name="Spawn_Manager" type="Node" parent="."]
 script = ExtResource("3_albtc")
@@ -102,8 +104,21 @@ script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("6_wk765")
 spawn_rate = 5.0
 
+[node name="Hero" parent="." instance=ExtResource("2_m4iex")]
+position = Vector2(581, 312)
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 1168
+limit_bottom = 656
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+material = SubResource("ShaderMaterial_6u46w")
+color = Color(0.207843, 0.305882, 0.337255, 1)
+
 [node name="world bounds" type="Node2D" parent="."]
-visible = false
 position = Vector2(-70, 37)
 
 [node name="left" type="StaticBody2D" parent="world bounds"]

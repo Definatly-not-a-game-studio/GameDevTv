@@ -52,7 +52,7 @@ func spawn_enemies_all():
 		#check if the node is a spawner
 		if spawner is Spawner:
 			spawner.active = false
-			spawner.damage_multiplier += dificulty*0.01
+			spawner.damage_multiplier += dificulty*0.02
 			spawner.health_multiplier += dificulty*0.001
 			spawner.spawn()
 			enemies_spawned += 1
@@ -66,8 +66,8 @@ func wave_one_spawn():
 		#check if the node is a spawner
 		if spawner is Spawner:
 			spawner.active = false
-			spawner.damage_multiplier += dificulty*0.01
-			spawner.health_multiplier += dificulty*0.001
+			spawner.damage_multiplier += dificulty*0.02
+			spawner.health_multiplier += dificulty*0.01
 			spawner.active = false
 
 			# determin based off chance which spawner will spawn
@@ -89,8 +89,8 @@ func custom_wave_spawn(chance_to_spawn : int, list_of_enemies : Array):
 		if spawner is Spawner:
 			# set the spawner to be inactive
 			spawner.active = false
-			spawner.damage_multiplier += dificulty*0.01
-			spawner.health_multiplier += dificulty*0.001
+			spawner.damage_multiplier += dificulty*0.02
+			spawner.health_multiplier += dificulty*0.01
 			spawner.active = false
 
 			# check if the max number of enemies have been spawned
@@ -116,7 +116,14 @@ func load_enemy_nodes(list_of_enemies : Array):
 func get_enemy_nodes():
 	var enemy_nodes = []
 	var enemy_dir = "res://scenes/Enemies/"
-	var enemy_files = DirAccess.get_files_at(enemy_dir)
+	var enemy_files = [
+		"controler_bot.tscn",
+		"rob_bot.tscn",
+		"skull_bot.tscn",
+		"zombie_bot.tscn",
+		]
+
+
 	for file in enemy_files:
 		if file.ends_with("dead_bot.tscn"):
 			continue

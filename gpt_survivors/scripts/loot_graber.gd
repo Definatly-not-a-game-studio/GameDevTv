@@ -26,7 +26,6 @@ func increase_radius(val :float):
 func on_area_entered(loot : Area2D):
 	if not loot is Dead_Bot:
 		return
-	print("Loot grabbed")
 	loot_grabbed.emit(loot.value)
 
 	# remove the loot from the scene
