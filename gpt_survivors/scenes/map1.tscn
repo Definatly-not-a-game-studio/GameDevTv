@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bl5rtdlvflokd"]
+[gd_scene load_steps=18 format=3 uid="uid://bl5rtdlvflokd"]
 
 [ext_resource type="Shader" path="res://assets/shaders/rain_and_snow_shader.gdshader" id="1_fhrjw"]
 [ext_resource type="TileSet" uid="uid://duliu7pghw2lp" path="res://assets/tilesets/purnuple_tiles.tres" id="1_qw0o2"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="9_hm53f"]
 [ext_resource type="PackedScene" uid="uid://5ygsrdrrr6m3" path="res://scenes/Interactable/terminal.tscn" id="10_18iut"]
 [ext_resource type="PackedScene" uid="uid://buetfg385y6op" path="res://scenes/Enemies/rob_bot.tscn" id="11_k4glh"]
+[ext_resource type="AudioStream" uid="uid://c73mh1njt6gyq" path="res://assets/Music/HordeSurvivalSong.wav" id="13_elrmh"]
+[ext_resource type="Script" path="res://scripts/music_looper.gd" id="14_isv7i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qgys0"]
 shader = ExtResource("1_fhrjw")
@@ -197,3 +199,8 @@ position = Vector2(449, 399)
 
 [node name="enemy2" parent="." instance=ExtResource("11_k4glh")]
 position = Vector2(655, 396)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_elrmh")
+autoplay = true
+script = ExtResource("14_isv7i")
