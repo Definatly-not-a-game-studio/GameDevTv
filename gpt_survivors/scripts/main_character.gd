@@ -228,11 +228,12 @@ func dash():
 	if is_dashing:
 		return
 
-	var ani = "roll"
-
 	is_dashing = true
 	velocity = DASH_SPEED * direction.normalized()
-	sprite.play(ani)
+	if direction.x < 0 and not is_flipped or direction.x > 0 and is_flipped:
+		sprite.play("roll_back")
+	else:
+		sprite.play("roll_fwd")
 	hurtbox.set_invincible(true)
 
 	await get_tree().create_timer(dash_time).timeout
@@ -241,7 +242,7 @@ func dash():
 	hurtbox.set_invincible(false)
 	sprite.play("idle")
 
-	
+
 func random_weapon(weapon_list : Array):
 	var weapon = weapon_list[randi() % weapon_list.size()]
 	loaded_weapon = weapon
