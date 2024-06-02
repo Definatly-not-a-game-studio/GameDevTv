@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h4yemdrapju"
-path="res://.godot/imported/gamedevtv_decor.png-89b3955fede70670beb37e562c216167.ctex"
+uid="uid://cwie3xfa4kanm"
+path="res://.godot/imported/robo-death1.png-7f1810674612dd8c6795a86e78caaaeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilesets/gamedevtv_decor.png"
-dest_files=["res://.godot/imported/gamedevtv_decor.png-89b3955fede70670beb37e562c216167.ctex"]
+source_file="res://assets/Enemies/robo-death1.png"
+dest_files=["res://.godot/imported/robo-death1.png-7f1810674612dd8c6795a86e78caaaeb.ctex"]
 
 [params]
 
