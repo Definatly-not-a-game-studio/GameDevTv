@@ -10,11 +10,17 @@ config_version=5
 
 [application]
 
+<<<<<<< Updated upstream
 config/name="The_Last_Stand"
 run/main_scene="res://scenes/Splash_Screens/splash_screen_manager.tscn"
+=======
+config/name="Dot_Execute"
+config/version="0.0.0"
+run/main_scene="res://scenes/Menu_Scenes/Main_Menu/Main_Menu.tscn"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://assets/HUD/crosshair.png"
+config/icon="res://assets/Icon1.svg"
 
 [display]
 
