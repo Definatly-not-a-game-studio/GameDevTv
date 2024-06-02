@@ -13,6 +13,7 @@ signal died
 @onready var upgrade_manager = $Upgrade_Manager
 @onready var camera = $Camera2D
 @onready var hud = $HUD
+@onready var audio = $AudioStreamPlayer2D
 
 @export var loaded_weapon : PackedScene = null
 
@@ -91,6 +92,16 @@ func _physics_process(_delta):
 	orient_body()
 	process_movement()
 	move_and_slide()
+
+	if is_dashing:
+		set_collision_mask_value(1, false)
+		set_collision_layer_value(1, false)
+	else:
+		set_collision_mask_value(1, true)
+		set_collision_layer_value(1, true)
+
+
+
 
 	# Shoots the bullet when the shoot action is pressed or held and full_auto is true
 	if Input.is_action_just_pressed("shoot") or (Input.is_action_pressed("shoot") and my_weapon.full_auto):
@@ -193,10 +204,12 @@ func damage_taken():
 
 
 func knockBack(knockback : Vector2 ):
-
-	if knocking_back:
+	if knocking_back or is_dashing:
 		return
 
+	if audio != null:
+		if not audio.is_playing():
+			audio.play()
 
 
 	# position += -knockback * knockback_value

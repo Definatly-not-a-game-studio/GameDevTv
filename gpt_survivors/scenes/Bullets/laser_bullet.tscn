@@ -20,6 +20,7 @@ script = ExtResource("1_dl85r")
 peircing = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("2_dlw6t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3mg56hbk3451"]
+[gd_scene load_steps=16 format=3 uid="uid://b3mg56hbk3451"]
 
 [ext_resource type="Script" path="res://scripts/enmey.gd" id="1_iqwxh"]
 [ext_resource type="PackedScene" uid="uid://d2fbkw5pvogrb" path="res://scenes/Bullets/laser_bullet_skull.tscn" id="2_di6l8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="5_u0g82"]
 [ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="6_6t6mh"]
 [ext_resource type="Texture2D" uid="uid://u6oem3eo35em" path="res://assets/Enemies/robot2.png" id="7_u7sbx"]
+[ext_resource type="AudioStream" uid="uid://c30rw8llhheyn" path="res://assets/Music/SFX/EnemyHurt.wav" id="8_hptai"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5jib"]
 radius = 6.0
@@ -84,3 +85,7 @@ shape = SubResource("CircleShape2D_c64pq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eblgm")
 animation = &"walk"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_hptai")
+bus = &"SFX"

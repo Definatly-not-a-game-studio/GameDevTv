@@ -24,3 +24,4 @@ gizmo_extents = 1.5
 [node name="gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ncqyj")
 pitch_scale = 2.12
+bus = &"SFX"
