@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=41 format=3 uid="uid://duliu7pghw2lp"]
 
-[ext_resource type="Texture2D" uid="uid://b0h8gil30kn5h" path="res://assets/Tilesets/gamedevtv_tileset.png" id="1_vvp1d"]
-[ext_resource type="Texture2D" uid="uid://h4yemdrapju" path="res://assets/Tilesets/gamedevtv_decor.png" id="2_3yjhr"]
-[ext_resource type="Texture2D" uid="uid://kwyicfhka4y0" path="res://assets/Tilesets/gamedevtv_objects.png" id="3_amm74"]
+[ext_resource type="Texture2D" uid="uid://b0h8gil30kn5h" path="res://assets/tilesets/gamedevtv_tileset.png" id="1_vvp1d"]
+[ext_resource type="Texture2D" uid="uid://h4yemdrapju" path="res://assets/tilesets/gamedevtv_decor.png" id="2_3yjhr"]
+[ext_resource type="Texture2D" uid="uid://kwyicfhka4y0" path="res://assets/tilesets/gamedevtv_objects.png" id="3_amm74"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qr66u"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
