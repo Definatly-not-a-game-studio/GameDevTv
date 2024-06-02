@@ -72,9 +72,9 @@ func action():
 		upgrade_scene_instance.upgrade_boost = 2
 
 	uses += 1
-
-	if spawn_manager != null:
-		upgrade_scene_instance.increase_difficulty.connect(spawn_manager.increase_difficulty)
+	# this would incerease the difficulty of the game when the player upgrades
+	# if spawn_manager != null:
+	# 	upgrade_scene_instance.increase_difficulty.connect(spawn_manager.increase_difficulty)
 
 
 

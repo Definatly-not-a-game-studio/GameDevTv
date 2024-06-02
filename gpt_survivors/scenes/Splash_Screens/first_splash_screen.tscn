@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bve1253mpbr1q"]
+
+[ext_resource type="FontFile" uid="uid://bpxsbwrahbx28" path="res://assets/fonts/SevenSegment.ttf" id="1_5io5v"]
+[ext_resource type="Script" path="res://scripts/splash_screen.gd" id="1_q3ojs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m348y"]
+font = ExtResource("1_5io5v")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_wat5s"]
+font = ExtResource("1_5io5v")
+font_size = 32
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q3ojs")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 297.0
+offset_right = 1152.0
+offset_bottom = 345.0
+text = "definitely not a game studio
+"
+label_settings = SubResource("LabelSettings_m348y")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 263.0
+offset_right = 1152.0
+offset_bottom = 287.0
+text = "A game made by
+"
+label_settings = SubResource("LabelSettings_wat5s")
+horizontal_alignment = 1
