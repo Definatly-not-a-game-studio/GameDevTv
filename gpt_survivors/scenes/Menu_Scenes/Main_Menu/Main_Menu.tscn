@@ -117,4 +117,5 @@ layout_mode = 2
 
 [node name="looped_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_meuqw")
+bus = &"Music"
 script = ExtResource("7_ol4j5")
