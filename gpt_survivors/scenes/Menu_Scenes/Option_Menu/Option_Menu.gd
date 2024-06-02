@@ -43,7 +43,7 @@ func _process(_delta):
 	
 func on_exit_released() -> void:
 	emit_signal("done")
-	queue_free()
+	# queue_free()
 	pass
 
 ## function to set the volume of a bus
@@ -66,7 +66,7 @@ func set_sfx_volume(value):
 
 
 func reset_scores():
-	score_saver.set_high_score(0)
+	score_saver.reset_high_score()
 	pass
 func unlock_all():
 	score_saver.set_high_score(9999)

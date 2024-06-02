@@ -4,6 +4,8 @@ extends Area2D
 signal loot_grabbed(value : int)
 
 @onready var loot_area = $CollisionShape2D
+@onready var sound = $AudioStreamPlayer2D
+
 
 # the radius of the loot grabber
 var radius : float = 0
@@ -27,6 +29,8 @@ func on_area_entered(loot : Area2D):
 	if not loot is Dead_Bot:
 		return
 	loot_grabbed.emit(loot.value)
+	if sound:
+		sound.play()
 
 	# remove the loot from the scene
 	loot.queue_free()

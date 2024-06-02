@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bomr6q155glwb"]
+[gd_scene load_steps=44 format=3 uid="uid://bomr6q155glwb"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_7ido0"]
 [ext_resource type="PackedScene" uid="uid://c0ijrjfvy4gdd" path="res://scenes/UI/amunition_display.tscn" id="2_3kkai"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/Hurt_Box.gd" id="8_agrf6"]
 [ext_resource type="Script" path="res://scripts/loot_graber.gd" id="9_mwy66"]
 [ext_resource type="Texture2D" uid="uid://dbppvb1iginaw" path="res://light.png" id="10_wu7gu"]
+[ext_resource type="AudioStream" uid="uid://bnlmct4kdugap" path="res://assets/Music/SFX/MenuBeeps_OK.wav" id="11_bb6ai"]
 [ext_resource type="PackedScene" uid="uid://dnxho7cy1trse" path="res://scenes/HUD.tscn" id="11_tex4u"]
 [ext_resource type="Script" path="res://scripts/Upgrade_Manager.gd" id="12_wlg11"]
 [ext_resource type="AudioStream" uid="uid://1ghbxsa2quog" path="res://assets/Music/SFX/PlayerHurt.wav" id="13_1a2fo"]
@@ -262,6 +263,10 @@ script = ExtResource("9_mwy66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loot_grabber"]
 shape = SubResource("CircleShape2D_hcvld")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="loot_grabber"]
+stream = ExtResource("11_bb6ai")
+bus = &"SFX"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 y_sort_enabled = true

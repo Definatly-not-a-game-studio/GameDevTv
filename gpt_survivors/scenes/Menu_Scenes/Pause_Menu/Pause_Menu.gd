@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var start_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Start_Button
 @onready var exit_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Exit_Button
 @onready var option_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Option_Button
+@onready var _scoreLabel = $ScoreLabel
 
 var options: PackedScene = preload("res://scenes/Menu_Scenes/Option_Menu/Option_Menu.tscn")
 var main_menu: PackedScene = preload("res://scenes/Menu_Scenes/Main_Menu/Main_Menu.tscn")
@@ -16,10 +17,12 @@ var fresh_opened = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	fresh_timer()
 	start_button.button_up.connect(on_start_released)
 	exit_button.button_up.connect(on_exit_released)
 	option_button.button_up.connect(option_released)
+	_scoreLabel.text = "SCORE   "  + str(score)
 	pass # Replace with function body.
 
 func on_start_released() -> void:
@@ -40,8 +43,8 @@ func option_released() -> void:
 	visible = false
 	var option = options.instantiate()
 	add_child(option)
-	await  option.done
 	fresh_opened = true
+	await  option.done
 	fresh_timer()
 	option.queue_free()
 	visible = true
@@ -63,10 +66,11 @@ func on_exit_released() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("pause") and not fresh_opened:
-		on_exit_released()
+		get_tree().paused = false
+		queue_free()
 
 func fresh_timer() -> void:
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.2).timeout
 	fresh_opened = false
 
 func set_score(new_score: int) -> void:

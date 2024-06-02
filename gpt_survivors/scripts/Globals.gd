@@ -34,11 +34,23 @@ func get_high_score():
 
 
 
+func reset_high_score(new_score = 0):
+
+	var save_dict = {
+		"high_score": new_score
+	}
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+
+	var data = JSON.stringify(save_dict)
+	save_file.store_line(data)
+	score = new_score
+
+	return true
 
 
 
 func set_high_score(new_score):
-	if new_score < score:
+	if new_score < get_high_score():
 		return false
 
 

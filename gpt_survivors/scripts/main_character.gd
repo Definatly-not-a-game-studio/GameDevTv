@@ -102,6 +102,7 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("pause"):
 		var _scene = pause_scene.instantiate()
+		_scene.score = upgrade_manager.score
 		get_tree().get_root().add_child(_scene)
 		get_tree().paused = true
 

@@ -103,10 +103,10 @@ theme_override_font_sizes/font_size = 75
 text = "Score   0"
 
 [node name="Colon1" type="Label" parent="."]
-offset_left = 581.0
-offset_top = 360.0
-offset_right = 621.0
-offset_bottom = 491.0
+offset_left = 574.0
+offset_top = 350.0
+offset_right = 614.0
+offset_bottom = 481.0
 theme_override_fonts/font = ExtResource("6_deopy")
 theme_override_font_sizes/font_size = 125
 text = ":"
