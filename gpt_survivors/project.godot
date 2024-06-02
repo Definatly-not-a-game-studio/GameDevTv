@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="The_Last_Stand"
+config/name="DotExecute"
 run/main_scene="res://scenes/Splash_Screens/splash_screen_manager.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/show_image=false

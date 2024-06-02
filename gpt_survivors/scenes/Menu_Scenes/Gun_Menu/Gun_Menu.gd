@@ -7,7 +7,6 @@ signal done
 
 @onready var main_scene = preload("res://scenes/map1.tscn")
 
-@onready var audio_player = $AudioStreamPlayer
 
 
 

@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var start_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Start_Button
 @onready var exit_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Exit_Button
 
+var main_menu: PackedScene = preload("res://scenes/Menu_Scenes/Main_Menu/Main_Menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +30,11 @@ func on_start_released() -> void:
 
 	
 func on_exit_released() -> void:
-	get_tree().quit()
+	var kids = get_tree().root.get_children()
+	for kid in kids:
+		kid.queue_free()
+	get_tree().change_scene_to_packed(main_menu)
+	get_tree().paused = false
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
