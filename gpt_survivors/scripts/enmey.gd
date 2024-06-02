@@ -177,7 +177,8 @@ func shoot_projectile():
 
 	get_tree().get_root().add_child(proj)
 
-
+func _child_die():
+	emit_signal("dead")
 	
 
 

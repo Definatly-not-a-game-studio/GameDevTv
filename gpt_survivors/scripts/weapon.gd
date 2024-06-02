@@ -45,6 +45,7 @@ var reloading_active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	amunition = clip_size
 
 	center = get_parent()
 	# create a timer for reloading
@@ -132,7 +133,6 @@ func shoot():
 
 func reload_complete():
 	amunition = clip_size
-	print("Reloaded")
 	can_fire = true
 	reloading_active = false
 	emit_signal("done_reloading")

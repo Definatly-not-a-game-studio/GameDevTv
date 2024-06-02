@@ -11,6 +11,7 @@ script = ExtResource("1_qyv2p")
 fire_rate = 0.1
 clip_size = 20
 full_auto = true
+loop_sound = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, -1.00488)

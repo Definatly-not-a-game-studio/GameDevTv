@@ -16,7 +16,8 @@ func _ready() -> void:
 	for splash_screen in _splash_screen_container.get_children():
 		splash_screen.hide()
 		_splash_screens.push_back(splash_screen)
-	await get_tree().create_timer(_initial_delay)
+
+	await get_tree().create_timer(_initial_delay).timeout
 	
 	_start_splash_screen()
 	

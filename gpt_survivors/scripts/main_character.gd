@@ -53,7 +53,6 @@ func _init():
 	pass
 
 func _ready():
-	print("Player init")
 	if loaded_weapon == null:
 		loaded_weapon = random_weapon(weapons_list)
 		setup_weapon(loaded_weapon)
