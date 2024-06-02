@@ -61,8 +61,7 @@ func spawn_enemies_all():
 		#check if the node is a spawner
 		if spawner is Spawner:
 			spawner.active = false
-			spawner.damage_multiplier += dificulty*0.02
-			spawner.health_multiplier += dificulty*0.001
+			spawner.health_multiplier += 0.01
 			spawner.spawn()
 			enemies_spawned += 1
 
@@ -75,8 +74,7 @@ func wave_one_spawn():
 		#check if the node is a spawner
 		if spawner is Spawner:
 			spawner.active = false
-			spawner.damage_multiplier += dificulty*0.02
-			spawner.health_multiplier += dificulty*0.01
+			spawner.health_multiplier += 0.01
 			spawner.active = false
 
 			# determin based off chance which spawner will spawn

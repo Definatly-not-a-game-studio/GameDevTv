@@ -3,10 +3,12 @@ extends Control
 
 
 # @onready var start_level = preload("res://scenes/Test_Scenes/Brandon/ricky_test.tscn") as PackedScene
-@onready var start_level = preload("res://scenes/map1.tscn") as PackedScene
+@onready var start_level = preload("res://scenes/Menu_Scenes/Gun_Menu/Gun_Menu.tscn") as PackedScene
 @onready var start_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Start_Button
 @onready var options_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Options_Button
 @onready var exit_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Exit_Button
+
+@onready var loop_music = $looped_music
 
 
 var options: PackedScene = preload("res://scenes/Menu_Scenes/Option_Menu/Option_Menu.tscn")

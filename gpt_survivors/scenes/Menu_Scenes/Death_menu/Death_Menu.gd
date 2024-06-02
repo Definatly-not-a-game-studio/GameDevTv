@@ -14,13 +14,14 @@ func _ready():
 	pass # Replace with function body.
 
 func on_start_released() -> void:
-	# @onready var start_level = preload("res://scenes/map1.tscn") as PackedScene
-	var scene = load("res://scenes/map1.tscn")
+	# send the player to the gun menu
+	var scene = load("res://scenes/Menu_Scenes/Gun_Menu/Gun_Menu.tscn")
 	get_tree().paused = false
 	var kids = get_tree().root.get_children()
 	for kid in kids:
 		kid.queue_free()
 	get_tree().change_scene_to_packed(load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn"))
+	
 	get_tree().change_scene_to_packed(scene)
 	# queue_free()
 	pass

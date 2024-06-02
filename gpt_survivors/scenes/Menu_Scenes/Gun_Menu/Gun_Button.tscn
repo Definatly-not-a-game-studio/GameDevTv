@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cwruxa22566yc" path="res://scenes/Weapons/ak.tscn" id="2_6xfg3"]
 
 [node name="Button" type="Button"]
+custom_minimum_size = Vector2(194, 60)
 offset_right = 194.0
 offset_bottom = 60.0
 script = ExtResource("1_bqf57")

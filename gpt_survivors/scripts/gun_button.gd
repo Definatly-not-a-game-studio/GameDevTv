@@ -1,3 +1,5 @@
+class_name  GunButton
+
 extends Button
 
 
@@ -36,5 +38,4 @@ func _process(_delta):
 
 func _on_Button_pressed():
 	if score >= score_required:
-		print("Button pressed")
 		emit_signal("select_gun", gun)

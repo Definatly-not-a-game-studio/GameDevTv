@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var option_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Option_Button
 
 var options: PackedScene = preload("res://scenes/Menu_Scenes/Option_Menu/Option_Menu.tscn")
+var main_menu: PackedScene = preload("res://scenes/Menu_Scenes/Main_Menu/Main_Menu.tscn")
+var gun_menu: PackedScene = preload("res://scenes/Menu_Scenes/Gun_Menu/Gun_Menu.tscn")
 
 # determine if the menu is fresh opened
 var fresh_opened = true
@@ -21,13 +23,14 @@ func _ready():
 	pass # Replace with function body.
 
 func on_start_released() -> void:
-	# @onready var start_level = preload("res://scenes/map1.tscn") as PackedScene
-	var scene = load("res://scenes/map1.tscn")
+	# send the player to the gun menu
+	var scene = load("res://scenes/Menu_Scenes/Gun_Menu/Gun_Menu.tscn")
 	get_tree().paused = false
 	var kids = get_tree().root.get_children()
 	for kid in kids:
 		kid.queue_free()
 	get_tree().change_scene_to_packed(load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn"))
+	
 	get_tree().change_scene_to_packed(scene)
 	# queue_free()
 	pass
@@ -42,14 +45,18 @@ func option_released() -> void:
 	fresh_timer()
 	option.queue_free()
 	visible = true
-
 	pass
 
 
 	
 func on_exit_released() -> void:
+	var kids = get_tree().root.get_children()
+	for kid in kids:
+		kid.queue_free()
+	get_tree().change_scene_to_packed(main_menu)
 	get_tree().paused = false
-	queue_free()
+
+	# queue_free()
 
 
 	
