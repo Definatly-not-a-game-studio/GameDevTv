@@ -44,3 +44,11 @@ func _process(_delta):
 func set_score(new_score: int) -> void:
 	score = new_score
 	$ScoreLabel.text = "SCORE  " + str(score)
+
+	var saver = SaveGame.new()
+	saver.set_high_score(score)
+
+
+
+
+

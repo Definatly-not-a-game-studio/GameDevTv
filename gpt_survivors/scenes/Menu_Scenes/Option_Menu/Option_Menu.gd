@@ -5,10 +5,14 @@ signal done
 @onready var exit_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Exit_Button
 @onready var sfx_volume :Slider = $MarginContainer2/ButtonsVBoxContainer/GridContainer/SFX_Slider
 @onready var music_volume :Slider = $MarginContainer2/ButtonsVBoxContainer/GridContainer/Music_Slider
+@onready var reset_button :Button = $MarginContainer2/ButtonsVBoxContainer/score_grid/reset
+@onready var unlock_button :Button = $MarginContainer2/ButtonsVBoxContainer/score_grid/max
+
 
 @onready var Music_Bus_ID= AudioServer.get_bus_index("Music")
 @onready var SFX_Bus_ID= AudioServer.get_bus_index("SFX")
 
+@onready var score_saver : SaveGame = SaveGame.new()
 
 
 
@@ -17,6 +21,8 @@ func _ready():
 
 	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(SFX_Bus_ID))
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(Music_Bus_ID))
+	reset_button.button_up.connect(reset_scores)
+	unlock_button.button_up.connect(unlock_all)
 
 	exit_button.button_up.connect(on_exit_released)
 	sfx_volume.value_changed.connect(set_sfx_volume)
@@ -55,4 +61,14 @@ func set_music_volume(value):
 
 func set_sfx_volume(value):
 	set_volume(SFX_Bus_ID, value)
+
+
+func reset_scores():
+	score_saver.set_high_score(0)
+	pass
+func unlock_all():
+	score_saver.set_high_score(9999)
+	pass
+
+
 

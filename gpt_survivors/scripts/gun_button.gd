@@ -19,6 +19,9 @@ var score = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.button_up.connect(_on_Button_pressed)
+	var game_saver = SaveGame.new()
+	score = game_saver.get_high_score()
+	print(score)
 
 
 	gun_instance.scale = Vector2(5,5)

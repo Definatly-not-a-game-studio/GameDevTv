@@ -72,6 +72,7 @@ layout_mode = 2
 [node name="gun2" parent="MarginContainer2/ButtonsVBoxContainer/GridContainer" instance=ExtResource("2_71k0b")]
 layout_mode = 2
 _name = "AK"
+score_required = 400
 
 [node name="Control3" type="Control" parent="MarginContainer2/ButtonsVBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -81,6 +82,7 @@ layout_mode = 2
 layout_mode = 2
 _name = "Soaker"
 gun = ExtResource("4_pjhq8")
+score_required = 1000
 
 [node name="Control4" type="Control" parent="MarginContainer2/ButtonsVBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -90,3 +92,4 @@ layout_mode = 2
 layout_mode = 2
 _name = "Laser Gun"
 gun = ExtResource("5_iat6o")
+score_required = 3000

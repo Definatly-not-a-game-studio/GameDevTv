@@ -1,8 +1,8 @@
+class_name SaveGame
 extends Node
 
 
 var score = 0
-var selected_weapon : PackedScene = null
 
 
 func _ready():
@@ -22,15 +22,24 @@ func get_high_score():
 	var data = save_file.get_as_text()
 	var json = JSON.new()
 
+	json.parse(data)
+	var save_dict: Dictionary = json.get_data()
 
-	var save_dict = json.parse(data)
-	score = save_dict["high_score"]
-	return save_dict["high_score"]
+	if save_dict.has("high_score"):
+		score = save_dict["high_score"]
+		return save_dict["high_score"]
+	else:
+		set_high_score(0)
+		return 0
+
+
+
+
 
 
 func set_high_score(new_score):
 	if new_score < score:
-		return
+		return false
 
 
 	var save_dict = {
@@ -41,6 +50,8 @@ func set_high_score(new_score):
 	var data = JSON.stringify(save_dict)
 	save_file.store_line(data)
 	score = new_score
+
+	return true
 
 
 
