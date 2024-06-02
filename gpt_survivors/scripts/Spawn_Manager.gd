@@ -4,8 +4,9 @@ extends Node
 @export var dificulty : int = 1
 @export var spawn_rate : float = 1.0
 
+@export var debug : bool = false
 
-
+var enemies_killed : int = 0
 var spawn_timer :Timer = null
 var enemies_spawned :int  = 0
 
@@ -20,6 +21,14 @@ func _ready():
 	spawn_timer.timeout.connect(spawn_enemies)
 	add_child(spawn_timer)
 	spawn_timer.start()
+
+	# connect the enemie_died signal to the enemie_killed function
+	var children = self.get_children()
+	for child in children:
+		if child is Spawner:
+			child.enemie_died.connect(enemie_killed)
+
+	
 
 
 
@@ -138,7 +147,10 @@ func increase_difficulty():
 	spawn_rate -=  spawn_rate * 0.05
 	spawn_timer.set_wait_time(spawn_rate)
 	spawn_timer.start()
-	print("Difficulty increased to: ", dificulty)
+	if debug:
+		print("Difficulty increased to: ", dificulty)
+		print("Spawn rate: ", spawn_rate)
+		print("Max enemies: ", get_enmemies_max())
 
 func get_enemies_alive():
 	var enemies :int = 0
@@ -152,10 +164,17 @@ func get_enemies_alive():
 
 ## return the max number of enemies that can be spawned
 func get_enmemies_max():
-	return dificulty * 20
+	return max(dificulty * 20, 300)
 
 
 
+func enemie_killed():
+	if debug:
+		print("Enemies killed: ", enemies_killed)
+
+	enemies_killed += 1
+	if enemies_killed % 10*dificulty == 0:
+		increase_difficulty()
 
 
 

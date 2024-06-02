@@ -6,6 +6,8 @@ class_name Spawner
 
 extends Node2D
 
+signal enemie_died
+
 # the enemy to spawn
 @export var spawn_enemy : PackedScene = null
 # the rate at which to spawn the enemy
@@ -75,6 +77,7 @@ func spawn( _enemy : PackedScene = spawn_enemy):
 	get_tree().get_root().get_children()[0].call_deferred("add_child", made_enemy)
 
 func child_die():
+	emit_signal("enemie_died")
 	current_spawns -= 1
 
 
