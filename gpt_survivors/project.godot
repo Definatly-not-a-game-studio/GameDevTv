@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="The_Last_Stand"
+config/name="Dot_Execute"
 run/main_scene="res://scenes/Menu_Scenes/Main_Menu/Main_Menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://assets/HUD/crosshair.png"
+config/icon="res://assets/Icon1.svg"
 
 [display]
 
