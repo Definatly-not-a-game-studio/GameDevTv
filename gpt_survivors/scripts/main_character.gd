@@ -18,6 +18,7 @@ signal died
 @export var loaded_weapon : PackedScene = null
 
 var death_scene : PackedScene = load("res://scenes/Menu_Scenes/Death_menu/Death_Menu.tscn")
+var pause_scene : PackedScene = load("res://scenes/Menu_Scenes/Pause_Menu/Pause_Menu.tscn")
 
 
 var knocking_back = false
@@ -99,6 +100,10 @@ func _physics_process(_delta):
 		set_collision_mask_value(1, true)
 		set_collision_layer_value(1, true)
 
+	if Input.is_action_just_pressed("pause"):
+		var _scene = pause_scene.instantiate()
+		get_tree().get_root().add_child(_scene)
+		get_tree().paused = true
 
 
 

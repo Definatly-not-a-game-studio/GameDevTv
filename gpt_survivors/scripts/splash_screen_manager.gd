@@ -37,5 +37,7 @@ func _start_splash_screen() -> void:
 		splash_screen.connect("finished", _start_splash_screen)
 
 func _skip() -> void:
-	_splash_screen_container.get_child(0).queue_free()
+	# this is not needed so I commented it out because it was causing an error
+	# 	_splash_screen_container.get_child(0).queue_free()
 	_start_splash_screen()
+
