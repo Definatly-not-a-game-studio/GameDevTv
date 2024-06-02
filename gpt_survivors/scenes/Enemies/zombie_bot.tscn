@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0ncjwitnaeuu"]
+[gd_scene load_steps=17 format=3 uid="uid://d0ncjwitnaeuu"]
 
 [ext_resource type="Script" path="res://scripts/enmey.gd" id="1_3tub4"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="2_7nvx3"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bqkc1byeb3ife" path="res://assets/Enemies/robot3.png" id="6_m7dg0"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="7_va2vt"]
 [ext_resource type="PackedScene" uid="uid://b3mg56hbk3451" path="res://scenes/Enemies/skull_bot.tscn" id="8_8binr"]
-[ext_resource type="AudioStream" uid="uid://c30rw8llhheyn" path="res://assets/Music/SFX/EnemyHurt.wav" id="9_gdccj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5at58"]
 radius = 5.0
@@ -99,9 +98,3 @@ script = ExtResource("7_va2vt")
 spawn_enemy = ExtResource("8_8binr")
 spawn_rate = 3.0
 max_spawns = 3
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_gdccj")
-bus = &"SFX"
-
-[connection signal="enemie_died" from="Spawner" to="." method="_child_die"]

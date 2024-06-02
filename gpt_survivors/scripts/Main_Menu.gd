@@ -9,8 +9,6 @@ extends Control
 @onready var exit_button = $MarginContainer/ButtonsHBoxContainer/ButtonsVBoxContainer/Exit_Button
 
 
-var options: PackedScene = preload("res://scenes/Menu_Scenes/Option_Menu/Option_Menu.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_button.button_up.connect(on_start_released)
@@ -24,13 +22,6 @@ func on_start_released() -> void:
 
 
 func on_options_released() -> void:
-	visible = false
-	var option = options.instantiate()
-	add_child(option)
-	await  option.done
-	option.queue_free()
-	visible = true
-
 	pass
 	
 func on_exit_released() -> void:

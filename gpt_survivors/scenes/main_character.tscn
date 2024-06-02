@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bomr6q155glwb"]
+[gd_scene load_steps=36 format=3 uid="uid://bomr6q155glwb"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_7ido0"]
 [ext_resource type="PackedScene" uid="uid://c0ijrjfvy4gdd" path="res://scenes/UI/amunition_display.tscn" id="2_3kkai"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dbppvb1iginaw" path="res://light.png" id="10_wu7gu"]
 [ext_resource type="PackedScene" uid="uid://dnxho7cy1trse" path="res://scenes/HUD.tscn" id="11_tex4u"]
 [ext_resource type="Script" path="res://scripts/Upgrade_Manager.gd" id="12_wlg11"]
-[ext_resource type="AudioStream" uid="uid://1ghbxsa2quog" path="res://assets/Music/SFX/PlayerHurt.wav" id="13_1a2fo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoqsq"]
 atlas = ExtResource("3_h67ma")
@@ -239,6 +238,3 @@ amo_bar = NodePath("../TextureProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade_Manager"]
 shape = SubResource("CircleShape2D_efmvt")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_1a2fo")

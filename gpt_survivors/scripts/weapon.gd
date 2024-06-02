@@ -39,13 +39,16 @@ var amunition = clip_size
 
 # enable fireing
 var can_fire = true
-var reloading_active = false
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	amunition = clip_size
+	if loop_sound:
+		gun_shot.finished.connect(sound_loop)
+		
+
+
 
 	center = get_parent()
 	# create a timer for reloading
@@ -64,19 +67,9 @@ func _ready():
 
 
 func _process(_delta):
-
-
-
-
 	fire_timer.wait_time = fire_rate
 	reload_timer.wait_time = reload_time
 
-	
-	if loop_sound:
-		if not Input.is_action_pressed("shoot"):
-			gun_shot.stop()
-		if reloading_active:
-			gun_shot.stop()
 
 
 
@@ -117,7 +110,7 @@ func shoot():
 
 	
 	# Add the bullet to the scene
-	get_tree().get_root().get_child(0).add_child(bullet_instance)
+	get_tree().get_root().add_child(bullet_instance)
 
 	# disable fireing until the cooldown is finished or the player reloads
 	can_fire = false
@@ -134,7 +127,6 @@ func shoot():
 func reload_complete():
 	amunition = clip_size
 	can_fire = true
-	reloading_active = false
 	emit_signal("done_reloading")
 
 func cooldown_finished():
@@ -144,7 +136,10 @@ func cooldown_finished():
 func reload():
 		reload_timer.start()
 		can_fire = false
-		reloading_active = true
 		emit_signal("reloading")
+
+func sound_loop():
+	if Input.is_action_pressed("shoot") and can_fire:
+		gun_shot.play()
 
 

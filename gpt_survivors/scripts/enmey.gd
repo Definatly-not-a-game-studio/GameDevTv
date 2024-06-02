@@ -22,8 +22,6 @@ signal dead
 @export var proj_spawn_rate : float = 5
 @export var ranged : bool = false
 
-@onready var audio = $AudioStreamPlayer2D
-
 
 var knocking_back = false
 var knockback_velocity = Vector2(0,0)
@@ -128,9 +126,6 @@ func knockBack(_knockback : Vector2 ):
 	if pathfinder.target == null:
 		return
 
-	if audio != null:
-		if not audio.playing:
-			audio.play()
 
 	# override the knockback function
 	knockback_velocity = global_position.direction_to(pathfinder.target.global_position) 
@@ -177,8 +172,7 @@ func shoot_projectile():
 
 	get_tree().get_root().add_child(proj)
 
-func _child_die():
-	emit_signal("dead")
+
 	
 
 

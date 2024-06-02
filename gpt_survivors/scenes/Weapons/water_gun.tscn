@@ -29,4 +29,3 @@ gizmo_extents = 1.5
 
 [node name="gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_y4x5c")
-bus = &"SFX"

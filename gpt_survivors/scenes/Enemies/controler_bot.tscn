@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmja0dp1ivyxn"]
+[gd_scene load_steps=14 format=3 uid="uid://bmja0dp1ivyxn"]
 
 [ext_resource type="Script" path="res://scripts/enmey.gd" id="1_eivir"]
 [ext_resource type="Script" path="res://scripts/helath.gd" id="2_j5872"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/Pathfinder.gd" id="4_goujc"]
 [ext_resource type="Script" path="res://scripts/Hit_Box.gd" id="5_xwj6s"]
 [ext_resource type="Texture2D" uid="uid://bnpxb4nt4msnf" path="res://assets/Enemies/Robot4.png" id="6_qx4oe"]
-[ext_resource type="AudioStream" uid="uid://c30rw8llhheyn" path="res://assets/Music/SFX/EnemyHurt.wav" id="7_llln6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5at58"]
 radius = 5.0
@@ -90,7 +89,3 @@ shape = SubResource("CapsuleShape2D_kshxd")
 sprite_frames = SubResource("SpriteFrames_eblgm")
 animation = &"walk"
 frame_progress = 0.478583
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_llln6")
-bus = &"SFX"
