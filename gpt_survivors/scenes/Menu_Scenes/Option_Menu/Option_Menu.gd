@@ -7,6 +7,7 @@ signal done
 @onready var music_volume :Slider = $MarginContainer2/ButtonsVBoxContainer/GridContainer/Music_Slider
 @onready var reset_button :Button = $MarginContainer2/ButtonsVBoxContainer/score_grid/reset
 @onready var unlock_button :Button = $MarginContainer2/ButtonsVBoxContainer/score_grid/max
+@onready var full_screen_button :Button = $MarginContainer2/ButtonsVBoxContainer/full_screen
 
 
 @onready var Music_Bus_ID= AudioServer.get_bus_index("Music")
@@ -23,6 +24,7 @@ func _ready():
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(Music_Bus_ID))
 	reset_button.button_up.connect(reset_scores)
 	unlock_button.button_up.connect(unlock_all)
+	full_screen_button.button_up.connect(toggle_full_screen)
 
 	exit_button.button_up.connect(on_exit_released)
 	sfx_volume.value_changed.connect(set_sfx_volume)
@@ -69,6 +71,12 @@ func reset_scores():
 func unlock_all():
 	score_saver.set_high_score(9999)
 	pass
+
+func toggle_full_screen():
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 

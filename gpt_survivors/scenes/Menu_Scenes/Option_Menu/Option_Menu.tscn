@@ -79,6 +79,10 @@ max_value = 1.0
 step = 0.05
 ticks_on_borders = true
 
+[node name="full_screen" type="Button" parent="MarginContainer2/ButtonsVBoxContainer"]
+layout_mode = 2
+text = "Toggle Full screen"
+
 [node name="score_grid" type="GridContainer" parent="MarginContainer2/ButtonsVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
