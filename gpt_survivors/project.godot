@@ -14,7 +14,7 @@ config/name="DotExecute"
 run/main_scene="res://scenes/Splash_Screens/splash_screen_manager.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://assets/HUD/crosshair.png"
+config/icon="res://assets/Icon1.svg"
 
 [display]
 

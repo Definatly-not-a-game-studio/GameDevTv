@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h4yemdrapju"
-path="res://.godot/imported/gamedevtv_decor.png-89b3955fede70670beb37e562c216167.ctex"
+uid="uid://d0j8g4vlp266r"
+path="res://.godot/imported/Icon1.svg-4cdc65bd34cb3876fa57dca1419929d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilesets/gamedevtv_decor.png"
-dest_files=["res://.godot/imported/gamedevtv_decor.png-89b3955fede70670beb37e562c216167.ctex"]
+source_file="res://assets/Icon1.svg"
+dest_files=["res://.godot/imported/Icon1.svg-4cdc65bd34cb3876fa57dca1419929d9.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
