@@ -203,12 +203,20 @@ uses = 1
 position = Vector2(545, 304)
 target_entitie = NodePath("../Hero")
 
-[node name="enemy2" parent="." node_paths=PackedStringArray("target_entitie") instance=ExtResource("11_k4glh")]
-position = Vector2(567, 350)
-target_entitie = NodePath("../Hero")
-
 [node name="looped_music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("13_elrmh")
 bus = &"Music"
 script = ExtResource("14_isv7i")
+
+[node name="skull_bot" parent="." node_paths=PackedStringArray("target_entitie") instance=ExtResource("9_hm53f")]
+position = Vector2(615, 316)
+target_entitie = NodePath("../Hero")
+
+[node name="zombie_bot" parent="." node_paths=PackedStringArray("target_entitie") instance=ExtResource("8_pptwx")]
+position = Vector2(724, 465)
+target_entitie = NodePath("../Hero")
+
+[node name="zombie_bot2" parent="." node_paths=PackedStringArray("target_entitie") instance=ExtResource("7_nkt34")]
+position = Vector2(468, 417)
+target_entitie = NodePath("../Hero")
