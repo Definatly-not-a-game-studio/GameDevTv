@@ -116,9 +116,10 @@ offset_top = 49.0
 offset_right = 401.0
 offset_bottom = 186.0
 text = "Controls:
-E  -> to interact
 shift -> dodge
 left click ->shoot
+E  -> to interact
+
 collect bot parts to upgrade
 
 Dont die

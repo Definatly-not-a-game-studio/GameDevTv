@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal done
 
+
 @onready var exit_button = $MarginContainer2/ButtonsVBoxContainer/HBoxContainer/Exit_Button
 @onready var sfx_volume :Slider = $MarginContainer2/ButtonsVBoxContainer/GridContainer/SFX_Slider
 @onready var music_volume :Slider = $MarginContainer2/ButtonsVBoxContainer/GridContainer/Music_Slider
@@ -19,7 +20,6 @@ signal done
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(SFX_Bus_ID))
 	music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(Music_Bus_ID))
 	reset_button.button_up.connect(reset_scores)
