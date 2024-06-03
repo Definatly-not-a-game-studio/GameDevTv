@@ -15,7 +15,6 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	fade_instructions()
 	if score_getter.get_high_score() == 0:
 		fade_instructions()
 	else:
