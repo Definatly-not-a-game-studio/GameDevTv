@@ -18,7 +18,7 @@ const upgrade_scene = "res://scenes/UI/upgrade_screen.tscn"
 const DISTANCE_TO_UPGRADE = 50
 
 
-var upgrade_cost = 10
+var upgrade_cost = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
