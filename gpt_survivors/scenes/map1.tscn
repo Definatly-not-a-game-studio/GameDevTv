@@ -70,26 +70,26 @@ spawn_rate = 5.0
 debug = true
 
 [node name="Spawner8" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(-52, 491)
+position = Vector2(37, 510)
 script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("6_wk765")
 spawn_rate = 5.0
 
 [node name="Spawner" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(1207, 95)
+position = Vector2(745, 43)
 script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("7_nkt34")
 spawn_rate = 10.0
 damage_multiplier = 2.0
 
 [node name="Spawner2" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(64, 684)
+position = Vector2(613, 462)
 script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("6_wk765")
 spawn_rate = 5.0
 
 [node name="Spawner3" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(-41, 81)
+position = Vector2(80, 51)
 script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("8_pptwx")
 spawn_rate = 5.0
@@ -100,7 +100,7 @@ script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("9_hm53f")
 
 [node name="Spawner5" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(1222, 350)
+position = Vector2(887, 435)
 script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("7_nkt34")
 spawn_rate = 10.0
@@ -114,13 +114,13 @@ spawn_rate = 10.0
 damage_multiplier = 2.0
 
 [node name="Spawner7" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(325, 688)
+position = Vector2(300, 594)
 script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("6_wk765")
 spawn_rate = 5.0
 
 [node name="Spawner9" type="Node2D" parent="Spawn_Manager"]
-position = Vector2(161, -41)
+position = Vector2(309, 45)
 script = ExtResource("4_48mk3")
 spawn_enemy = ExtResource("6_wk765")
 spawn_rate = 5.0

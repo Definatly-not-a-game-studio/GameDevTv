@@ -16,6 +16,7 @@ signal dead
 @export var value = 10
 @export var damage_multiplier : float = 1
 @export var health_multiplier : float = 1
+@export var knockback_time : float = 0.1
 
 @export var projectile : PackedScene = null
 @export var proj_speed : float = 100
@@ -23,6 +24,7 @@ signal dead
 @export var ranged : bool = false
 
 @onready var audio = $AudioStreamPlayer2D
+
 
 
 var knocking_back = false
@@ -70,7 +72,8 @@ func _process(_delta):
 	
 
 	if knocking_back:
-		velocity = knockback_velocity*speed*2
+		velocity = knockback_velocity*speed*3
+		move_and_slide()
 		return
 
 	# determine the target position
@@ -133,10 +136,11 @@ func knockBack(_knockback : Vector2 ):
 			audio.play()
 
 	# override the knockback function
-	knockback_velocity = global_position.direction_to(pathfinder.target.global_position) 
+	knockback_velocity = -global_position.direction_to(pathfinder.target.global_position) 
+	# knockback_velocity = _knockback
 	knocking_back = true
 
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(knockback_time).timeout
 	knocking_back = false
 
 

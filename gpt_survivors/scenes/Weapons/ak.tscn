@@ -8,6 +8,7 @@
 position = Vector2(6, 0.00488161)
 gizmo_extents = 2.0
 script = ExtResource("1_qyv2p")
+damage = 20
 fire_rate = 0.1
 clip_size = 20
 full_auto = true
