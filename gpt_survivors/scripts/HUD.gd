@@ -8,11 +8,19 @@ extends CanvasLayer
 @onready var score_lbl : Label = $Score
 @onready var cash_lbl : Label = $Cash
 @onready var ammo_lbl : Label = $lbl_ammo
+@onready var inst_contrl : Control = $instuctions
+
+@onready var score_getter = SaveGame.new()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	fade_instructions()
+	if score_getter.get_high_score() == 0:
+		fade_instructions()
+	else:
+		kill_controlls()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,5 +35,10 @@ func _process(_delta):
 		ammo_lbl.text = ""
 
 
+func fade_instructions():
+	await get_tree().create_timer(10.0).timeout
+	kill_controlls()
 
-	
+func kill_controlls():
+	inst_contrl.hide()
+	inst_contrl.queue_free()

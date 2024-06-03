@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnxho7cy1trse"]
+[gd_scene load_steps=7 format=3 uid="uid://dnxho7cy1trse"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_uf6xp"]
 [ext_resource type="FontFile" uid="uid://bpxsbwrahbx28" path="res://assets/fonts/SevenSegment.ttf" id="2_bmdv5"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://fjo7fltofd67" path="res://assets/HUD/PotentialAmmo/BulletCasing_full.png" id="4_eh38n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_14x0y"]
+font = ExtResource("2_bmdv5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w1mut"]
 font = ExtResource("2_bmdv5")
 
 [node name="HUD" type="CanvasLayer"]
@@ -81,3 +84,43 @@ offset_right = 1130.0
 offset_bottom = 634.0
 text = ": 25/30"
 label_settings = SubResource("LabelSettings_14x0y")
+
+[node name="instuctions" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.356
+anchor_top = 0.347
+anchor_right = 0.356
+anchor_bottom = 0.347
+offset_left = 667.888
+offset_top = 386.144
+offset_right = 707.888
+offset_bottom = 426.144
+
+[node name="ColorRect" type="ColorRect" parent="instuctions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -24.25
+anchor_top = -13.028
+anchor_right = -24.25
+anchor_bottom = -13.028
+offset_left = -91.9999
+offset_top = 103.12
+offset_right = 145.0
+offset_bottom = 370.12
+color = Color(0.243137, 0.243137, 0.243137, 0.552941)
+
+[node name="Label" type="Label" parent="instuctions/ColorRect"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 49.0
+offset_right = 401.0
+offset_bottom = 186.0
+text = "Controls:
+E  -> to interact
+shift -> dodge
+left click ->shoot
+collect bot parts to upgrade
+
+Dont die
+"
+label_settings = SubResource("LabelSettings_w1mut")
