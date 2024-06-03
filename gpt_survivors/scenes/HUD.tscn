@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnxho7cy1trse"]
+[gd_scene load_steps=6 format=3 uid="uid://dnxho7cy1trse"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_uf6xp"]
 [ext_resource type="FontFile" uid="uid://bpxsbwrahbx28" path="res://assets/fonts/SevenSegment.ttf" id="2_bmdv5"]
 [ext_resource type="Texture2D" uid="uid://txictd4ar53m" path="res://assets/HUD/Currency/Microcontroller.png" id="3_8uphk"]
 [ext_resource type="Texture2D" uid="uid://fjo7fltofd67" path="res://assets/HUD/PotentialAmmo/BulletCasing_full.png" id="4_eh38n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_14x0y"]
+font = ExtResource("2_bmdv5")
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_uf6xp")
@@ -63,12 +66,12 @@ offset_bottom = 56.912
 texture = ExtResource("3_8uphk")
 
 [node name="tex_ammo" type="TextureRect" parent="."]
-offset_left = 1005.0
-offset_top = 634.0
-offset_right = 1045.0
-offset_bottom = 727.0
+offset_left = 1041.0
+offset_top = 632.0
+offset_right = 1081.0
+offset_bottom = 725.0
 rotation = -1.58151
-scale = Vector2(0.708903, 0.621709)
+scale = Vector2(0.460747, 0.337026)
 texture = ExtResource("4_eh38n")
 
 [node name="lbl_ammo" type="Label" parent="."]
@@ -77,3 +80,4 @@ offset_top = 611.0
 offset_right = 1130.0
 offset_bottom = 634.0
 text = ": 25/30"
+label_settings = SubResource("LabelSettings_14x0y")
