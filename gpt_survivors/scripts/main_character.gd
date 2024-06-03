@@ -107,11 +107,12 @@ func _physics_process(_delta):
 		_scene.score = upgrade_manager.score
 		get_tree().get_root().add_child(_scene)
 		get_tree().paused = true
+	
 
 
 
 	# Shoots the bullet when the shoot action is pressed or held and full_auto is true
-	if Input.is_action_just_pressed("shoot") or (Input.is_action_pressed("shoot") and my_weapon.full_auto):
+	if Input.is_action_just_pressed("shoot") or (Input.is_action_pressed("shoot") and my_weapon.full_auto) and not is_dashing:
 		my_weapon.shoot()
 
 	if Input.is_action_just_pressed("reoload"):
@@ -232,6 +233,7 @@ func dash():
 		return
 
 	is_dashing = true
+	my_weapon.is_dashing = true
 	velocity = DASH_SPEED * direction.normalized()
 	if direction.x < 0 and not is_flipped or direction.x > 0 and is_flipped:
 		sprite.play("roll_back")
@@ -241,6 +243,7 @@ func dash():
 
 	await get_tree().create_timer(dash_time).timeout
 	is_dashing = false
+	my_weapon.is_dashing = false
 	#enable hitcolision
 	hurtbox.set_invincible(false)
 	sprite.play("idle")

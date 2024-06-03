@@ -142,7 +142,7 @@ func increase_difficulty():
 	spawn_timer.stop()
 
 	dificulty += 1
-	spawn_rate -=  spawn_rate * 0.05
+	spawn_rate -=  spawn_rate * 0.10
 	spawn_timer.set_wait_time(spawn_rate)
 	spawn_timer.start()
 	if debug:

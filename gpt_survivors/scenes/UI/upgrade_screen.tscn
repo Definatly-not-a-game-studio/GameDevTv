@@ -1,15 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfgdiyrwm5ila"]
+[gd_scene load_steps=8 format=3 uid="uid://bfgdiyrwm5ila"]
 
 [ext_resource type="Script" path="res://scripts/Upgrade_Screen.gd" id="1_88t35"]
 [ext_resource type="PackedScene" uid="uid://f4bihiwlb60j" path="res://scenes/UI/upgrade_button.tscn" id="2_cqk0k"]
 [ext_resource type="Texture2D" uid="uid://dqpq8awkqe04" path="res://assets/Menu_Items/Upgrade_Menu/UpgradeSign.png" id="2_gw7xw"]
 [ext_resource type="AudioStream" uid="uid://cqgbdv10ia5mi" path="res://assets/Music/SFX/UpgradeSound.wav" id="4_obslr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rivym"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cepwo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oes7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_164u1"]
 atlas = ExtResource("2_gw7xw")
@@ -52,8 +46,6 @@ offset_left = 52.0
 offset_top = 236.0
 offset_right = 360.0
 offset_bottom = 543.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rivym")
-flat = true
 
 [node name="Button2" parent="Control" instance=ExtResource("2_cqk0k")]
 layout_mode = 0
@@ -61,8 +53,6 @@ offset_left = 399.0
 offset_top = 238.0
 offset_right = 707.0
 offset_bottom = 545.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cepwo")
-flat = true
 
 [node name="Button3" parent="Control" instance=ExtResource("2_cqk0k")]
 layout_mode = 0
@@ -70,8 +60,6 @@ offset_left = 743.0
 offset_top = 243.0
 offset_right = 1051.0
 offset_bottom = 549.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_oes7h")
-flat = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 100

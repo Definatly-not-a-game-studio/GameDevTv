@@ -40,6 +40,7 @@ var amunition = clip_size
 # enable fireing
 var can_fire = true
 var reloading_active = false
+var is_dashing = false
 
 
 
@@ -75,7 +76,9 @@ func _process(_delta):
 	if loop_sound:
 		if not Input.is_action_pressed("shoot"):
 			gun_shot.stop()
-		if reloading_active:
+		elif reloading_active:
+			gun_shot.stop()
+		elif is_dashing:
 			gun_shot.stop()
 
 
@@ -84,7 +87,7 @@ func shoot():
 
 
 	# check if the player can fire
-	if not can_fire:
+	if not can_fire or is_dashing:
 		return
 
 	if gun_shot != null:
