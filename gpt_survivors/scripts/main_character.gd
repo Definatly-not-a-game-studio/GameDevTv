@@ -59,6 +59,8 @@ func _ready():
 		setup_weapon(loaded_weapon)
 	else:
 		setup_weapon(loaded_weapon)
+	
+	hud.weapon = my_weapon
 
 
 
