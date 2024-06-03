@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://buwevuj7yjb7b"]
+[gd_scene load_steps=9 format=3 uid="uid://buwevuj7yjb7b"]
 
 [ext_resource type="Script" path="res://scenes/Menu_Scenes/Gun_Menu/Gun_Menu.gd" id="1_0afbw"]
 [ext_resource type="PackedScene" uid="uid://dkql8q0hrx74p" path="res://scenes/Menu_Scenes/Gun_Menu/Gun_Button.tscn" id="2_71k0b"]
 [ext_resource type="Shader" path="res://assets/shaders/rain_and_snow_shader.gdshader" id="2_sj5db"]
 [ext_resource type="PackedScene" uid="uid://3qg3sapon17n" path="res://scenes/Weapons/weapon.tscn" id="3_uftek"]
 [ext_resource type="PackedScene" uid="uid://clc6nvec70w2s" path="res://scenes/Weapons/water_gun.tscn" id="4_pjhq8"]
+[ext_resource type="PackedScene" uid="uid://b6q3ecm45ribx" path="res://scenes/Weapons/shotgun.tscn" id="5_3jmll"]
 [ext_resource type="PackedScene" uid="uid://xhcucbjssnhw" path="res://scenes/Weapons/laser_cannon.tscn" id="5_iat6o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5knwt"]
@@ -74,6 +75,16 @@ layout_mode = 2
 _name = "AK"
 score_required = 400
 
+[node name="Control5" type="Control" parent="MarginContainer2/ButtonsVBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="gun5" parent="MarginContainer2/ButtonsVBoxContainer/GridContainer" instance=ExtResource("2_71k0b")]
+layout_mode = 2
+_name = "Shot gun"
+gun = ExtResource("5_3jmll")
+score_required = 1000
+
 [node name="Control3" type="Control" parent="MarginContainer2/ButtonsVBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -82,7 +93,7 @@ layout_mode = 2
 layout_mode = 2
 _name = "Soaker"
 gun = ExtResource("4_pjhq8")
-score_required = 1000
+score_required = 1500
 
 [node name="Control4" type="Control" parent="MarginContainer2/ButtonsVBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(0, 50)

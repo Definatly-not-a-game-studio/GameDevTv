@@ -42,6 +42,8 @@ var can_fire = true
 var reloading_active = false
 var is_dashing = false
 
+@export var triple_shot = false
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -101,6 +103,37 @@ func shoot():
 	amunition -= 1
 
 
+	if triple_shot:
+		for i in range(-1,2):
+			var bullet_instance = create_bullet_instance()
+			bullet_instance.rotation += i*0.5
+			bullet_instance.direction = bullet_instance.direction.rotated(i*0.5)
+			get_tree().get_root().get_child(0).add_child(bullet_instance)
+
+
+	else:
+		var bullet_instance = create_bullet_instance()
+		get_tree().get_root().get_child(0).add_child(bullet_instance)
+
+
+
+
+	
+	# Add the bullet to the scene
+
+	# disable fireing until the cooldown is finished or the player reloads
+	can_fire = false
+
+	# if the player is out of amunition, start the reload timer
+	if amunition <= 0:
+		reload()
+
+	# else start the fire timer
+	else:
+		fire_timer.start()
+
+func create_bullet_instance():
+
 	var bullet_instance = bullet.instantiate()
 	
 	# Set the bullet's position to the center of the player
@@ -117,21 +150,10 @@ func shoot():
 	bullet_instance.die_time = range_time
 	bullet_instance.scale = bullet_instance.scale * bullet_scale
 
+	return bullet_instance
 
-	
-	# Add the bullet to the scene
-	get_tree().get_root().get_child(0).add_child(bullet_instance)
 
-	# disable fireing until the cooldown is finished or the player reloads
-	can_fire = false
 
-	# if the player is out of amunition, start the reload timer
-	if amunition <= 0:
-		reload()
-
-	# else start the fire timer
-	else:
-		fire_timer.start()
 
 
 func reload_complete():
@@ -149,5 +171,6 @@ func reload():
 		can_fire = false
 		reloading_active = true
 		emit_signal("reloading")
+	
 
 
