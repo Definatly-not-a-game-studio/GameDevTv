@@ -197,6 +197,7 @@ shape = SubResource("WorldBoundaryShape2D_epkyt")
 position = Vector2(546, 270)
 powered = true
 spawn_manager = NodePath("../Spawn_Manager")
+uses = 1
 
 [node name="enemy" parent="." node_paths=PackedStringArray("target_entitie") instance=ExtResource("11_k4glh")]
 position = Vector2(545, 304)
