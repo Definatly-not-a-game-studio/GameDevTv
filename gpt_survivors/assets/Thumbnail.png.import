@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h4yemdrapju"
-path="res://.godot/imported/gamedevtv_decor.png-89b3955fede70670beb37e562c216167.ctex"
+uid="uid://d4g2ol44xh3sg"
+path="res://.godot/imported/Thumbnail.png-ee07fa3f8ef825934cd0177e25bbea38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilesets/gamedevtv_decor.png"
-dest_files=["res://.godot/imported/gamedevtv_decor.png-89b3955fede70670beb37e562c216167.ctex"]
+source_file="res://assets/Thumbnail.png"
+dest_files=["res://.godot/imported/Thumbnail.png-ee07fa3f8ef825934cd0177e25bbea38.ctex"]
 
 [params]
 
