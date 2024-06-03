@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnxho7cy1trse"]
+[gd_scene load_steps=12 format=3 uid="uid://dnxho7cy1trse"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_uf6xp"]
 [ext_resource type="FontFile" uid="uid://bpxsbwrahbx28" path="res://assets/fonts/SevenSegment.ttf" id="2_bmdv5"]
 [ext_resource type="Texture2D" uid="uid://txictd4ar53m" path="res://assets/HUD/Currency/Microcontroller.png" id="3_8uphk"]
 [ext_resource type="Texture2D" uid="uid://fjo7fltofd67" path="res://assets/HUD/PotentialAmmo/BulletCasing_full.png" id="4_eh38n"]
+[ext_resource type="Texture2D" uid="uid://bdxotaqv4gc8y" path="res://assets/HUD/wasd.png" id="5_70ij4"]
+[ext_resource type="Texture2D" uid="uid://blmfcavgak3sj" path="res://assets/HUD/mouse.png" id="6_1oag0"]
+[ext_resource type="Texture2D" uid="uid://ymw0apdcs66" path="res://assets/HUD/e.png" id="7_mbeh4"]
+[ext_resource type="Texture2D" uid="uid://b8gddrqb235fi" path="res://assets/HUD/shift.png" id="8_ooa2h"]
+[ext_resource type="Texture2D" uid="uid://ckimxf7p2qcvv" path="res://assets/HUD/left_click.png" id="9_t2cbq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_14x0y"]
 font = ExtResource("2_bmdv5")
@@ -103,25 +108,78 @@ anchor_left = -24.25
 anchor_top = -13.028
 anchor_right = -24.25
 anchor_bottom = -13.028
-offset_left = -91.9999
+offset_left = -92.0
 offset_top = 103.12
 offset_right = 145.0
-offset_bottom = 370.12
+offset_bottom = 451.12
 color = Color(0.243137, 0.243137, 0.243137, 0.552941)
 
 [node name="Label" type="Label" parent="instuctions/ColorRect"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 49.0
-offset_right = 401.0
-offset_bottom = 186.0
-text = "Controls:
-shift -> dodge
-left click ->shoot
-E  -> to interact
+offset_left = 6.99988
+offset_right = 399.0
+offset_bottom = 157.0
+text = "Instructions:
+
+use              To move
+
+              
+use             To aim
+
+press      to interact
+
+press           to dodge
+
+press            to shoot
+
 
 collect bot parts to upgrade
 
 Dont die
 "
 label_settings = SubResource("LabelSettings_w1mut")
+
+[node name="TextureRect" type="TextureRect" parent="instuctions"]
+layout_mode = 0
+offset_left = -1023.0
+offset_top = -387.0
+offset_right = -971.0
+offset_bottom = -347.0
+texture = ExtResource("5_70ij4")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="instuctions"]
+layout_mode = 0
+offset_left = -1017.0
+offset_top = -339.0
+offset_right = -974.0
+offset_bottom = -289.0
+texture = ExtResource("6_1oag0")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="instuctions"]
+layout_mode = 0
+offset_left = -1009.0
+offset_top = -276.0
+offset_right = -969.0
+offset_bottom = -236.0
+texture = ExtResource("7_mbeh4")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="instuctions"]
+layout_mode = 0
+offset_left = -1008.0
+offset_top = -236.0
+offset_right = -968.0
+offset_bottom = -196.0
+texture = ExtResource("8_ooa2h")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="instuctions"]
+layout_mode = 0
+offset_left = -1006.0
+offset_top = -208.0
+offset_right = -963.0
+offset_bottom = -158.0
+texture = ExtResource("9_t2cbq")
+stretch_mode = 2
