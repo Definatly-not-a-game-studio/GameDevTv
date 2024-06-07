@@ -68,10 +68,11 @@ func action():
 	var upgrade_scene_instance = scene.instantiate()
 	upgrade_scene_instance.player = player
 
-	if uses == 0:
+	if uses == 1:
 		upgrade_scene_instance.upgrade_boost = 2
 
 	uses += 1
+	
 	# this would incerease the difficulty of the game when the player upgrades
 	# if spawn_manager != null:
 	# 	upgrade_scene_instance.increase_difficulty.connect(spawn_manager.increase_difficulty)

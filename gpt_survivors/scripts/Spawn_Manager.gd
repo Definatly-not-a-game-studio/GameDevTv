@@ -96,8 +96,7 @@ func custom_wave_spawn(chance_to_spawn : int, list_of_enemies : Array):
 		if spawner is Spawner:
 			# set the spawner to be inactive
 			spawner.active = false
-			spawner.damage_multiplier += spawner.damage_multiplier*0.1
-			spawner.health_multiplier += dificulty*0.01
+			spawner.health_multiplier += spawner.health_multiplier*0.01
 			spawner.active = false
 
 			# check if the max number of enemies have been spawned
